@@ -12,18 +12,12 @@ import com.jfoenix.controls.JFXRadioButton;
 
 import br.com.bookper.coneccoes.Pessoa;
 import br.com.bookper.controladores.telas.ControlaTelas;
-import br.com.bookper.controladores.telas.TelasPopUp;
 import br.com.bookper.informacoes.InformacoesSoftware;
 import br.com.bookper.limpesas.LimpesaGrande;
 import br.com.bookper.personalidade.GeradorDePersonalidades;
-import br.com.bookper.personalidades.VerificadorDePersonalidades;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 /**
  *
@@ -32,7 +26,6 @@ import javafx.scene.image.ImageView;
 public class ControladorFinal implements Initializable {
 	private Pessoa pessoa = new Pessoa();
 	private ControlaTelas tela = new ControlaTelas();
-	private String personalidade;
 	
 	@FXML
 	private Label lblInformacoes;
@@ -96,7 +89,6 @@ public class ControladorFinal implements Initializable {
 		lblInformacoes.setText(info.pegarDados());
 		GeradorDePersonalidades gerado = new GeradorDePersonalidades();
 		gerado.gerarPersonalidade();
-		this.personalidade = pessoa.getPersonalidade();
 	}
 
 }

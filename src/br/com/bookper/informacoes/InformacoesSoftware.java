@@ -31,9 +31,9 @@ public class InformacoesSoftware {
 
 	public void carregarDados() {
 		nomeEmpresa = "Bookper";
-		versao = "B1.0";
+		versao = "B1.1";
 		criadores = "Vitor Jordão | Luca";
-		dataDaVersao = LocalDate.of(2017, 11, 02);
+		dataDaVersao = LocalDate.of(2017, 11, 29);
 		nomeProjeto = "Bookper";
 	}
 

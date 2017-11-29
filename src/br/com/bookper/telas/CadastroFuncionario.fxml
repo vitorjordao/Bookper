@@ -4,37 +4,112 @@
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="1049.0" styleClass="panel2" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <JFXTreeTableView layoutX="337.0" layoutY="161.0" prefHeight="462.0" prefWidth="712.0" />
+      <AnchorPane layoutX="-6.0" prefHeight="94.0" prefWidth="1058.0" styleClass="panel1">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <ImageView fitHeight="68.0" fitWidth="70.0" layoutX="20.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/icones/ic_arrow_left_thick_grey600_48dp.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="7.0" minWidth="-Infinity" prefHeight="94.0" prefWidth="94.0" styleClass="button-transparent3" text=" " />
+         </children>
+      </AnchorPane>
+      <JFXTreeTableView cache="true" layoutX="337.0" layoutY="161.0" prefHeight="462.0" prefWidth="712.0" />
       <JFXTabPane layoutX="-3.0" layoutY="161.0" prefHeight="462.0" prefWidth="341.0" styleClass="tab-header-background2">
          <tabs>
             <Tab styleClass="tab2" text="Cadastrar">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <JFXTextField labelFloat="true" layoutX="7.0" layoutY="14.0" prefHeight="33.0" prefWidth="329.0" promptText="Nome do funcionário" styleClass="text-field-ok" />
+                        <JFXTextField labelFloat="true" layoutX="6.0" layoutY="21.0" prefHeight="33.0" prefWidth="329.0" promptText="Nome do funcionário" styleClass="text-field-ok" />
                         <JFXButton layoutX="70.0" layoutY="338.0" styleClass="button-transparent3" text="Cadastrar" />
-                        <JFXTextField labelFloat="true" layoutX="6.0" layoutY="57.0" prefHeight="33.0" prefWidth="329.0" promptText="Senha do funcionário" styleClass="text-field-ok" />
-                        <JFXTextField labelFloat="true" layoutX="7.0" layoutY="99.0" prefHeight="33.0" prefWidth="109.0" promptText="Cargo" styleClass="text-field-ok" />
-                        <JFXDatePicker layoutX="122.0" layoutY="99.0" prefHeight="33.0" prefWidth="214.0" promptText="Data de contratação" />
-                        <Line endX="100.0" layoutX="171.0" layoutY="188.0" startX="-100.0" strokeWidth="2.0" />
+                        <JFXTextField labelFloat="true" layoutX="6.0" layoutY="78.0" prefHeight="33.0" prefWidth="329.0" promptText="Senha do funcionário" styleClass="text-field-ok" />
+                        <JFXTextField labelFloat="true" layoutX="6.0" layoutY="134.0" prefHeight="33.0" prefWidth="109.0" promptText="Cargo" styleClass="text-field-ok" />
+                        <JFXDatePicker layoutX="121.0" layoutY="134.0" prefHeight="33.0" prefWidth="214.0" promptText="Data de contratação" showWeekNumbers="true" styleClass="Date-Picker" />
+                        <Line endX="100.0" layoutX="170.0" layoutY="207.0" scaleX="1.5" startX="-100.0" strokeWidth="2.0" styleClass="Line" />
+                        <Label layoutX="113.0" layoutY="178.0" styleClass="label-nome-livros" text="Permissões" />
+                        <JFXToggleButton layoutX="6.0" layoutY="208.0" prefHeight="50.0" prefWidth="197.0" size="8.0" styleClass="Toggle-Button" text="Manipular livros">
+                           <font>
+                              <Font name="Bookshelf Symbol 7" size="15.0" />
+                           </font>
+                        </JFXToggleButton>
+                        <JFXToggleButton layoutX="6.0" layoutY="258.0" prefHeight="50.0" prefWidth="252.0" size="8.0" styleClass="Toggle-Button" text="Manipular funcionários">
+                           <font>
+                              <Font name="Arial Black" size="15.0" />
+                           </font>
+                        </JFXToggleButton>
                      </children>
                   </AnchorPane>
               </content>
             </Tab>
+            <Tab styleClass="tab2" text="Modificar">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXTextField disable="true" labelFloat="true" layoutX="6.0" layoutY="21.0" prefHeight="33.0" prefWidth="329.0" promptText="Nome do funcionário" styleClass="text-field-ok" />
+                        <JFXButton disable="true" layoutX="70.0" layoutY="338.0" styleClass="button-transparent3" text="Modificar" />
+                        <JFXTextField disable="true" labelFloat="true" layoutX="6.0" layoutY="78.0" prefHeight="33.0" prefWidth="329.0" promptText="Senha do funcionário" styleClass="text-field-ok" />
+                        <JFXTextField disable="true" labelFloat="true" layoutX="6.0" layoutY="134.0" prefHeight="33.0" prefWidth="109.0" promptText="Cargo" styleClass="text-field-ok" />
+                        <JFXDatePicker disable="true" layoutX="121.0" layoutY="134.0" prefHeight="33.0" prefWidth="214.0" promptText="Data de contratação" showWeekNumbers="true" styleClass="Date-Picker" />
+                        <Line endX="100.0" layoutX="170.0" layoutY="207.0" scaleX="1.5" startX="-100.0" strokeWidth="2.0" styleClass="Line" />
+                        <Label disable="true" layoutX="113.0" layoutY="178.0" styleClass="label-nome-livros" text="Permissões" />
+                        <JFXToggleButton disable="true" layoutX="6.0" layoutY="208.0" prefHeight="50.0" prefWidth="197.0" size="8.0" styleClass="Toggle-Button" text="Manipular livros">
+                           <font>
+                              <Font name="Bookshelf Symbol 7" size="15.0" />
+                           </font>
+                        </JFXToggleButton>
+                        <JFXToggleButton disable="true" layoutX="6.0" layoutY="258.0" prefHeight="50.0" prefWidth="252.0" size="8.0" styleClass="Toggle-Button" text="Manipular funcionários">
+                           <font>
+                              <Font name="Arial Black" size="15.0" />
+                           </font>
+                        </JFXToggleButton>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
             <Tab styleClass="tab2" text="Remover">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXTextField disable="true" editable="false" labelFloat="true" layoutX="6.0" layoutY="21.0" prefHeight="33.0" prefWidth="329.0" promptText="Nome do funcionário" styleClass="text-field-ok" />
+                        <JFXButton disable="true" layoutX="77.0" layoutY="338.0" styleClass="button-transparent3" text="Remover" />
+                        <JFXTextField disable="true" editable="false" labelFloat="true" layoutX="6.0" layoutY="78.0" prefHeight="33.0" prefWidth="329.0" promptText="Senha do funcionário" styleClass="text-field-ok" />
+                        <JFXTextField disable="true" editable="false" labelFloat="true" layoutX="6.0" layoutY="134.0" prefHeight="33.0" prefWidth="109.0" promptText="Cargo" styleClass="text-field-ok" />
+                        <JFXDatePicker disable="true" editable="false" layoutX="121.0" layoutY="134.0" prefHeight="33.0" prefWidth="214.0" promptText="Data de contratação" showWeekNumbers="true" styleClass="Date-Picker" />
+                        <Line endX="100.0" layoutX="170.0" layoutY="207.0" scaleX="1.5" startX="-100.0" strokeWidth="2.0" styleClass="Line" />
+                        <Label disable="true" layoutX="113.0" layoutY="178.0" styleClass="label-nome-livros" text="Permissões" />
+                        <JFXToggleButton disable="true" layoutX="6.0" layoutY="208.0" prefHeight="50.0" prefWidth="197.0" size="8.0" styleClass="Toggle-Button" text="Manipular livros">
+                           <font>
+                              <Font name="Bookshelf Symbol 7" size="15.0" />
+                           </font>
+                        </JFXToggleButton>
+                        <JFXToggleButton disable="true" layoutX="6.0" layoutY="258.0" prefHeight="50.0" prefWidth="252.0" size="8.0" styleClass="Toggle-Button" text="Manipular funcionários">
+                           <font>
+                              <Font name="Arial Black" size="15.0" />
+                           </font>
+                        </JFXToggleButton>
+                     </children>
+                  </AnchorPane>
+               </content>
             </Tab>
          </tabs>
       </JFXTabPane>
+      <Label layoutX="326.0" layoutY="107.0" styleClass="label-title2" text="Manipulação de funcionários" />
    </children>
 </AnchorPane>

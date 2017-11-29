@@ -45,6 +45,13 @@
     -fx-text-fill:-fx-secundary;
     -fx-background-color: transparent;
 }
+.button-transparent3
+{
+    -fx-font-size: 30px;
+    -jfx-button-type: FLAT;
+    -fx-text-fill:-fx-primary;
+    -fx-background-color: transparent;
+}
 .button-simples
 {
     -fx-text-fill: -fx-secundary;
@@ -74,7 +81,7 @@
     
 }
 .icon-title2{
-    -fx-image: dir("@..\imagens\icones\ic_book_open_page_variant_grey600_48dp.png");
+    --fx-image: url("");
 }
 /*  As Tabzonas!!!  */
 .tab{
@@ -87,7 +94,20 @@
     -fx-background-color:-fx-primary;
     
 }
-
+.tab2{
+    -fx-font-size:15px;
+    -fx-background-color:-fx-primary;
+    -fx-pref-width: 140;
+    -fx-pref-height:60;
+    -fx-text-color: -fx-primary;
+    -fx-text-fill: -fx-primary;
+}
+.tab-header-background2{
+    -fx-font-size:15px;
+    -fx-background-color:-fx-secundary;
+    -fx-text-color: -fx-primary;
+    -fx-text-fill: -fx-primary;
+}
 /*  Labels  */
 .label-title{
     -fx-font-size:25px;
@@ -139,4 +159,22 @@
     -fx-text-color: -fx-secundary;
     -jfx-selected-color: -fx-green;
     -jfx-unselected-color: -fx-secundary;
+}
+/* Date Picker */
+.Date-Picker{
+    -fx-font-size:15px;
+    -jfx-default-color: -fx-primary;
+}
+/* Line */
+.Line{
+    -fx-stroke: -fx-primarytext;
+}
+/* Toggle Button */
+.Toggle-Button{
+    -fx-text-fill: -fx-primarytext;
+    -jfx-untoggle-color: -fx-secundary;
+    -jfx-untoggle-line-color: -fx-primary;
+    -jfx-toggle-color: -fx-green;
+    -jfx-toggle-line-color: -fx-primary;
+    -fx-font-family: "Arial Black";
 }

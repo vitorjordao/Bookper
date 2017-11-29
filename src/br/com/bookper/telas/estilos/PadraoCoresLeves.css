@@ -97,7 +97,7 @@
 .tab2{
     -fx-font-size:15px;
     -fx-background-color:-fx-primary;
-    -fx-pref-width: 165;
+    -fx-pref-width: 140;
     -fx-pref-height:60;
     -fx-text-color: -fx-primary;
     -fx-text-fill: -fx-primary;
@@ -159,4 +159,22 @@
     -fx-text-color: -fx-secundary;
     -jfx-selected-color: -fx-green;
     -jfx-unselected-color: -fx-secundary;
+}
+/* Date Picker */
+.Date-Picker{
+    -fx-font-size:15px;
+    -jfx-default-color: -fx-primary;
+}
+/* Line */
+.Line{
+    -fx-stroke: -fx-primarytext;
+}
+/* Toggle Button */
+.Toggle-Button{
+    -fx-text-fill: -fx-primarytext;
+    -jfx-untoggle-color: -fx-secundary;
+    -jfx-untoggle-line-color: -fx-primary;
+    -jfx-toggle-color: -fx-green;
+    -jfx-toggle-line-color: -fx-primary;
+    -fx-font-family: "Arial Black";
 }

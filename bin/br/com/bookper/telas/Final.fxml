@@ -4,7 +4,6 @@
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -65,22 +64,22 @@
             <DropShadow />
          </effect>
       </AnchorPane>
-      <AnchorPane layoutX="-1.0" prefHeight="76.0" prefWidth="1157.0">
+      <AnchorPane layoutX="-1.0" prefHeight="88.0" prefWidth="1157.0" styleClass="panel1">
          <children>
-            <Label layoutX="549.0" layoutY="19.0" styleClass="label-title" text="Bookper">
+            <Label layoutX="549.0" layoutY="25.0" styleClass="label-title" text="Bookper">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <ImageView fitHeight="38.0" fitWidth="38.0" layoutX="495.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-title2">
+            <ImageView cache="true" fitHeight="38.0" fitWidth="38.0" layoutX="495.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-title2">
                <image>
                   <Image url="@../imagens/icones/ic_book_open_page_variant_grey600_48dp.png" />
                </image>
-               <effect>
-                  <ColorAdjust brightness="-1.0" />
-               </effect>
             </ImageView>
          </children>
+         <effect>
+            <DropShadow blurType="TWO_PASS_BOX" height="17.0" radius="8.0" width="17.0" />
+         </effect>
       </AnchorPane>
    </children>
 </Pane>

@@ -14,14 +14,12 @@ import javax.swing.JPanel;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 
+import br.com.bookper.coneccoes.Pessoa;
 import br.com.bookper.controladores.telas.ControlaTelas;
 import br.com.bookper.perguntas.VerificaPergunta;
-import br.com.bookper.coneccoes.Pessoa;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
 /**

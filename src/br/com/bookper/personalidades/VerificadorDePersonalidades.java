@@ -1,17 +1,7 @@
 package br.com.bookper.personalidades;
 
 public class VerificadorDePersonalidades {
-	private String descricao;
-	private String imagem;
 	
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public String getImagem() {
-		return imagem;
-	}
-
 	public void descobrir(String personalidade) {
 		Personalidades d1 = new Arquiteto();
 		Personalidades d2 = new Comandante();
@@ -47,9 +37,6 @@ public class VerificadorDePersonalidades {
         d14.setProximo(d15);
         d15.setProximo(d16);
         d16.setProximo(d17);
-        Personalidades p = d1.verificaPersonalidade(personalidade);
-        this.descricao = p.getDescricaoPersonalidade();
-        this.imagem = p.getImagemPersonalidade();
 	}
 	
 	/*
@@ -61,7 +48,7 @@ public class VerificadorDePersonalidades {
         }else if(personalidade.equals("Comandante")) {
         	Personalidades personalidades =  new Comandante();
 			return personalidades;
-        }else if(personalidade.equals("Lógico")) {
+        }else if(personalidade.equals("Lï¿½gico")) {
         	Personalidades personalidades =  new Logico();
 			return personalidades;
         }else if(personalidade.equals("Inovador")) {
@@ -79,7 +66,7 @@ public class VerificadorDePersonalidades {
         }else if(personalidade.equals("Ativista")) {
         	Personalidades personalidades =  new Ativista();
 			return personalidades;
-        }else if(personalidade.equals("Logístico")) {
+        }else if(personalidade.equals("Logï¿½stico")) {
         	Personalidades personalidades =  new Logistico();
 			return personalidades;
         }else if(personalidade.equals("Executivo")) {
@@ -88,13 +75,13 @@ public class VerificadorDePersonalidades {
         }else if(personalidade.equals("Defensor")) {
         	Personalidades personalidades =  new Defensor();
 			return personalidades;
-        }else if(personalidade.equals("Cônsul")) {
+        }else if(personalidade.equals("Cï¿½nsul")) {
         	Personalidades personalidades =  new Consul();
 			return personalidades;
         }else if(personalidade.equals("Virtuoso")) {
         	Personalidades personalidades =  new Virtuoso();
 			return personalidades;
-        }else if(personalidade.equals("Empresário")) {
+        }else if(personalidade.equals("Empresï¿½rio")) {
         	Personalidades personalidades =  new Empresario();
 			return personalidades;
         }else if(personalidade.equals("Aventureiro")) {
