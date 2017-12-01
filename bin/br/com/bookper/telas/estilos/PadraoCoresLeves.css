@@ -59,10 +59,25 @@
     -jfx-button-type: RAISED;
     -fx-font-family: "Arial Black";
 }
+.button-simples2
+{
+    -fx-background-color:-fx-secundary;
+    -fx-text-fill: -fx-primary;
+    -fx-font-size: 0px;
+    -jfx-button-type: RAISED;
+    -fx-font-family: "Arial Black";
+}
 /*  Caixas de texto  */
 .text-field-ok{
     -fx-font-size:15px;
+    -fx-text-fill: -fx-primarytext;
     -jfx-focus-color:-fx-primary;
+    -jfx-unfocus-color:-fx-primarytext;
+}
+.text-field-ok2{
+    -fx-font-size:15px;
+    -fx-text-fill: -fx-primarytext;
+    -jfx-focus-color:-fx-secundary;
     -jfx-unfocus-color:-fx-primarytext;
 }
 /*  Check Box  */

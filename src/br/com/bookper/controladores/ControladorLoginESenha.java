@@ -11,9 +11,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
 
-public class ControladorLoginESenha {
+public class ControladorLoginESenha implements Initializable{
 	private ControlaTelas tela = new ControlaTelas();
     @FXML
     private ResourceBundle resources;
@@ -87,8 +88,9 @@ public class ControladorLoginESenha {
 		tela.fechar(tabLogin.getTabPane());
 	}
 
-	@FXML
-    void initialize() {
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
 		
 	}
 }
