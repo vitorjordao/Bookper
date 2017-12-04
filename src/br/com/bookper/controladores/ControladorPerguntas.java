@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 
-import br.com.bookper.coneccoes.Pessoa;
+import br.com.bookper.coneccoes.modelo.Pessoa;
 import br.com.bookper.controladores.telas.ControlaTelas;
 import br.com.bookper.perguntas.VerificaPergunta;
 import javafx.fxml.FXML;

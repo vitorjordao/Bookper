@@ -1,6 +1,6 @@
 package br.com.bookper.personalidade;
 
-import br.com.bookper.coneccoes.Pessoa;
+import br.com.bookper.coneccoes.modelo.Pessoa;
 
 public class GeradorDePersonalidades {
 	private Pessoa pessoa = new Pessoa();

@@ -1,4 +1,4 @@
-package br.com.bookper.coneccoes;
+package br.com.bookper.coneccoes.modelo;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -23,7 +23,7 @@ public class PessoaAuxiliar {
 		if(nome.equals("")) {
 			JOptionPane.showMessageDialog(panel, "Digite um nome!", "Erro no nome", JOptionPane.ERROR_MESSAGE);
 		}else if(nome.length()<3 || nome.length()>30) {
-			JOptionPane.showMessageDialog(panel, "O nome digitado � inv?lido!", "Erro no nome", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(panel, "O nome digitado é inválido!", "Erro no nome", JOptionPane.ERROR_MESSAGE);
 		}else {
 			this.nome = nome;
 			return true;

@@ -35,7 +35,7 @@ public class ControladorManipulaFuncionario implements Initializable{
 	}
 	
 	@FXML
-	void btnPesquisar(ActionEvent event) {
+	void clickPesquisar(ActionEvent event) {
 		
 	}
 	

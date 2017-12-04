@@ -1,6 +1,6 @@
 package br.com.bookper.limpesas;
 
-import br.com.bookper.coneccoes.Pessoa;
+import br.com.bookper.coneccoes.modelo.Pessoa;
 
 public class LimpesaGrande {
 	public void limpesaTotal() {

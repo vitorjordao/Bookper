@@ -25,6 +25,15 @@
             </ImageView>
          </graphic>
       </JFXButton>
+      <JFXButton fx:id="btnEstatisticas" onAction="#clickEstatistica" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
+         <graphic>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/icones/ic_chart_bar_grey600_48dp.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
       <JFXButton fx:id="btnFechar" onAction="#clickFechar" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
          <graphic>
             <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">

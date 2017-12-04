@@ -10,7 +10,7 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXRadioButton;
 
-import br.com.bookper.coneccoes.Pessoa;
+import br.com.bookper.coneccoes.modelo.Pessoa;
 import br.com.bookper.controladores.telas.ControlaTelas;
 import br.com.bookper.informacoes.InformacoesSoftware;
 import br.com.bookper.limpesas.LimpesaGrande;
