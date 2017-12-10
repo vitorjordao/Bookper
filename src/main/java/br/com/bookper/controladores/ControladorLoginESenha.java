@@ -123,7 +123,7 @@ public class ControladorLoginESenha implements Initializable{
 		tela.fechar(tabLogin.getTabPane());
 	}
 
-	@Override
+
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		

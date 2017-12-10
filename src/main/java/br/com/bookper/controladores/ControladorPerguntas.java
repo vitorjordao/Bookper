@@ -94,7 +94,6 @@ public class ControladorPerguntas implements Initializable {
 			setarTudo();
 		}
 	}
-	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		btnVoltar.setVisible(false);
 		setarTudo();

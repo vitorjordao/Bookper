@@ -5,7 +5,6 @@ public class Inovador implements Personalidades{
 	public void setProximo(Personalidades outraPersonalidade) {
 		this.outraPersonalidade = outraPersonalidade;
 	}
-	@Override
 	public Personalidades verificaPersonalidade(String personalidade) {
 		if(!personalidade.equals("Inovador")) {
 			return outraPersonalidade.verificaPersonalidade(personalidade);

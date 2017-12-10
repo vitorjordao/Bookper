@@ -5,12 +5,10 @@ import java.util.Random;
 public class PerguntaTaticas implements Perguntas{
 	private int i;
 
-	@Override
 	public void randomizar() {
 		Random gerador = new Random();
 		this.i = gerador.nextInt(1);
 	}
-	@Override
 	public String pergunta() {
 		if(i == 0) {
 			return getPergunta1();
@@ -18,7 +16,6 @@ public class PerguntaTaticas implements Perguntas{
 		return getPergunta1();
 	}
 
-	@Override
 	public String RespostaTrue() {
 		if(i == 0) {
 			return getRespostaTrue1();
@@ -26,7 +23,6 @@ public class PerguntaTaticas implements Perguntas{
 		return getRespostaTrue1();
 	}
 
-	@Override
 	public String RespostaFalse() {
 		if(i == 0) {
 			return getRespostaFalse1();
