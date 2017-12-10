@@ -1,0 +1,195 @@
+/*  Cores  */
+*{
+    -fx-primary:  #4f9beb;
+    -fx-secundary:  #ffffff;
+    -fx-primarytext:  #4d4d4d; 
+    -fx-red: #FF0000;
+    -fx-green: #09dd57;
+}
+/*  Base  */
+.root{
+    -fx-background-color: -fx-secundary;
+    -fx-font-size:15px;
+    -fx-font-color: -fx-primarytext;
+    -fx-font-family: "Arial Black";
+
+}
+/*  Botões  */
+.button
+{
+    -fx-text-fill: -fx-primarytext;
+    -fx-background-color:-fx-primary;
+}
+.button1{
+    -jfx-button-type: FLAT;
+    -fx-background-color:-fx-secundary;
+    -fx-border-color:-fx-primary;
+    -fx-border-radius:  25px;
+    -fx-background-radius: 25px;
+    -fx-font-size:20px;
+}
+.button1:hover{
+    -fx-border-color:-fx-primary;
+    -fx-background-color: -fx-primary;
+}
+.button-transparent
+{
+    -jfx-button-type: FLAT;
+    -fx-text-fill:-fx-primary;
+    -fx-background-color: transparent;
+}
+.button-transparent2
+{
+    -fx-font-size: 35px;
+    -jfx-button-type: FLAT;
+    -fx-text-fill:-fx-secundary;
+    -fx-background-color: transparent;
+}
+.button-transparent3
+{
+    -fx-font-size: 30px;
+    -jfx-button-type: FLAT;
+    -fx-text-fill:-fx-primary;
+    -fx-background-color: transparent;
+}
+.button-simples
+{
+    -fx-text-fill: -fx-secundary;
+    -fx-font-size: 20px;
+    -jfx-button-type: RAISED;
+    -fx-font-family: "Arial Black";
+}
+.button-simples2
+{
+    -fx-background-color:-fx-secundary;
+    -fx-text-fill: -fx-primary;
+    -fx-font-size: 0px;
+    -jfx-button-type: RAISED;
+    -fx-font-family: "Arial Black";
+}
+/*  Caixas de texto  */
+.text-field-ok{
+    -fx-font-size:15px;
+    -fx-text-fill: -fx-primarytext;
+    -jfx-focus-color:-fx-primary;
+    -jfx-unfocus-color:-fx-primarytext;
+}
+.text-field-ok2{
+    -fx-font-size:15px;
+    -fx-text-fill: -fx-primarytext;
+    -jfx-focus-color:-fx-secundary;
+    -jfx-unfocus-color:-fx-primarytext;
+}
+/*  Check Box  */
+.check-automatic{
+    -fx-font-size:15px;
+    -jfx-checked-color: -fx-primary;
+    -jfx-unchecked-color: -fx-primary;
+    -fx-text-fill: -fx-primarytext;
+    -fx-font-family: "Arial Black";
+}
+/*  Icones  */
+.icon-1{
+
+}
+.icon-title{
+    
+}
+.icon-title2{
+    --fx-image: url("");
+}
+/*  As Tabzonas!!!  */
+.tab{
+    -fx-background-color:-fx-primary;
+    -fx-pref-width: 281;
+    -fx-pref-height:60;
+    
+}
+.tab-header-background{
+    -fx-background-color:-fx-primary;
+    
+}
+.tab2{
+    -fx-font-size:15px;
+    -fx-background-color:-fx-primary;
+    -fx-pref-width: 140;
+    -fx-pref-height:60;
+    -fx-text-color: -fx-primary;
+    -fx-text-fill: -fx-primary;
+}
+.tab-header-background2{
+    -fx-font-size:15px;
+    -fx-background-color:-fx-secundary;
+    -fx-text-color: -fx-primary;
+    -fx-text-fill: -fx-primary;
+}
+/*  Labels  */
+.label-title{
+    -fx-font-size:25px;
+    -fx-text-fill: -fx-primary;
+    
+}
+.label-title2{
+    -fx-font-size:25px;
+    -fx-text-fill: -fx-secundary;
+    
+}
+.label-nome-livros{
+    -fx-font-size:18px;
+    -fx-text-fill: -fx-primarytext;
+    
+}
+.label-simples{
+    -fx-font-size:15px;
+    -fx-text-fill: -fx-primarytext;
+    -fx-background-color:-fx-primary;
+    
+}
+/* Panes */
+.panel1{
+    -fx-background-color:-fx-secundary;
+}
+.panel2{
+    -fx-background-color:-fx-primary;
+}
+.panel-text{
+    -fx-background-color: derive(-fx-secundary, -5%);
+}
+/* Radio Button */
+.radio-perguntas{
+    -fx-background-color: derive(-fx-primary, 1%);
+    -fx-font-size:18px;
+    -jfx-checked-color: -fx-secundary;
+    -jfx-unchecked-color: -fx-secundary;
+    -fx-text-fill: -fx-secundary;
+    -fx-text-color: -fx-secundary;
+    -jfx-selected-color: -fx-green;
+    -jfx-unselected-color: -fx-secundary;
+}
+.radio-simples{
+    -fx-font-size:15px;
+    -jfx-checked-color: -fx-secundary;
+    -jfx-unchecked-color: -fx-secundary;
+    -fx-text-fill: -fx-secundary;
+    -fx-text-color: -fx-secundary;
+    -jfx-selected-color: -fx-green;
+    -jfx-unselected-color: -fx-secundary;
+}
+/* Date Picker */
+.Date-Picker{
+    -fx-font-size:15px;
+    -jfx-default-color: -fx-primary;
+}
+/* Line */
+.Line{
+    -fx-stroke: -fx-primarytext;
+}
+/* Toggle Button */
+.Toggle-Button{
+    -fx-text-fill: -fx-primarytext;
+    -jfx-untoggle-color: -fx-secundary;
+    -jfx-untoggle-line-color: -fx-primary;
+    -jfx-toggle-color: -fx-green;
+    -jfx-toggle-line-color: -fx-primary;
+    -fx-font-family: "Arial Black";
+}

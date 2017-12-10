@@ -27,11 +27,7 @@
       <version>5.2.12.Final</version>
     </dependency>
 
-    <dependency>
-      <groupId>com.jfoenix</groupId>
-      <artifactId>jfoenix</artifactId>
-      <version>1.11.1</version>
-    </dependency>
+    
 
 
   </dependencies>

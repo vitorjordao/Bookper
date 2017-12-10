@@ -40,7 +40,7 @@ public class ControladorTelaIntermediaria implements Initializable{
 		tela.fechar(btnManipulaUsuario.getGraphic());
 	}
 	
-	@Override
+
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		
