@@ -1,6 +1,6 @@
 package br.com.bookper.coneccoes.modelo;
 
-import java.time.LocalDate;
+import java.util.Calendar;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +20,7 @@ public class Funcionario implements Entidade{
 	private String senha;
 	private String cargo;
 	@Temporal(TemporalType.DATE)
-	private LocalDate dataDeContratacao;
+	private Calendar dataDeContratacao;
 	private boolean manipulaLivros;
 	private boolean manipulaFuncionarios;
 	@ManyToOne
@@ -57,10 +57,10 @@ public class Funcionario implements Entidade{
 	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
-	public LocalDate getDataDeContratacao() {
+	public Calendar getDataDeContratacao() {
 		return dataDeContratacao;
 	}
-	public void setDataDeContratacao(LocalDate dataDeContratacao) {
+	public void setDataDeContratacao(Calendar dataDeContratacao) {
 		this.dataDeContratacao = dataDeContratacao;
 	}
 	public boolean isManipulaLivros() {

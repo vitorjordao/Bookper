@@ -11,7 +11,6 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
 import br.com.bookper.coneccoes.DAO.DAO;
-import br.com.bookper.coneccoes.modelo.Entidade;
 import br.com.bookper.coneccoes.modelo.Gerente;
 import br.com.bookper.coneccoes.util.JPAUtil;
 import br.com.bookper.controladores.telas.ControlaTelas;
@@ -19,9 +18,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
-
-import br.com.bookper.coneccoes.modelo.Gerente;
-import br.com.bookper.coneccoes.modelo.Entidade;
 
 public class ControladorLoginESenha implements Initializable{
 	private ControlaTelas tela = new ControlaTelas();
@@ -100,6 +96,7 @@ public class ControladorLoginESenha implements Initializable{
 					txtRepitaSenhaRegistro.getText().length() >= 8 &&
 					txtSenhaRegistro.getText().equals(txtRepitaSenhaRegistro.getText())){
 				Gerente gerente = new Gerente();
+				gerente.setEmail(txtEmailRegistro.getText());
 				gerente.setNome(txtNomeGerente.getText());
 				gerente.setSenha(txtSenhaRegistro.getText());
 				gerente.setNomeUnidade(txtNomeUnidade.getText());

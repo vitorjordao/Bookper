@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 @Entity
 public class Gerente implements Entidade{
 	@Id
@@ -20,8 +23,10 @@ public class Gerente implements Entidade{
 	private String codigoAtivacao;
 	private String nomeUnidade;
 	@OneToMany(mappedBy="gerente", fetch = FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Funcionario> funcionario;
 	@OneToMany(mappedBy="gerente", fetch = FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Cliente> cliente;
 	
 	
