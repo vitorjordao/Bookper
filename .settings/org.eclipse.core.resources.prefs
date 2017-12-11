@@ -1,11 +1,4 @@
 eclipse.preferences.version=1
-encoding//src/br/com/bookper/controladores/ControladorFinal.java=UTF-8
-encoding//src/br/com/bookper/controladores/ControladorPerguntas.java=UTF-8
-encoding//src/br/com/bookper/perguntas/PerguntaEnergia.java=UTF-8
-encoding//src/br/com/bookper/perguntas/PerguntaIdentidade.java=UTF-8
-encoding//src/br/com/bookper/perguntas/PerguntaMente.java=UTF-8
-encoding//src/br/com/bookper/perguntas/PerguntaNatureza.java=UTF-8
-encoding//src/br/com/bookper/perguntas/PerguntaTaticas.java=UTF-8
-encoding//src/br/com/bookper/perguntas/Perguntas.java=UTF-8
-encoding//src/br/com/bookper/perguntas/VerificaPergunta.java=UTF-8
-encoding/src=UTF-8
+encoding//src/main/java=UTF-8
+encoding//src/test/java=UTF-8
+encoding/<project>=UTF-8
