@@ -119,13 +119,8 @@ public class ControladorLoginESenha implements Initializable{
 		tela.iniciarPadrao("Perguntas.fxml");
 		tela.fechar(tabLogin.getTabPane());
 	}
-<<<<<<< Updated upstream
 
 
-=======
-	
-	//@Override
->>>>>>> Stashed changes
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		
