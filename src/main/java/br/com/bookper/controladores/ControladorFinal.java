@@ -83,7 +83,10 @@ public class ControladorFinal implements Initializable {
 	}
 
 
+<<<<<<< Updated upstream
 	
+=======
+>>>>>>> Stashed changes
 	public void initialize(URL url, ResourceBundle rb) {
 		InformacoesSoftware info = new InformacoesSoftware();
 		lblInformacoes.setText(info.pegarDados());

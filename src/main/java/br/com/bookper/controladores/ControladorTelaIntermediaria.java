@@ -40,7 +40,10 @@ public class ControladorTelaIntermediaria implements Initializable{
 		tela.fechar(btnManipulaUsuario.getGraphic());
 	}
 	
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		
