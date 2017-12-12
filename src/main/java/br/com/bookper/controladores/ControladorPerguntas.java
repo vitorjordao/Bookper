@@ -5,6 +5,7 @@
  */
 package br.com.bookper.controladores;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -78,7 +79,11 @@ public class ControladorPerguntas implements Initializable {
 
 				if(!verificaPergunta.contar()) {
 					ControlaTelas tela = new ControlaTelas();
-					tela.iniciarPadrao("Final.fxml");
+					try {
+						tela.iniciarPadrao("Final.fxml");
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 					tela.fechar(lblPergunta);
 				}
 				setarTudo();

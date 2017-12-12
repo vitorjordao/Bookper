@@ -5,6 +5,8 @@
  */
 package br.com.bookper;
 
+import java.io.IOException;
+
 import br.com.bookper.controladores.telas.ControlaTelas;
 import br.com.bookper.informacoes.InformacoesSoftware;
 import javafx.application.Application;
@@ -17,7 +19,7 @@ import javafx.stage.Stage;
 public class IniciadorDoFX extends Application {
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws IOException {
     	ControlaTelas tela = new ControlaTelas();
     	
     	tela.iniciarPadrao("LoginESenha.fxml");

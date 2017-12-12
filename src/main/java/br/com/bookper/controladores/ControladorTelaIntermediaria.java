@@ -1,5 +1,6 @@
 package br.com.bookper.controladores;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,7 +24,7 @@ public class ControladorTelaIntermediaria implements Initializable{
 	}
 	
 	@FXML
-	void clickManipulaFuncionario(ActionEvent event) {
+	void clickManipulaFuncionario(ActionEvent event) throws IOException {
 		tela.iniciarPadrao("ManipulaFuncionario.fxml");
 		tela.fechar(btnManipulaUsuario.getGraphic());
 	}
@@ -39,11 +40,7 @@ public class ControladorTelaIntermediaria implements Initializable{
 		//tela.iniciarPadrao("ManipulaFuncionario.fxml");
 		tela.fechar(btnManipulaUsuario.getGraphic());
 	}
-	
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		

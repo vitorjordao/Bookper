@@ -1,5 +1,6 @@
 package br.com.bookper.controladores;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -14,10 +15,12 @@ import br.com.bookper.coneccoes.DAO.DAO;
 import br.com.bookper.coneccoes.modelo.Gerente;
 import br.com.bookper.coneccoes.util.JPAUtil;
 import br.com.bookper.controladores.telas.ControlaTelas;
+import br.com.bookper.validacoes.ValidarDados;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
+import javafx.scene.text.Text;
 
 public class ControladorLoginESenha implements Initializable{
 	private ControlaTelas tela = new ControlaTelas();
@@ -58,7 +61,7 @@ public class ControladorLoginESenha implements Initializable{
     private JFXPasswordField txtRepitaSenhaRegistro;
 
     @FXML
-    private JFXTextField txtCodigoDeAtivacao;
+    private Text lblErro;
 
     @FXML
     private JFXTextField txtNomeGerente;
@@ -76,59 +79,50 @@ public class ControladorLoginESenha implements Initializable{
 	}
 
 	@FXML
-	private void clickLogar(ActionEvent event) {
+	private void clickLogar(ActionEvent event) throws IOException {
 		tela.fechar(tabLogin.getTabPane());
 		logar();
 	}
 
 	@FXML
 	private void clickRegistrar(ActionEvent event) {
-		if(!txtEmailRegistro.getText().equals("") &&
-				!txtCodigoDeAtivacao.getText().equals("") && 
-				!txtNomeGerente.getText().equals("") && 
-				!txtNomeUnidade.getText().equals("")) {
+		String nome = txtNomeGerente.getText();
+		String nomeUnidade = txtNomeUnidade.getText();
+		String senha = txtSenhaRegistro.getText();
+		String repitaSenha = txtRepitaSenhaRegistro.getText();
+		String email = txtEmailRegistro.getText();
+		ValidarDados validarDados = new ValidarDados(nome, nomeUnidade, senha, repitaSenha, email);
 
-			//validação do e-mail
-			//validação do código de ativação
-			//validação do nome do gerente e do nome da unidade
-
-			if(txtSenhaRegistro.getText().length() >= 8 &&
-					txtRepitaSenhaRegistro.getText().length() >= 8 &&
-					txtSenhaRegistro.getText().equals(txtRepitaSenhaRegistro.getText())){
-				Gerente gerente = new Gerente();
-				gerente.setEmail(txtEmailRegistro.getText());
-				gerente.setNome(txtNomeGerente.getText());
-				gerente.setSenha(txtSenhaRegistro.getText());
-				gerente.setNomeUnidade(txtNomeUnidade.getText());
-				gerente.setCodigoAtivacao(txtCodigoDeAtivacao.getText());
-				try {
-					EntityManager em = new JPAUtil().getEntityManager();
-					DAO dao = new DAO(em);
-					dao.cadastrar(gerente);
-					logar();
-				}catch(Exception e){
-					System.out.println(e);
-				}
+		if(validarDados.getValidado() == null) {
+			Gerente gerente = new Gerente();
+			gerente.setEmail(email);
+			gerente.setNome(nome);
+			gerente.setSenha(senha);
+			gerente.setNomeUnidade(nomeUnidade);
+			try {
+				EntityManager em = new JPAUtil().getEntityManager();
+				DAO dao = new DAO(em);
+				dao.cadastrar(gerente);
+				logar();
+			}catch(Exception e){
+				System.out.println(e);
 			}
+			
+		}else {
+			lblErro.setText(validarDados.getValidado());
+			lblErro.setVisible(true);
 		}
 		
 	}
 
-	private void logar() {
+	private void logar() throws IOException {
 		
 		tela.iniciarPadrao("Perguntas.fxml");
 		tela.fechar(tabLogin.getTabPane());
 	}
-<<<<<<< Updated upstream
 
-
-=======
-	
-	//@Override
->>>>>>> Stashed changes
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
-		
+		lblErro.setVisible(false);
 	}
 }
 

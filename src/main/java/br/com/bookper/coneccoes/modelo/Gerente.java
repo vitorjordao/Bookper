@@ -20,7 +20,6 @@ public class Gerente implements Entidade{
 	private String nome;
 	private String email;
 	private String senha;
-	private String codigoAtivacao;
 	private String nomeUnidade;
 	@OneToMany(mappedBy="gerente", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
@@ -65,12 +64,6 @@ public class Gerente implements Entidade{
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-	public String getCodigoAtivacao() {
-		return codigoAtivacao;
-	}
-	public void setCodigoAtivacao(String codigoAtivacao) {
-		this.codigoAtivacao = codigoAtivacao;
 	}
 	public String getNomeUnidade() {
 		return nomeUnidade;

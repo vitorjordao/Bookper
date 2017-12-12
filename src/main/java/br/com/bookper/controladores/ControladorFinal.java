@@ -5,6 +5,7 @@
  */
 package br.com.bookper.controladores;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -55,7 +56,7 @@ public class ControladorFinal implements Initializable {
 	}
 	
 	@FXML
-	private void clickRecomecar() {
+	private void clickRecomecar() throws IOException {
 		if(rbdGostou1.isSelected()) {
 			//pessoa.setAvaliacao(true);
 		}else if(rbdGostou2.isSelected()) {
@@ -83,10 +84,6 @@ public class ControladorFinal implements Initializable {
 	}
 
 
-<<<<<<< Updated upstream
-	
-=======
->>>>>>> Stashed changes
 	public void initialize(URL url, ResourceBundle rb) {
 		InformacoesSoftware info = new InformacoesSoftware();
 		lblInformacoes.setText(info.pegarDados());

@@ -145,6 +145,12 @@
     -fx-background-color:-fx-primary;
     
 }
+/* Text */
+.text-erro{
+    -fx-font-size:15px;
+    -fx-fill: -fx-red;
+    
+}
 /* Panes */
 .panel1{
     -fx-background-color:-fx-secundary;

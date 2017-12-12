@@ -12,6 +12,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="574.0" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorLoginESenha">
    <children>
@@ -62,9 +63,9 @@
             </Tab>
             <Tab fx:id="tabRegistro" text="Registro">
                <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="369.0" prefWidth="574.0">
                      <children>
-                        <JFXButton fx:id="btnRegistrar" layoutX="221.0" layoutY="288.0" onAction="#clickRegistrar" prefHeight="51.0" prefWidth="132.0" styleClass="button-simples" text="Registrar" textFill="WHITE" viewOrder="6.0">
+                        <JFXButton fx:id="btnRegistrar" layoutX="221.0" layoutY="254.0" onAction="#clickRegistrar" prefHeight="51.0" prefWidth="132.0" styleClass="button-simples" text="Registrar" textFill="WHITE" viewOrder="6.0">
                            <font>
                               <Font name="Arial Black" size="20.0" />
                            </font>
@@ -79,22 +80,17 @@
                               <Font size="15.0" />
                            </font>
                         </JFXPasswordField>
-                        <JFXPasswordField fx:id="txtRepitaSenhaRegistro" focusColor="#4f9beb" labelFloat="true" layoutX="14.0" layoutY="225.0" prefHeight="25.0" prefWidth="225.0" promptText="Repita a senha" styleClass="text-field-ok">
+                        <JFXPasswordField fx:id="txtRepitaSenhaRegistro" focusColor="#4f9beb" labelFloat="true" layoutX="14.0" layoutY="211.0" prefHeight="25.0" prefWidth="225.0" promptText="Repita a senha" styleClass="text-field-ok">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </JFXPasswordField>
-                        <JFXTextField fx:id="txtCodigoDeAtivacao" focusColor="#4f9beb" labelFloat="true" layoutX="335.0" layoutY="65.0" prefHeight="25.0" prefWidth="225.0" promptText="Digite seu código de ativação" styleClass="text-field-ok">
+                        <JFXTextField fx:id="txtNomeGerente" focusColor="#4f9beb" labelFloat="true" layoutX="335.0" layoutY="66.0" prefHeight="25.0" prefWidth="225.0" promptText="Digite o nome do atual gerente" styleClass="text-field-ok">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </JFXTextField>
-                        <JFXTextField fx:id="txtNomeGerente" focusColor="#4f9beb" labelFloat="true" layoutX="335.0" layoutY="145.0" prefHeight="25.0" prefWidth="225.0" promptText="Digite o nome do atual gerente" styleClass="text-field-ok">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </JFXTextField>
-                        <JFXTextField fx:id="txtNomeUnidade" focusColor="#4f9beb" labelFloat="true" layoutX="335.0" layoutY="224.0" prefHeight="25.0" prefWidth="225.0" promptText="Digite o nome da unidade" styleClass="text-field-ok">
+                        <JFXTextField fx:id="txtNomeUnidade" focusColor="#4f9beb" labelFloat="true" layoutX="335.0" layoutY="146.0" prefHeight="25.0" prefWidth="225.0" promptText="Digite o nome da unidade" styleClass="text-field-ok">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -104,6 +100,7 @@
                               <Image url="@../imagens/icones/ic_lock_grey600_48dp.png" />
                            </image>
                         </ImageView>
+                        <Text fx:id="lblErro" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-erro" text="Text" wrappingWidth="582.0" />
                      </children>
                   </AnchorPane>
                </content>
