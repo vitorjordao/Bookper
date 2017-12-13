@@ -1,4 +1,4 @@
-package br.com.bookper.coneccoes.modelo;
+package br.com.bookper.dadosnamaquina;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;

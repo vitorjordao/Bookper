@@ -12,18 +12,23 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
 import br.com.bookper.coneccoes.DAO.DAO;
+import br.com.bookper.coneccoes.DAO.GerenteDAO;
 import br.com.bookper.coneccoes.modelo.Gerente;
 import br.com.bookper.coneccoes.util.JPAUtil;
 import br.com.bookper.controladores.telas.ControlaTelas;
+import br.com.bookper.controladores.telas.TelasPopUp;
+import br.com.bookper.dadosnamaquina.ControlaUsuario;
 import br.com.bookper.validacoes.ValidarDados;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Tab;
-import javafx.scene.text.Text;
 
 public class ControladorLoginESenha implements Initializable{
+	private EntityManager em = new JPAUtil().getEntityManager();
 	private ControlaTelas tela = new ControlaTelas();
+	private GerenteDAO gerenteDAO = new GerenteDAO(em);
     @FXML
     private ResourceBundle resources;
 
@@ -61,9 +66,6 @@ public class ControladorLoginESenha implements Initializable{
     private JFXPasswordField txtRepitaSenhaRegistro;
 
     @FXML
-    private Text lblErro;
-
-    @FXML
     private JFXTextField txtNomeGerente;
 
     @FXML
@@ -80,8 +82,13 @@ public class ControladorLoginESenha implements Initializable{
 
 	@FXML
 	private void clickLogar(ActionEvent event) throws IOException {
-		tela.fechar(tabLogin.getTabPane());
-		logar();
+		if(gerenteDAO.buscarLogin(txtEmailLogin.getText(), txtSenhaLogin.getText())) {
+			//remover as classe: Pessoa e Pessoa Auxiliar
+			ControlaUsuario controlaUsuario = new ControlaUsuario();
+			controlaUsuario.salvar(txtEmailLogin.getText(), txtSenhaLogin.getText(), checkLogarAutomaticamente.isSelected());
+			logar();
+		}else
+			new TelasPopUp(AlertType.ERROR, "Login", "Erro no login", "Não existe essa conta!");
 	}
 
 	@FXML
@@ -92,37 +99,37 @@ public class ControladorLoginESenha implements Initializable{
 		String repitaSenha = txtRepitaSenhaRegistro.getText();
 		String email = txtEmailRegistro.getText();
 		ValidarDados validarDados = new ValidarDados(nome, nomeUnidade, senha, repitaSenha, email);
-
-		if(validarDados.getValidado() == null) {
-			Gerente gerente = new Gerente();
-			gerente.setEmail(email);
-			gerente.setNome(nome);
-			gerente.setSenha(senha);
-			gerente.setNomeUnidade(nomeUnidade);
+		if(validarDados.getValidado().equals("")) {
 			try {
-				EntityManager em = new JPAUtil().getEntityManager();
-				DAO dao = new DAO(em);
-				dao.cadastrar(gerente);
-				logar();
+				if(!gerenteDAO.buscarEmail(email)) {
+					Gerente gerente = new Gerente();
+					gerente.setEmail(email);
+					gerente.setNome(nome);
+					gerente.setSenha(senha);
+					gerente.setNomeUnidade(nomeUnidade);
+					DAO dao = new DAO(em);
+					dao.cadastrar(gerente);
+					logar();
+				}else {
+					new TelasPopUp(AlertType.ERROR, "Cadastro", "Erro no cadastro", "Já existe esse e-mail!");
+				}
 			}catch(Exception e){
 				System.out.println(e);
 			}
 			
 		}else {
-			lblErro.setText(validarDados.getValidado());
-			lblErro.setVisible(true);
+			new TelasPopUp(AlertType.ERROR, "Cadastro", "Erro no cadastro", validarDados.getValidado());
 		}
 		
 	}
 
 	private void logar() throws IOException {
 		
-		tela.iniciarPadrao("Perguntas.fxml");
+		tela.iniciarPadrao("TelaIntermediaria.fxml");
 		tela.fechar(tabLogin.getTabPane());
 	}
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		lblErro.setVisible(false);
 	}
 }
 

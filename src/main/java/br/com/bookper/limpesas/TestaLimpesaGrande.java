@@ -1,6 +1,6 @@
 package br.com.bookper.limpesas;
 
-import br.com.bookper.coneccoes.modelo.Pessoa;
+import br.com.bookper.dadosnamaquina.Pessoa;
 
 public class TestaLimpesaGrande {
 	public static void main(String[] args) {

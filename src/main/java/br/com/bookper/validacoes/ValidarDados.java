@@ -1,7 +1,7 @@
 package br.com.bookper.validacoes;
 
 public class ValidarDados {
-	private String erro;
+	private String erro = "";
 	public ValidarDados(String nome, String nomeUnidade, String senha, String repitaSenha, String email) {
 		if(new Nome().isValido(nome) == TiposValidacoes.NOTOK){
 			erro += "Nome inválido! ";
