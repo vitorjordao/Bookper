@@ -27,7 +27,9 @@ public class Gerente implements Entidade{
 	@OneToMany(mappedBy="gerente", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Cliente> cliente;
-	
+	@OneToMany(mappedBy="gerente", fetch = FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<Livro> livro;
 	
 	public Integer getId() {
 		return id;
@@ -70,6 +72,12 @@ public class Gerente implements Entidade{
 	}
 	public void setNomeUnidade(String nomeUnidade) {
 		this.nomeUnidade = nomeUnidade;
+	}
+	public List<Livro> getLivro() {
+		return livro;
+	}
+	public void setLivro(List<Livro> livro) {
+		this.livro = livro;
 	}
 	
 }

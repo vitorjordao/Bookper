@@ -10,7 +10,7 @@
         <class>br.com.bookper.coneccoes.modelo.Gerente</class>
         <class>br.com.bookper.coneccoes.modelo.Funcionario</class>
         <class>br.com.bookper.coneccoes.modelo.Cliente</class>
-        <class>br.com.bookper.coneccoes.modelo.Avaliacao</class>
+        <class>br.com.bookper.coneccoes.modelo.Personalidade</class>
         <class>br.com.bookper.coneccoes.modelo.Livro</class>
 
         <properties>    

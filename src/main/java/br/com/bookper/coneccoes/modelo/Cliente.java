@@ -1,14 +1,10 @@
 package br.com.bookper.coneccoes.modelo;
 
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Cliente implements Entidade{
@@ -17,8 +13,7 @@ public class Cliente implements Entidade{
 	private Integer id;
 	@ManyToOne
 	private Gerente gerente;
-	@OneToMany(mappedBy="cliente", fetch = FetchType.EAGER)
-	private List<Avaliacao> avaliacao;
+	private String email;
 	public Integer getId() {
 		return id;
 	}
@@ -31,12 +26,11 @@ public class Cliente implements Entidade{
 	public void setGerente(Gerente gerente) {
 		this.gerente = gerente;
 	}
-	public List<Avaliacao> getAvaliacao() {
-		return avaliacao;
+	public String getEmail() {
+		return email;
 	}
-	public void setAvaliacao(List<Avaliacao> avaliacao) {
-		this.avaliacao = avaliacao;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	
 	
 }

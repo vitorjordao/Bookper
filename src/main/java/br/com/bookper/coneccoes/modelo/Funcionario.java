@@ -26,7 +26,6 @@ public class Funcionario implements Entidade{
 	@ManyToOne
 	private Gerente gerente;
 	
-	
 	public Gerente getGerente() {
 		return gerente;
 	}
@@ -75,6 +74,5 @@ public class Funcionario implements Entidade{
 	public void setManipulaFuncionarios(boolean manipulaFuncionarios) {
 		this.manipulaFuncionarios = manipulaFuncionarios;
 	}
-	
 	
 }

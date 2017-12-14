@@ -16,8 +16,8 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 
 import br.com.bookper.controladores.telas.ControlaTelas;
-import br.com.bookper.dadosnamaquina.Pessoa;
 import br.com.bookper.perguntas.VerificaPergunta;
+import br.com.bookper.recomendacoes.GeradorDePersonalidades;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -29,7 +29,13 @@ import javafx.scene.text.Text;
  */
 public class ControladorPerguntas implements Initializable {
 	public VerificaPergunta verificaPergunta = new VerificaPergunta();
-
+	
+	private boolean mente;
+	private boolean energia;
+	private boolean natureza;
+	private boolean taticas;
+	private boolean identidade;
+	
 	@FXML
 	private Label lblNumeroPergunta;
 
@@ -64,7 +70,6 @@ public class ControladorPerguntas implements Initializable {
 	}
 
 	private void alterarPergunta(boolean avancaOuVolta) {
-		Pessoa pessoa = new Pessoa();
 		if(avancaOuVolta) {
 			if(!rbdResposta1.isSelected() && !rbdResposta2.isSelected()) {
 				JPanel panel = new JPanel();
@@ -72,9 +77,9 @@ public class ControladorPerguntas implements Initializable {
 			}else {
 
 				if(rbdResposta1.isSelected()) {
-					pessoa.setPersonalidades(verificaPergunta.getCont(), true);
+					setPersonalidades(verificaPergunta.getCont(), true);
 				}else {
-					pessoa.setPersonalidades(verificaPergunta.getCont(), false);
+					setPersonalidades(verificaPergunta.getCont(), false);
 				}
 
 				if(!verificaPergunta.contar()) {
@@ -115,5 +120,21 @@ public class ControladorPerguntas implements Initializable {
 		rbdResposta2.setText(verificaPergunta.pegarPergunta().RespostaFalse());
 		lblNumeroPergunta.setText("Pergunta "+verificaPergunta.getCont()+"/5");
 	}
-
+	
+	public void setPersonalidades(int i, boolean personalidade) {
+		if(i == 1) {
+			this.mente = personalidade;
+		} else if(i == 2) {
+			this.energia = personalidade;
+		} else if(i == 3) {
+			this.natureza = personalidade;
+		} else if(i == 4) {
+			this.taticas = personalidade;
+		} else if(i == 5) {
+			this.identidade = personalidade;
+			GeradorDePersonalidades gerado = new GeradorDePersonalidades();
+			gerado.gerarPersonalidade(this.mente, this.energia, this.natureza, this.taticas,this.identidade);
+			//
+		}
+	}
 }

@@ -1,6 +1,8 @@
-package br.com.bookper.personalidades;
+package br.com.bookper.tests.testesmanuais;
 
-public class TestaPersonalidades {
+import br.com.bookper.personalidades.VerificadorDePersonalidades;
+
+public class TestPersonalidades {
 	public static void main(String[] args) {
 		VerificadorDePersonalidades personalidades = new VerificadorDePersonalidades();
 		personalidades.descobrir("Empresário");

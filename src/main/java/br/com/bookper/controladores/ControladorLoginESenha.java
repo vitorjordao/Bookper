@@ -83,7 +83,6 @@ public class ControladorLoginESenha implements Initializable{
 	@FXML
 	private void clickLogar(ActionEvent event) throws IOException {
 		if(gerenteDAO.buscarLogin(txtEmailLogin.getText(), txtSenhaLogin.getText())) {
-			//remover as classe: Pessoa e Pessoa Auxiliar
 			ControlaUsuario controlaUsuario = new ControlaUsuario();
 			controlaUsuario.salvar(txtEmailLogin.getText(), txtSenhaLogin.getText(), checkLogarAutomaticamente.isSelected());
 			logar();

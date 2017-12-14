@@ -8,14 +8,14 @@ package br.com.bookper.controladores;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 import com.jfoenix.controls.JFXRadioButton;
 
+import br.com.bookper.coneccoes.modelo.Livro;
 import br.com.bookper.controladores.telas.ControlaTelas;
-import br.com.bookper.dadosnamaquina.Pessoa;
 import br.com.bookper.informacoes.InformacoesSoftware;
-import br.com.bookper.limpesas.LimpesaGrande;
-import br.com.bookper.personalidade.GeradorDePersonalidades;
+import br.com.bookper.recomendacoes.RecomendacoesDeLivros;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -25,7 +25,6 @@ import javafx.scene.control.Label;
  * @author LABINFO
  */
 public class ControladorFinal implements Initializable {
-	private Pessoa pessoa = new Pessoa();
 	private ControlaTelas tela = new ControlaTelas();
 	
 	@FXML
@@ -64,19 +63,13 @@ public class ControladorFinal implements Initializable {
 		}else if(rbdGostou3.isSelected()) {
 			//pessoa.setAvaliacao(true);
 		}else {
-			pessoa.setAvaliacao(false);
+			//pessoa.setAvaliacao(false);
 		}
 		salvaPessoa();
 		tela.iniciarPadrao("Nome.fxml");
 		tela.fechar(lblInformacoes);
-		LimpesaGrande limpesa = new LimpesaGrande();
-		limpesa.limpesaTotal();
 
 	}
-
-
-	
-
 
 	private void salvaPessoa() {
 		
@@ -87,8 +80,11 @@ public class ControladorFinal implements Initializable {
 	public void initialize(URL url, ResourceBundle rb) {
 		InformacoesSoftware info = new InformacoesSoftware();
 		lblInformacoes.setText(info.pegarDados());
-		GeradorDePersonalidades gerado = new GeradorDePersonalidades();
-		gerado.gerarPersonalidade();
+		RecomendacoesDeLivros recomendacoesDeLivros = new RecomendacoesDeLivros();
+		Livro l1 = recomendacoesDeLivros.getRecomendacao1();
+		Livro l2 = recomendacoesDeLivros.getRecomendacao2();
+		Livro l3 = recomendacoesDeLivros.getRecomendacao3();
+		
 	}
 
 }
