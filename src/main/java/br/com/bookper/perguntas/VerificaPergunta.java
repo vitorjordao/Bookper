@@ -9,15 +9,15 @@ public class VerificaPergunta {
 	}
 
 	public Perguntas pegarPergunta() {
-		if(cont == 1) {
+		if (cont == 1) {
 			perguntas = new PerguntaMente();
-		} else if(cont == 2) {
+		} else if (cont == 2) {
 			perguntas = new PerguntaEnergia();
-		} else if(cont == 3) {
+		} else if (cont == 3) {
 			perguntas = new PerguntaNatureza();
-		} else if(cont == 4) {
+		} else if (cont == 4) {
 			perguntas = new PerguntaTaticas();
-		} else if(cont == 5) {
+		} else if (cont == 5) {
 			perguntas = new PerguntaIdentidade();
 		}
 		return perguntas;
@@ -25,14 +25,14 @@ public class VerificaPergunta {
 	}
 
 	public boolean contar() {
-		if(cont>=5)
+		if (cont >= 5)
 			return false;
 		++this.cont;
 		return true;
 	}
 
 	public boolean voltarContagem() {
-		if(cont<=0)
+		if (cont <= 0)
 			return false;
 		--this.cont;
 		return true;

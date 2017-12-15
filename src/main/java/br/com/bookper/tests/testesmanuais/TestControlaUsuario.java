@@ -7,9 +7,9 @@ import br.com.bookper.dadosnamaquina.ControlaUsuario;
 public class TestControlaUsuario {
 	public static void main(String[] args) {
 		ControlaUsuario controlaUsuario = new ControlaUsuario();
-		System.out.println(controlaUsuario.verificarPermanenciaDeLogin()+"");
+		System.out.println(controlaUsuario.verificarPermanenciaDeLogin() + "");
 		Scanner s = controlaUsuario.getCredenciais();
-		while(s.hasNextLine()){
+		while (s.hasNextLine()) {
 			System.out.println(s.nextLine());
 		}
 		s.close();

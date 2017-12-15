@@ -10,21 +10,26 @@ public class InformacoesSoftware {
 	private static String nomeProjeto;
 
 	public final String pegarDados() {
-		return "@"+getNomeEmpresa()+" "+getDataDaVersao()+" - "+getNomeProjeto()+" "+getVersao()+"\n Feito por: "+criadores;
+		return "@" + getNomeEmpresa() + " " + getDataDaVersao() + " - " + getNomeProjeto() + " " + getVersao()
+				+ "\n Feito por: " + criadores;
 	}
 
 	public final String getNomeEmpresa() {
 		return nomeEmpresa;
 	}
+
 	public final String getVersao() {
 		return versao;
 	}
+
 	public final String getCriadores() {
 		return criadores;
 	}
+
 	public final LocalDate getDataDaVersao() {
 		return dataDaVersao;
 	}
+
 	public final String getNomeProjeto() {
 		return nomeProjeto;
 	}

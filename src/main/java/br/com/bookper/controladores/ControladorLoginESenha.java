@@ -25,55 +25,55 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Tab;
 
-public class ControladorLoginESenha implements Initializable{
+public class ControladorLoginESenha implements Initializable {
 	private EntityManager em = new JPAUtil().getEntityManager();
 	private ControlaTelas tela = new ControlaTelas();
 	private GerenteDAO gerenteDAO = new GerenteDAO(em);
-    @FXML
-    private ResourceBundle resources;
+	@FXML
+	private ResourceBundle resources;
 
-    @FXML
-    private URL location;
+	@FXML
+	private URL location;
 
-    @FXML
-    private Tab tabLogin;
+	@FXML
+	private Tab tabLogin;
 
-    @FXML
-    private JFXButton btnLogar;
+	@FXML
+	private JFXButton btnLogar;
 
-    @FXML
-    private JFXTextField txtEmailLogin;
+	@FXML
+	private JFXTextField txtEmailLogin;
 
-    @FXML
-    private JFXPasswordField txtSenhaLogin;
+	@FXML
+	private JFXPasswordField txtSenhaLogin;
 
-    @FXML
-    private JFXCheckBox checkLogarAutomaticamente;
+	@FXML
+	private JFXCheckBox checkLogarAutomaticamente;
 
-    @FXML
-    private Tab tabRegistro;
+	@FXML
+	private Tab tabRegistro;
 
-    @FXML
-    private JFXButton btnRegistrar;
+	@FXML
+	private JFXButton btnRegistrar;
 
-    @FXML
-    private JFXTextField txtEmailRegistro;
+	@FXML
+	private JFXTextField txtEmailRegistro;
 
-    @FXML
-    private JFXPasswordField txtSenhaRegistro;
+	@FXML
+	private JFXPasswordField txtSenhaRegistro;
 
-    @FXML
-    private JFXPasswordField txtRepitaSenhaRegistro;
+	@FXML
+	private JFXPasswordField txtRepitaSenhaRegistro;
 
-    @FXML
-    private JFXTextField txtNomeGerente;
+	@FXML
+	private JFXTextField txtNomeGerente;
 
-    @FXML
-    private JFXTextField txtNomeUnidade;
+	@FXML
+	private JFXTextField txtNomeUnidade;
 
-    @FXML
-    private JFXButton btnFechar;
-    
+	@FXML
+	private JFXButton btnFechar;
+
 	@FXML
 	void clickFechar(ActionEvent event) {
 		tela.fechar(tabLogin.getTabPane());
@@ -82,11 +82,12 @@ public class ControladorLoginESenha implements Initializable{
 
 	@FXML
 	private void clickLogar(ActionEvent event) throws IOException {
-		if(gerenteDAO.buscarLogin(txtEmailLogin.getText(), txtSenhaLogin.getText())) {
+		if (gerenteDAO.buscarLogin(txtEmailLogin.getText(), txtSenhaLogin.getText())) {
 			ControlaUsuario controlaUsuario = new ControlaUsuario();
-			controlaUsuario.salvar(txtEmailLogin.getText(), txtSenhaLogin.getText(), checkLogarAutomaticamente.isSelected());
+			controlaUsuario.salvar(txtEmailLogin.getText(), txtSenhaLogin.getText(),
+					checkLogarAutomaticamente.isSelected());
 			logar();
-		}else
+		} else
 			new TelasPopUp(AlertType.ERROR, "Login", "Erro no login", "Não existe essa conta!");
 	}
 
@@ -98,9 +99,9 @@ public class ControladorLoginESenha implements Initializable{
 		String repitaSenha = txtRepitaSenhaRegistro.getText();
 		String email = txtEmailRegistro.getText();
 		ValidarDados validarDados = new ValidarDados(nome, nomeUnidade, senha, repitaSenha, email);
-		if(validarDados.getValidado().equals("")) {
+		if (validarDados.getValidado().equals("")) {
 			try {
-				if(!gerenteDAO.buscarEmail(email)) {
+				if (!gerenteDAO.buscarEmail(email)) {
 					Gerente gerente = new Gerente();
 					gerente.setEmail(email);
 					gerente.setNome(nome);
@@ -109,21 +110,21 @@ public class ControladorLoginESenha implements Initializable{
 					DAO dao = new DAO(em);
 					dao.cadastrar(gerente);
 					logar();
-				}else {
+				} else {
 					new TelasPopUp(AlertType.ERROR, "Cadastro", "Erro no cadastro", "Já existe esse e-mail!");
 				}
-			}catch(Exception e){
+			} catch (Exception e) {
 				System.out.println(e);
 			}
-			
-		}else {
+
+		} else {
 			new TelasPopUp(AlertType.ERROR, "Cadastro", "Erro no cadastro", validarDados.getValidado());
 		}
-		
+
 	}
 
 	private void logar() throws IOException {
-		
+
 		tela.iniciarPadrao("TelaIntermediaria.fxml");
 		tela.fechar(tabLogin.getTabPane());
 	}
@@ -131,5 +132,3 @@ public class ControladorLoginESenha implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	}
 }
-
-	

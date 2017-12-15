@@ -88,15 +88,71 @@
     -fx-text-fill: -fx-primarytext;
     -fx-font-family: "Arial Black";
 }
-/*  Icones  */
-.icon-1{
-
+/*  Icons  */
+.icon-close{
+	-fx-fill: -fx-primarytext;
+	-glyph-size: 40;
+	-glyph-name: CLOSE;
+}
+.icon-close2{
+	-fx-fill: -fx-primarytext;
+	-glyph-size: 65;
+	-glyph-name: CLOSE;
+}
+.icon-close3{
+	-fx-fill: -fx-primarytext;
+	-glyph-size: 110;
+	-glyph-name: CLOSE;
+}
+.icon-chart{
+	-fx-fill: -fx-primarytext;
+	-glyph-size: 110;
+	-glyph-name: CHART_BAR;
+}
+.icon-worker{
+	-fx-fill: -fx-primarytext;
+	-glyph-size: 110;
+	-glyph-name: WORKER;
+}
+.icon-tableedit{
+	-fx-fill: -fx-primarytext;
+	-glyph-size: 110;
+	-glyph-name: TABLE_EDIT;
+}
+.icon-close3{
+	-fx-fill: -fx-primarytext;
+	-glyph-size: 110;
+	-glyph-name: CLOSE;
+}
+.icon-left{
+	-fx-fill: -fx-primarytext;
+	-glyph-size: 65;
+	-glyph-name: ARROW_LEFT_THICK;
+}
+.icon-lock{
+	-fx-fill: -fx-primarytext;
+	-glyph-size: 80;
+	-glyph-name: LOCK;
+}
+.icon-email{
+	-fx-fill: -fx-primarytext;
+	-glyph-size: 40;
+	-glyph-name: EMAIL;
+}
+.icon-search{
+	-fx-fill: -fx-primarytext;
+	-glyph-size: 40;
+	-glyph-name: MAGNIFY;
+}
+.icon-password{
+	-fx-fill: -fx-primarytext;
+	-glyph-size: 40;
+	-glyph-name: TEXTBOX_PASSWORD;
 }
 .icon-title{
-    
-}
-.icon-title2{
-    --fx-image: url("");
+    -fx-fill: -fx-primary;
+	-glyph-size: 40;
+	-glyph-name: BOOK_OPEN_PAGE_VARIANT;
 }
 /*  As Tabzonas!!!  */
 .tab{

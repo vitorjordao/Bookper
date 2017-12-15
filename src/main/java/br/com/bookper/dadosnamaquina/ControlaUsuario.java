@@ -6,12 +6,12 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 public class ControlaUsuario {
-	
+
 	public void salvar(String email, String senha, boolean salvar) {
 		try {
 			Scanner entrada;
 			PrintStream saida = new PrintStream(new FileOutputStream("UsuarioLogado.txt"));
-			entrada = new Scanner(salvar+"");
+			entrada = new Scanner(salvar + "");
 			saida.println(entrada.nextLine());
 			entrada.close();
 			entrada = new Scanner(email);
@@ -25,7 +25,7 @@ public class ControlaUsuario {
 			System.out.println(e);
 		}
 	}
-	
+
 	public boolean verificarPermanenciaDeLogin() {
 		try {
 			Scanner entrada = new Scanner(new FileInputStream("UsuarioLogado.txt"));
@@ -37,6 +37,7 @@ public class ControlaUsuario {
 			return false;
 		}
 	}
+
 	public Scanner getCredenciais() {
 		try {
 			Scanner entrada = new Scanner(new FileInputStream("UsuarioLogado.txt"));
@@ -47,5 +48,5 @@ public class ControlaUsuario {
 			return null;
 		}
 	}
-	
+
 }

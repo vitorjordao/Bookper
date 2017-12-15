@@ -9,8 +9,9 @@ public class GeradorDePersonalidades {
 	private String papeis;
 	private String estrategia;
 	private static String personalidade;
-	
-	public String gerarPersonalidade(boolean mente, boolean energia, boolean natureza, boolean taticas, boolean identidade) {
+
+	public String gerarPersonalidade(boolean mente, boolean energia, boolean natureza, boolean taticas,
+			boolean identidade) {
 		this.mente = mente;
 		this.energia = energia;
 		this.natureza = natureza;
@@ -18,130 +19,130 @@ public class GeradorDePersonalidades {
 		this.identidade = identidade;
 		return GeradorDePersonalidades.personalidade = papeis();
 	}
-	
+
 	private String papeis() {
-		if(energia == true && natureza == true) {
+		if (energia == true && natureza == true) {
 			papeis = "analistas";
-		}else if(energia == true && natureza == false) {
+		} else if (energia == true && natureza == false) {
 			papeis = "diplomatas";
-		}else if(energia == false && taticas == true) {
+		} else if (energia == false && taticas == true) {
 			papeis = "sentinelas";
-		}else if(energia == false && taticas == false) {
+		} else if (energia == false && taticas == false) {
 			papeis = "exploradores";
 		}
 		return estrategia();
 	}
-	
+
 	private String estrategia() {
-		if(mente == true && identidade == true) {
+		if (mente == true && identidade == true) {
 			estrategia = "individualismoConfiante";
-		}else if(mente == false && identidade == true) {
+		} else if (mente == false && identidade == true) {
 			estrategia = "dominioEmPessoas";
-		}else if(mente == true && identidade == false) {
+		} else if (mente == true && identidade == false) {
 			estrategia = "melhoriaConstante";
-		}else if(mente == false && identidade == false) {
+		} else if (mente == false && identidade == false) {
 			estrategia = "compromissoSocial";
 		}
 		return calculosDaTabela();
 	}
-	
+
 	private String calculosDaTabela() {
-		if(papeis.equals("analistas") && estrategia.equals("individualismoConfiante") && taticas) {
+		if (papeis.equals("analistas") && estrategia.equals("individualismoConfiante") && taticas) {
 			return "Arquiteto";
-		}else if(papeis.equals("analistas") && estrategia.equals("individualismoConfiante") && !taticas) {
+		} else if (papeis.equals("analistas") && estrategia.equals("individualismoConfiante") && !taticas) {
 			return "Lógico";
 		}
-		
-		else if(papeis.equals("analistas") && estrategia.equals("dominioEmPessoas") && taticas) {
+
+		else if (papeis.equals("analistas") && estrategia.equals("dominioEmPessoas") && taticas) {
 			return "Comandante";
-		}else if(papeis.equals("analistas") && estrategia.equals("dominioEmPessoas") && !taticas) {
+		} else if (papeis.equals("analistas") && estrategia.equals("dominioEmPessoas") && !taticas) {
 			return "Inovador";
 		}
-		
-		else if(papeis.equals("analistas") && estrategia.equals("melhoriaConstante") && taticas) {
+
+		else if (papeis.equals("analistas") && estrategia.equals("melhoriaConstante") && taticas) {
 			return "Arquiteto";
-		}else if(papeis.equals("analistas") && estrategia.equals("melhoriaConstante") && !taticas) {
+		} else if (papeis.equals("analistas") && estrategia.equals("melhoriaConstante") && !taticas) {
 			return "Lógico";
 		}
-		
-		else if(papeis.equals("analistas") && estrategia.equals("compromissoSocial") && taticas) {
+
+		else if (papeis.equals("analistas") && estrategia.equals("compromissoSocial") && taticas) {
 			return "Comandante";
-		}else if(papeis.equals("analistas") && estrategia.equals("compromissoSocial") && !taticas) {
+		} else if (papeis.equals("analistas") && estrategia.equals("compromissoSocial") && !taticas) {
 			return "Inovador";
 		}
-		
-		else if(papeis.equals("diplomatas") && estrategia.equals("individualismoConfiante") && taticas) {
+
+		else if (papeis.equals("diplomatas") && estrategia.equals("individualismoConfiante") && taticas) {
 			return "Protagonista";
-		}else if(papeis.equals("diplomatas") && estrategia.equals("individualismoConfiante") && !taticas) {
+		} else if (papeis.equals("diplomatas") && estrategia.equals("individualismoConfiante") && !taticas) {
 			return "Mediador";
 		}
-		
-		else if(papeis.equals("diplomatas") && estrategia.equals("dominioEmPessoas") && taticas) {
+
+		else if (papeis.equals("diplomatas") && estrategia.equals("dominioEmPessoas") && taticas) {
 			return "Advogado";
-		}else if(papeis.equals("diplomatas") && estrategia.equals("dominioEmPessoas") && !taticas) {
+		} else if (papeis.equals("diplomatas") && estrategia.equals("dominioEmPessoas") && !taticas) {
 			return "Ativista";
 		}
-		
-		else if(papeis.equals("diplomatas") && estrategia.equals("melhoriaConstante") && taticas) {
+
+		else if (papeis.equals("diplomatas") && estrategia.equals("melhoriaConstante") && taticas) {
 			return "Protagonista";
-		}else if(papeis.equals("diplomatas") && estrategia.equals("melhoriaConstante") && !taticas) {
+		} else if (papeis.equals("diplomatas") && estrategia.equals("melhoriaConstante") && !taticas) {
 			return "Mediador";
 		}
-		
-		else if(papeis.equals("diplomatas") && estrategia.equals("compromissoSocial") && taticas) {
+
+		else if (papeis.equals("diplomatas") && estrategia.equals("compromissoSocial") && taticas) {
 			return "Advogado";
-		}else if(papeis.equals("diplomatas") && estrategia.equals("compromissoSocial") && !taticas) {
+		} else if (papeis.equals("diplomatas") && estrategia.equals("compromissoSocial") && !taticas) {
 			return "Ativista";
 		}
-		
-		else if(papeis.equals("sentinelas") && estrategia.equals("individualismoConfiante") && natureza) {
+
+		else if (papeis.equals("sentinelas") && estrategia.equals("individualismoConfiante") && natureza) {
 			return "Logístico";
-		}else if(papeis.equals("sentinelas") && estrategia.equals("individualismoConfiante") && !natureza) {
+		} else if (papeis.equals("sentinelas") && estrategia.equals("individualismoConfiante") && !natureza) {
 			return "Defensor";
 		}
-		
-		else if(papeis.equals("sentinelas") && estrategia.equals("dominioEmPessoas") && natureza) {
+
+		else if (papeis.equals("sentinelas") && estrategia.equals("dominioEmPessoas") && natureza) {
 			return "Executivo";
-		}else if(papeis.equals("sentinelas") && estrategia.equals("dominioEmPessoas") && !natureza) {
+		} else if (papeis.equals("sentinelas") && estrategia.equals("dominioEmPessoas") && !natureza) {
 			return "Cônsul";
 		}
-		
-		else if(papeis.equals("sentinelas") && estrategia.equals("melhoriaConstante") && natureza) {
+
+		else if (papeis.equals("sentinelas") && estrategia.equals("melhoriaConstante") && natureza) {
 			return "Logístico";
-		}else if(papeis.equals("sentinelas") && estrategia.equals("melhoriaConstante") && !natureza) {
+		} else if (papeis.equals("sentinelas") && estrategia.equals("melhoriaConstante") && !natureza) {
 			return "Defensor";
 		}
-		
-		else if(papeis.equals("sentinelas") && estrategia.equals("compromissoSocial") && natureza) {
+
+		else if (papeis.equals("sentinelas") && estrategia.equals("compromissoSocial") && natureza) {
 			return "Executivo";
-		}else if(papeis.equals("sentinelas") && estrategia.equals("compromissoSocial") && !natureza) {
+		} else if (papeis.equals("sentinelas") && estrategia.equals("compromissoSocial") && !natureza) {
 			return "Cônsul";
 		}
-		
-		else if(papeis.equals("exploradores") && estrategia.equals("individualismoConfiante") && natureza) {
+
+		else if (papeis.equals("exploradores") && estrategia.equals("individualismoConfiante") && natureza) {
 			return "Virtuoso";
-		}else if(papeis.equals("exploradores") && estrategia.equals("individualismoConfiante") && !natureza) {
+		} else if (papeis.equals("exploradores") && estrategia.equals("individualismoConfiante") && !natureza) {
 			return "Aventureiro";
 		}
-		
-		else if(papeis.equals("exploradores") && estrategia.equals("dominioEmPessoas") && natureza) {
+
+		else if (papeis.equals("exploradores") && estrategia.equals("dominioEmPessoas") && natureza) {
 			return "Empresário";
-		}else if(papeis.equals("exploradores") && estrategia.equals("dominioEmPessoas") && !natureza) {
+		} else if (papeis.equals("exploradores") && estrategia.equals("dominioEmPessoas") && !natureza) {
 			return "Animador";
 		}
-		
-		else if(papeis.equals("exploradores") && estrategia.equals("melhoriaConstante") && natureza) {
+
+		else if (papeis.equals("exploradores") && estrategia.equals("melhoriaConstante") && natureza) {
 			return "Virtuoso";
-		}else if(papeis.equals("exploradores") && estrategia.equals("melhoriaConstante") && !natureza) {
+		} else if (papeis.equals("exploradores") && estrategia.equals("melhoriaConstante") && !natureza) {
 			return "Aventureiro";
 		}
-		
-		else if(papeis.equals("exploradores") && estrategia.equals("compromissoSocial") && natureza) {
+
+		else if (papeis.equals("exploradores") && estrategia.equals("compromissoSocial") && natureza) {
 			return "Empresário";
-		}else if(papeis.equals("exploradores") && estrategia.equals("compromissoSocial") && !natureza) {
+		} else if (papeis.equals("exploradores") && estrategia.equals("compromissoSocial") && !natureza) {
 			return "Animador";
 		}
-		
+
 		else {
 			return "Robô";
 		}
@@ -150,5 +151,5 @@ public class GeradorDePersonalidades {
 	public static String getPersonalidade() {
 		return personalidade;
 	}
-	
+
 }

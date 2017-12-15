@@ -24,10 +24,10 @@ public class GerenteDAO {
 
 	public boolean buscarEmail(String email) {
 		String jpql = "select m from Gerente m where m.email = :pEmail";
-		
+
 		TypedQuery<Gerente> query = em.createQuery(jpql, Gerente.class);
 		query.setParameter("pEmail", email);
-		
+
 		return query.getResultList().size() != 0;
 	}
 }

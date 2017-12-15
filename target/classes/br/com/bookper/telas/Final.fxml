@@ -2,10 +2,11 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -33,7 +34,7 @@
             <DropShadow />
          </effect>
       </AnchorPane>
-      <JFXButton fx:id="clickRecomecar" layoutX="485.0" layoutY="575.0" prefHeight="62.0" prefWidth="181.0" styleClass="button-simples" text="Recomeçar" />
+      <JFXButton fx:id="clickRecomecar" layoutX="487.0" layoutY="578.0" prefHeight="62.0" prefWidth="181.0" styleClass="button-simples" text="Recomeçar" />
       <AnchorPane fx:id="panRecomendacao2" layoutX="409.0" layoutY="107.0" prefHeight="415.0" prefWidth="333.0" styleClass="panel2">
          <children>
             <ImageView fx:id="imgCapa2" fitHeight="265.0" fitWidth="200.0" layoutX="67.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true" />
@@ -71,15 +72,17 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <ImageView cache="true" fitHeight="38.0" fitWidth="38.0" layoutX="495.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" styleClass="icon-title2">
-               <image>
-                  <Image url="@../imagens/icones/ic_book_open_page_variant_grey600_48dp.png" />
-               </image>
-            </ImageView>
+            <MaterialDesignIconView fill="#571b1b" glyphName="" layoutX="495.0" layoutY="59.0" selectionFill="#da0f0f" styleClass="icon-title" wrappingWidth="38.000000428408384">
+               <font>
+                  <Font size="58.0" />
+               </font>
+            </MaterialDesignIconView>
          </children>
          <effect>
             <DropShadow blurType="TWO_PASS_BOX" height="17.0" radius="8.0" width="17.0" />
          </effect>
       </AnchorPane>
+      <Label layoutX="18.0" layoutY="582.0" styleClass="label-nome-livros" text="Receba notificações de livros por e-mail!" />
+      <JFXTextField layoutX="83.0" layoutY="640.0" prefHeight="33.0" prefWidth="273.0" promptText="E-mail" styleClass="text-field-ok" />
    </children>
 </Pane>

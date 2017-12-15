@@ -11,39 +11,38 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-public class ControladorTelaIntermediaria implements Initializable{
+public class ControladorTelaIntermediaria implements Initializable {
 	private ControlaTelas tela = new ControlaTelas();
-	
+
 	@FXML
-	private JFXButton btnManipulaUsuario; 
-	
+	private JFXButton btnManipulaUsuario;
+
 	@FXML
 	void clickFechar(ActionEvent event) {
 		tela.fechar(btnManipulaUsuario.getGraphic());
 		System.exit(0);
 	}
-	
+
 	@FXML
 	void clickManipulaFuncionario(ActionEvent event) throws IOException {
 		tela.iniciarPadrao("ManipulaFuncionario.fxml");
 		tela.fechar(btnManipulaUsuario.getGraphic());
 	}
-	
+
 	@FXML
 	void clickManipulaUsuario(ActionEvent event) {
-		//tela.iniciarPadrao("ManipulaFuncionario.fxml");
+		// tela.iniciarPadrao("ManipulaFuncionario.fxml");
 		tela.fechar(btnManipulaUsuario.getGraphic());
 	}
-	
+
 	@FXML
 	void clickEstatistica(ActionEvent event) {
-		//tela.iniciarPadrao("ManipulaFuncionario.fxml");
+		// tela.iniciarPadrao("ManipulaFuncionario.fxml");
 		tela.fechar(btnManipulaUsuario.getGraphic());
 	}
 
 	public void initialize(URL location, ResourceBundle resources) {
-		
-		
+
 	}
 
 }
