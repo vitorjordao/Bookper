@@ -40,9 +40,9 @@
                               <Font name="Arial Black" size="90.0" />
                            </font>
                         </JFXCheckBox>
-                        <MaterialDesignIconView glyphName="" layoutX="236.0" layoutY="84.0" styleClass="icon-lock" />
-                        <MaterialDesignIconView glyphName="" layoutX="87.0" layoutY="142.0" styleClass="icon-email" />
-                        <MaterialDesignIconView glyphName="" layoutX="87.0" layoutY="211.0" styleClass="icon-password" />
+                        <MaterialDesignIconView glyphName="LOCK" layoutX="236.0" layoutY="84.0" styleClass="icon-lock" />
+                        <MaterialDesignIconView glyphName="EMAIL" layoutX="87.0" layoutY="142.0" styleClass="icon-email" />
+                        <MaterialDesignIconView glyphName="TEXTBOX_PASSWORD" layoutX="87.0" layoutY="211.0" styleClass="icon-password" />
                      </children>
                   </AnchorPane>
                </content>
@@ -81,7 +81,7 @@
                               <Font size="15.0" />
                            </font>
                         </JFXTextField>
-                        <MaterialDesignIconView glyphName="" layoutX="247.0" layoutY="84.0" styleClass="icon-lock" />
+                        <MaterialDesignIconView glyphName="LOCK" layoutX="247.0" layoutY="84.0" styleClass="icon-lock" text="" />
                      </children>
                   </AnchorPane>
                </content>
@@ -90,7 +90,7 @@
       </JFXTabPane>
       <AnchorPane prefHeight="50.0" prefWidth="574.0" styleClass="panel1">
          <children>
-            <MaterialDesignIconView glyphName="" layoutX="524.0" layoutY="40.0" styleClass="icon-close" />
+            <MaterialDesignIconView glyphName="CLOSE" layoutX="524.0" layoutY="40.0" styleClass="icon-close" />
             <JFXButton fx:id="btnFechar" layoutX="514.0" onAction="#clickFechar" prefHeight="50.0" prefWidth="60.0" styleClass="button-transparent" text=" ">
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -101,7 +101,7 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <MaterialDesignIconView glyphName="" layoutX="20.0" layoutY="40.0" styleClass="icon-title" />
+            <MaterialDesignIconView glyphName="BOOK_OPEN_PAGE_VARIANT" layoutX="20.0" layoutY="40.0" styleClass="icon-title" />
          </children>
       </AnchorPane>
    </children>

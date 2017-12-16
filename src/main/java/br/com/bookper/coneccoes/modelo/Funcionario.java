@@ -16,6 +16,7 @@ public class Funcionario implements Entidade {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	private String email;
 	private String senha;
 	private String cargo;
 	@Temporal(TemporalType.DATE)
@@ -87,6 +88,14 @@ public class Funcionario implements Entidade {
 
 	public void setManipulaFuncionarios(boolean manipulaFuncionarios) {
 		this.manipulaFuncionarios = manipulaFuncionarios;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

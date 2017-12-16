@@ -4,26 +4,31 @@
 <?import com.jfoenix.controls.JFXMasonryPane?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 
-<JFXMasonryPane cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="320.0" prefWidth="320.0" styleClass="panel2" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorTelaIntermediaria">
+<JFXMasonryPane cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="315.0" minWidth="475.0" prefHeight="320.0" prefWidth="480.0" styleClass="panel2" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorTelaIntermediaria">
    <children>
-      <JFXButton fx:id="btnManipulaUsuario" onAction="#clickManipulaUsuario" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
+      <JFXButton fx:id="btnControle" onAction="#clickControle" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
          <graphic>
-            <MaterialDesignIconView glyphName="" styleClass="icon-tableedit" />
+            <MaterialDesignIconView glyphName="TABLE_EDIT" styleClass="icon-tableedit" text="" />
          </graphic>
       </JFXButton>
       <JFXButton fx:id="btnManipulaFuncionario" onAction="#clickManipulaFuncionario" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
          <graphic>
-            <MaterialDesignIconView glyphName="" styleClass="icon-worker" />
+            <MaterialDesignIconView glyphName="WORKER" styleClass="icon-worker" />
          </graphic>
       </JFXButton>
       <JFXButton fx:id="btnEstatisticas" onAction="#clickEstatistica" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
          <graphic>
-            <MaterialDesignIconView glyphName="" styleClass="icon-chart" />
+            <MaterialDesignIconView glyphName="CHART_BAR" styleClass="icon-chart" />
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnTestePersonalidade" onAction="#clickTestePersonalidade" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
+         <graphic>
+            <MaterialDesignIconView glyphName="FORMAT_LIST_CHECKS" styleClass="icon-questionary" />
          </graphic>
       </JFXButton>
       <JFXButton fx:id="btnFechar" onAction="#clickFechar" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
          <graphic>
-            <MaterialDesignIconView glyphName="" styleClass="icon-close3" />
+            <MaterialDesignIconView glyphName="CLOSE" styleClass="icon-close3" />
          </graphic>
       </JFXButton>
    </children>

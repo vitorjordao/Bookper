@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author LABINFO
+ * @author Vitor Jordão
  */
 public class IniciadorDoFX extends Application {
 
@@ -33,10 +33,6 @@ public class IniciadorDoFX extends Application {
 			tela.iniciarPadrao("LoginESenha.fxml");
 	}
 
-	/**
-	 * @param args
-	 *            the command line arguments
-	 */
 	public static void main(String[] args) {
 		InformacoesSoftware info = new InformacoesSoftware();
 		info.carregarDados();

@@ -15,30 +15,34 @@ public class ControladorTelaIntermediaria implements Initializable {
 	private ControlaTelas tela = new ControlaTelas();
 
 	@FXML
-	private JFXButton btnManipulaUsuario;
+	private JFXButton btnManipulaFuncionario;
 
 	@FXML
 	void clickFechar(ActionEvent event) {
-		tela.fechar(btnManipulaUsuario.getGraphic());
+		tela.fechar(btnManipulaFuncionario.getGraphic());
 		System.exit(0);
 	}
 
 	@FXML
 	void clickManipulaFuncionario(ActionEvent event) throws IOException {
 		tela.iniciarPadrao("ManipulaFuncionario.fxml");
-		tela.fechar(btnManipulaUsuario.getGraphic());
+		tela.fechar(btnManipulaFuncionario.getGraphic());
 	}
 
 	@FXML
-	void clickManipulaUsuario(ActionEvent event) {
-		// tela.iniciarPadrao("ManipulaFuncionario.fxml");
-		tela.fechar(btnManipulaUsuario.getGraphic());
+	void clickControle(ActionEvent event) {
+		tela.fechar(btnManipulaFuncionario.getGraphic());
 	}
 
 	@FXML
 	void clickEstatistica(ActionEvent event) {
-		// tela.iniciarPadrao("ManipulaFuncionario.fxml");
-		tela.fechar(btnManipulaUsuario.getGraphic());
+		tela.fechar(btnManipulaFuncionario.getGraphic());
+	}
+
+	@FXML
+	void clickTestePersonalidade(ActionEvent event) throws IOException {
+		tela.iniciarPadrao("Perguntas.fxml");
+		tela.fechar(btnManipulaFuncionario.getGraphic());
 	}
 
 	public void initialize(URL location, ResourceBundle resources) {

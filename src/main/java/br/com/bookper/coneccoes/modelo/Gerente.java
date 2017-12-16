@@ -31,6 +31,16 @@ public class Gerente implements Entidade {
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Livro> livro;
 
+	public Gerente() {
+	}
+
+	public Gerente(String nome, String email, String senha, String nomeUnidade) {
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.nomeUnidade = nomeUnidade;
+	}
+
 	public Integer getId() {
 		return id;
 	}

@@ -19,9 +19,9 @@
             <DropShadow />
          </effect>
          <children>
-            <MaterialDesignIconView layoutX="22.0" layoutY="71.0" styleClass="icon-left" />
+            <MaterialDesignIconView glyphName="ARROW_LEFT_THICK" layoutX="22.0" layoutY="71.0" styleClass="icon-left" />
             <JFXButton fx:id="btnVoltar" layoutX="7.0" minWidth="-Infinity" onAction="#clickVoltar" prefHeight="94.0" prefWidth="94.0" styleClass="button-transparent3" text=" " />
-            <MaterialDesignIconView glyphName="" layoutX="972.0" layoutY="70.0" styleClass="icon-close2" />
+            <MaterialDesignIconView glyphName="CLOSE" layoutX="972.0" layoutY="70.0" styleClass="icon-close2" />
             <JFXButton fx:id="btnVoltar1" layoutX="957.0" minWidth="-Infinity" onAction="#clickFechar" prefHeight="94.0" prefWidth="94.0" styleClass="button-transparent3" text=" " />
          </children>
       </AnchorPane>
@@ -52,7 +52,7 @@
       <JFXTextField labelFloat="true" layoutX="763.0" layoutY="118.0" prefHeight="33.0" prefWidth="210.0" promptText="Pesquisar" styleClass="text-field-ok2" />
       <JFXButton fx:id="btnPesquisar" layoutX="973.0" layoutY="99.0" onAction="#clickPesquisar" prefHeight="58.0" prefWidth="68.0" ripplerFill="WHITE" styleClass="button-transparent1" text="&#10;">
          <graphic>
-            <MaterialDesignIconView glyphName="" styleClass="icon-search" />
+            <MaterialDesignIconView glyphName="MAGNIFY" styleClass="icon-search" />
          </graphic>
       </JFXButton>
    </children>

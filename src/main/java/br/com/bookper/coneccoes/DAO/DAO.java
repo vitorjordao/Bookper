@@ -31,6 +31,7 @@ public class DAO {
 		em.close();
 	}
 
+	// testar
 	public List<Entidade> buscaPorNome(Entidade entidade, String nome) {
 		Class<?> c = entidade.getClass();
 		for (Field f : c.getFields()) {

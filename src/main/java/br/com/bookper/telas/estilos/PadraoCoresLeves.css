@@ -124,6 +124,11 @@
 	-glyph-size: 110;
 	-glyph-name: CLOSE;
 }
+.icon-questionary{
+	-fx-fill: -fx-primarytext;
+	-glyph-size: 110;
+	-glyph-name: FORMAT_LIST_CHECKS;
+}
 .icon-left{
 	-fx-fill: -fx-primarytext;
 	-glyph-size: 65;

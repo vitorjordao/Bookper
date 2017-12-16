@@ -12,6 +12,7 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
 import br.com.bookper.coneccoes.DAO.DAO;
+import br.com.bookper.coneccoes.DAO.FuncionarioDAO;
 import br.com.bookper.coneccoes.DAO.GerenteDAO;
 import br.com.bookper.coneccoes.modelo.Gerente;
 import br.com.bookper.coneccoes.util.JPAUtil;
@@ -29,6 +30,7 @@ public class ControladorLoginESenha implements Initializable {
 	private EntityManager em = new JPAUtil().getEntityManager();
 	private ControlaTelas tela = new ControlaTelas();
 	private GerenteDAO gerenteDAO = new GerenteDAO(em);
+	private ValidarDados validarDados = new ValidarDados();
 	@FXML
 	private ResourceBundle resources;
 
@@ -82,13 +84,21 @@ public class ControladorLoginESenha implements Initializable {
 
 	@FXML
 	private void clickLogar(ActionEvent event) throws IOException {
-		if (gerenteDAO.buscarLogin(txtEmailLogin.getText(), txtSenhaLogin.getText())) {
-			ControlaUsuario controlaUsuario = new ControlaUsuario();
-			controlaUsuario.salvar(txtEmailLogin.getText(), txtSenhaLogin.getText(),
-					checkLogarAutomaticamente.isSelected());
-			logar();
-		} else
+		String email = txtEmailLogin.getText();
+		String senha = txtSenhaLogin.getText();
+		if (validarDados.validaLogin(email, senha)) {
+			FuncionarioDAO funcionarioDAO = new FuncionarioDAO(em);
+			if (gerenteDAO.buscarLogin(email, senha) || funcionarioDAO.buscarLogin(email, senha)) {
+				ControlaUsuario controlaUsuario = new ControlaUsuario();
+				controlaUsuario.salvar(txtEmailLogin.getText(), txtSenhaLogin.getText(),
+						checkLogarAutomaticamente.isSelected());
+				logar();
+			} else {
+				new TelasPopUp(AlertType.ERROR, "Login", "Erro no login", "Não existe essa conta!");
+			}
+		} else {
 			new TelasPopUp(AlertType.ERROR, "Login", "Erro no login", "Não existe essa conta!");
+		}
 	}
 
 	@FXML
@@ -98,15 +108,10 @@ public class ControladorLoginESenha implements Initializable {
 		String senha = txtSenhaRegistro.getText();
 		String repitaSenha = txtRepitaSenhaRegistro.getText();
 		String email = txtEmailRegistro.getText();
-		ValidarDados validarDados = new ValidarDados(nome, nomeUnidade, senha, repitaSenha, email);
-		if (validarDados.getValidado().equals("")) {
+		if (validarDados.validaRegistro(nome, nomeUnidade, senha, repitaSenha, email)) {
 			try {
 				if (!gerenteDAO.buscarEmail(email)) {
-					Gerente gerente = new Gerente();
-					gerente.setEmail(email);
-					gerente.setNome(nome);
-					gerente.setSenha(senha);
-					gerente.setNomeUnidade(nomeUnidade);
+					Gerente gerente = new Gerente(nome, email, senha, nomeUnidade);
 					DAO dao = new DAO(em);
 					dao.cadastrar(gerente);
 					logar();
