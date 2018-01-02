@@ -14,7 +14,6 @@ import br.com.bookper.coneccoes.DAO.GerenteDAO;
 import br.com.bookper.coneccoes.util.JPAUtil;
 import br.com.bookper.controladores.telas.ControlaTelas;
 import br.com.bookper.dadosnamaquina.ControlaUsuario;
-import br.com.bookper.informacoes.InformacoesSoftware;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -29,13 +28,12 @@ public class IniciadorDoFX extends Application {
 		ControlaTelas tela = new ControlaTelas();
 		if (verificaLogin()) {
 			tela.iniciarPadrao("TelaIntermediaria.fxml");
-		} else
+		}
+		else
 			tela.iniciarPadrao("LoginESenha.fxml");
 	}
 
 	public static void main(String[] args) {
-		InformacoesSoftware info = new InformacoesSoftware();
-		info.carregarDados();
 		launch(args);
 	}
 
@@ -43,10 +41,9 @@ public class IniciadorDoFX extends Application {
 		ControlaUsuario controlaUsuario = new ControlaUsuario();
 		if (controlaUsuario.verificarPermanenciaDeLogin()) {
 			EntityManager em = new JPAUtil().getEntityManager();
-
-			Scanner credenciais = controlaUsuario.getCredenciais();
-
 			GerenteDAO gerenteDAO = new GerenteDAO(em);
+			Scanner credenciais = controlaUsuario.getCredenciais();
+			credenciais.nextLine();
 			return gerenteDAO.buscarLogin(credenciais.nextLine(), credenciais.nextLine());
 		}
 		return false;

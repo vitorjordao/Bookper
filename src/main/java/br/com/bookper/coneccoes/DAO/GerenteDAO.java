@@ -22,12 +22,21 @@ public class GerenteDAO {
 		return query.getResultList().size() != 0;
 	}
 
-	public boolean buscarEmail(String email) {
+	public boolean existeEmail(String email) {
 		String jpql = "select m from Gerente m where m.email = :pEmail";
 
 		TypedQuery<Gerente> query = em.createQuery(jpql, Gerente.class);
 		query.setParameter("pEmail", email);
 
 		return query.getResultList().size() != 0;
+	}
+
+	public Gerente buscaEmail(String email) {
+		String jpql = "select m from Gerente m where m.email = :pEmail";
+
+		TypedQuery<Gerente> query = em.createQuery(jpql, Gerente.class);
+		query.setParameter("pEmail", email);
+
+		return query.getSingleResult();
 	}
 }

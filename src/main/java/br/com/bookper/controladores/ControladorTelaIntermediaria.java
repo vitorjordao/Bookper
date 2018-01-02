@@ -1,6 +1,5 @@
 package br.com.bookper.controladores;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -18,33 +17,34 @@ public class ControladorTelaIntermediaria implements Initializable {
 	private JFXButton btnManipulaFuncionario;
 
 	@FXML
-	void clickFechar(ActionEvent event) {
+	private void clickFechar(ActionEvent event) {
 		tela.fechar(btnManipulaFuncionario.getGraphic());
 		System.exit(0);
 	}
 
 	@FXML
-	void clickManipulaFuncionario(ActionEvent event) throws IOException {
+	private void clickManipulaFuncionario(ActionEvent event) {
 		tela.iniciarPadrao("ManipulaFuncionario.fxml");
 		tela.fechar(btnManipulaFuncionario.getGraphic());
 	}
 
 	@FXML
-	void clickControle(ActionEvent event) {
+	private void clickControle(ActionEvent event) {
 		tela.fechar(btnManipulaFuncionario.getGraphic());
 	}
 
 	@FXML
-	void clickEstatistica(ActionEvent event) {
+	private void clickEstatistica(ActionEvent event) {
 		tela.fechar(btnManipulaFuncionario.getGraphic());
 	}
 
 	@FXML
-	void clickTestePersonalidade(ActionEvent event) throws IOException {
+	private void clickTestePersonalidade(ActionEvent event) {
 		tela.iniciarPadrao("Perguntas.fxml");
 		tela.fechar(btnManipulaFuncionario.getGraphic());
 	}
 
+	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
 	}
