@@ -5,7 +5,6 @@
  */
 package br.com.bookper.controladores;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -13,11 +12,9 @@ import com.jfoenix.controls.JFXRadioButton;
 
 import br.com.bookper.coneccoes.modelo.Livro;
 import br.com.bookper.controladores.telas.ControlaTelas;
-import br.com.bookper.informacoes.InformacoesSoftware;
 import br.com.bookper.recomendacoes.RecomendacoesDeLivros;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 
 /**
  *
@@ -25,9 +22,6 @@ import javafx.scene.control.Label;
  */
 public class ControladorFinal implements Initializable {
 	private ControlaTelas tela = new ControlaTelas();
-
-	@FXML
-	private Label lblInformacoes;
 
 	@FXML
 	private JFXRadioButton rbdGostou1;
@@ -54,19 +48,10 @@ public class ControladorFinal implements Initializable {
 	}
 
 	@FXML
-	private void clickRecomecar() throws IOException {
-		if (rbdGostou1.isSelected()) {
-			// pessoa.setAvaliacao(true);
-		} else if (rbdGostou2.isSelected()) {
-			// pessoa.setAvaliacao(true);
-		} else if (rbdGostou3.isSelected()) {
-			// pessoa.setAvaliacao(true);
-		} else {
-			// pessoa.setAvaliacao(false);
-		}
+	private void clickRecomecar() {
 		salvaPessoa();
 		tela.iniciarPadrao("Nome.fxml");
-		tela.fechar(lblInformacoes);
+		tela.fechar(rbdGostou1);
 
 	}
 
@@ -74,9 +59,8 @@ public class ControladorFinal implements Initializable {
 
 	}
 
+	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		InformacoesSoftware info = new InformacoesSoftware();
-		lblInformacoes.setText(info.pegarDados());
 		RecomendacoesDeLivros recomendacoesDeLivros = new RecomendacoesDeLivros();
 		Livro l1 = recomendacoesDeLivros.getRecomendacao1();
 		l1.getNome();

@@ -26,6 +26,23 @@ public class Funcionario implements Entidade {
 	@ManyToOne
 	private Gerente gerente;
 
+	public Funcionario() {
+
+	}
+
+	public Funcionario(String nome, String email, String senha, String cargo,
+	        Calendar dataDeContratacao,
+	        boolean manipulaLivros, boolean manipulaFuncionarios, Gerente gerente) {
+		this.nome = nome;
+		this.email = email;
+		this.senha = senha;
+		this.cargo = cargo;
+		this.dataDeContratacao = dataDeContratacao;
+		this.manipulaLivros = manipulaLivros;
+		this.manipulaFuncionarios = manipulaFuncionarios;
+		this.gerente = gerente;
+	}
+
 	public Gerente getGerente() {
 		return gerente;
 	}
@@ -34,10 +51,12 @@ public class Funcionario implements Entidade {
 		this.gerente = gerente;
 	}
 
+	@Override
 	public Integer getId() {
 		return id;
 	}
 
+	@Override
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -48,6 +67,14 @@ public class Funcionario implements Entidade {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getSenha() {
@@ -88,14 +115,6 @@ public class Funcionario implements Entidade {
 
 	public void setManipulaFuncionarios(boolean manipulaFuncionarios) {
 		this.manipulaFuncionarios = manipulaFuncionarios;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 }

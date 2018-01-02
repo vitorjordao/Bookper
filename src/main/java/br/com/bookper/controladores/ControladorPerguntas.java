@@ -5,7 +5,6 @@
  */
 package br.com.bookper.controladores;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -74,28 +73,27 @@ public class ControladorPerguntas implements Initializable {
 			if (!rbdResposta1.isSelected() && !rbdResposta2.isSelected()) {
 				JPanel panel = new JPanel();
 				JOptionPane.showMessageDialog(panel, "Selecione uma resposta!", "Erro na seleção",
-						JOptionPane.ERROR_MESSAGE);
-			} else {
+				        JOptionPane.ERROR_MESSAGE);
+			}
+			else {
 
 				if (rbdResposta1.isSelected()) {
 					setPersonalidades(verificaPergunta.getCont(), true);
-				} else {
+				}
+				else {
 					setPersonalidades(verificaPergunta.getCont(), false);
 				}
 
 				if (!verificaPergunta.contar()) {
 					ControlaTelas tela = new ControlaTelas();
-					try {
-						tela.iniciarPadrao("Final.fxml");
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+					tela.iniciarPadrao("Final.fxml");
 					tela.fechar(lblPergunta);
 				}
 				setarTudo();
 				btnVoltar.setVisible(true);
 			}
-		} else {
+		}
+		else {
 			if (!verificaPergunta.voltarContagem()) {
 				System.out.println("Erro no contador");
 			}
@@ -106,6 +104,7 @@ public class ControladorPerguntas implements Initializable {
 		}
 	}
 
+	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		btnVoltar.setVisible(false);
 		setarTudo();
@@ -126,17 +125,20 @@ public class ControladorPerguntas implements Initializable {
 	public void setPersonalidades(int i, boolean personalidade) {
 		if (i == 1) {
 			this.mente = personalidade;
-		} else if (i == 2) {
+		}
+		else if (i == 2) {
 			this.energia = personalidade;
-		} else if (i == 3) {
+		}
+		else if (i == 3) {
 			this.natureza = personalidade;
-		} else if (i == 4) {
+		}
+		else if (i == 4) {
 			this.taticas = personalidade;
-		} else if (i == 5) {
+		}
+		else if (i == 5) {
 			this.identidade = personalidade;
 			GeradorDePersonalidades gerado = new GeradorDePersonalidades();
 			gerado.gerarPersonalidade(this.mente, this.energia, this.natureza, this.taticas, this.identidade);
-			//
 		}
 	}
 }

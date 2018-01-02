@@ -5,14 +5,17 @@ public class Senha implements Validacoes {
 	private static String repitaSenha;
 	private static int count;
 
-	public TiposValidacoes isValido(String dado) {
+	@Override
+	public TiposValidacoes isValido(Object dado) {
+		String dadoOk = (String) dado;
 		if (count != 1) {
-			senha = dado;
-		} else {
-			repitaSenha = dado;
+			senha = dadoOk;
+		}
+		else {
+			repitaSenha = dadoOk;
 		}
 
-		if (dado.length() >= 8) {
+		if (dadoOk.length() >= 8) {
 			if (count == 1) {
 				count = 0;
 				if (senha.equals(repitaSenha)) {

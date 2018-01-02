@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ControlaUsuario {
 
-	public void salvar(String email, String senha, boolean salvar) {
+	public void salvar(String email, String senha, boolean salvar, String emailGerente) {
 		try {
 			Scanner entrada;
 			PrintStream saida = new PrintStream(new FileOutputStream("UsuarioLogado.txt"));
@@ -20,8 +20,12 @@ public class ControlaUsuario {
 			entrada = new Scanner(senha);
 			saida.println(entrada.nextLine());
 			entrada.close();
+			entrada = new Scanner(emailGerente);
+			saida.println(entrada.nextLine());
+			entrada.close();
 			saida.close();
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			System.out.println(e);
 		}
 	}
@@ -32,7 +36,8 @@ public class ControlaUsuario {
 			boolean b = entrada.nextBoolean();
 			entrada.close();
 			return b;
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			System.out.println(e);
 			return false;
 		}
@@ -41,9 +46,10 @@ public class ControlaUsuario {
 	public Scanner getCredenciais() {
 		try {
 			Scanner entrada = new Scanner(new FileInputStream("UsuarioLogado.txt"));
-			entrada.nextLine();
+
 			return entrada;
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			System.out.println(e);
 			return null;
 		}

@@ -2,8 +2,10 @@ package br.com.bookper.validacoes;
 
 public class Nome implements Validacoes {
 
-	public TiposValidacoes isValido(String nome) {
-		if (nome.matches("[A-Z][a-z]{1,}")) {
+	@Override
+	public TiposValidacoes isValido(Object nome) {
+		String nomeOk = (String) nome;
+		if (nomeOk.matches("[A-Z][a-z]{1,}")) {
 			return TiposValidacoes.OK;
 
 		}

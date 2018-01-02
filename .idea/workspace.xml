@@ -2,107 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e26862bd-3562-43d2-ba68-38936e275cd8" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jfoenix_9_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/jfoenix_9_0_0.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jfoenix_9_0_01.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jfoenix_9_0_0__2_.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jfoenix_9_0_0__3_.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" />
-      <change beforePath="$PROJECT_DIR$/Bookper.iml" afterPath="$PROJECT_DIR$/Bookper.iml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/UsuarioLogado.txt" afterPath="$PROJECT_DIR$/UsuarioLogado.txt" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/IniciadorDoFX.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/IniciadorDoFX.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/coneccoes/modelo/Pessoa.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/coneccoes/modelo/PessoaAuxiliar.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/coneccoes/DAO/FuncionarioDAO.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/coneccoes/DAO/FuncionarioDAO.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/coneccoes/DAO/GerenteDAO.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/coneccoes/DAO/GerenteDAO.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/coneccoes/modelo/Funcionario.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/coneccoes/modelo/Funcionario.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/controladores/ControladorFinal.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/controladores/ControladorFinal.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/controladores/ControladorLoginESenha.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/controladores/ControladorLoginESenha.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/controladores/ControladorManipulaFuncionario.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/controladores/ControladorManipulaFuncionario.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/controladores/ControladorPerguntas.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/controladores/ControladorPerguntas.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/limpesas/LimpesaGrande.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/limpesas/LimpesaGrande.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/limpesas/TestaLimpesaGrande.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/limpesas/TestaLimpesaGrande.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/personalidade/GeradorDePersonalidades.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/personalidade/GeradorDePersonalidades.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/telas/LoginESenha.fxml" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/telas/LoginESenha.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/controladores/ControladorTelaIntermediaria.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/controladores/ControladorTelaIntermediaria.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/controladores/telas/ControlaTelas.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/controladores/telas/ControlaTelas.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/dadosnamaquina/ControlaUsuario.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/dadosnamaquina/ControlaUsuario.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/informacoes/InformacoesSoftware.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/recomendacoes/GeradorDePersonalidades.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/recomendacoes/GeradorDePersonalidades.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/telas/Final.fxml" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/telas/Final.fxml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/telas/ManipulaFuncionario.fxml" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/telas/ManipulaFuncionario.fxml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/validacoes/Email.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/validacoes/Email.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/validacoes/Nome.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/validacoes/Nome.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/validacoes/Senha.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/validacoes/Senha.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/validacoes/Validacoes.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/validacoes/Validacoes.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/bookper/validacoes/ValidarDados.java" afterPath="$PROJECT_DIR$/src/main/java/br/com/bookper/validacoes/ValidarDados.java" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/Bookper/Bookper/pom.properties" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/Bookper/Bookper/pom.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/IniciadorDoFX.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/coneccoes/DAO/DAO.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/coneccoes/modelo/Avaliacao.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/coneccoes/modelo/Cliente.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/coneccoes/modelo/Entidade.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/coneccoes/modelo/Funcionario.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/coneccoes/modelo/Gerente.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/coneccoes/modelo/Livro.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/coneccoes/modelo/Pessoa.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/coneccoes/modelo/PessoaAuxiliar.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/coneccoes/util/JPAUtil.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/ControladorFinal.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/ControladorLoginESenha.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/ControladorManipulaFuncionario.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/ControladorPerguntas.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/ControladorTelaIntermediaria.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/telas/ControlaTelas.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/telas/TelasPopUp.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/imagens/icones/bookper.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/imagens/icones/ic_account_edit_grey600_48dp.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/imagens/icones/ic_arrow_left_thick_grey600_48dp.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/imagens/icones/ic_book_open_page_variant_grey600_48dp.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/imagens/icones/ic_chart_bar_grey600_48dp.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/imagens/icones/ic_close_grey600_48dp.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/imagens/icones/ic_email_grey600_48dp.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/imagens/icones/ic_lock_grey600_48dp.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/imagens/icones/ic_magnify_grey600_48dp.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/imagens/icones/ic_textbox_password_grey600_48dp.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/imagens/icones/ic_worker_grey600_48dp.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/Bookper/Bookper/pom.properties" afterPath="$PROJECT_DIR$/target/classes/META-INF/maven/Bookper/Bookper/pom.properties" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/IniciadorDoFX.class" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/IniciadorDoFX.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/coneccoes/DAO/FuncionarioDAO.class" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/coneccoes/DAO/FuncionarioDAO.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/coneccoes/DAO/GerenteDAO.class" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/coneccoes/DAO/GerenteDAO.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/coneccoes/modelo/Funcionario.class" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/coneccoes/modelo/Funcionario.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/ControladorFinal.class" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/ControladorFinal.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/ControladorLoginESenha.class" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/ControladorLoginESenha.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/ControladorManipulaFuncionario.class" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/ControladorManipulaFuncionario.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/ControladorPerguntas.class" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/ControladorPerguntas.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/ControladorTelaIntermediaria.class" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/ControladorTelaIntermediaria.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/telas/ControlaTelas.class" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/controladores/telas/ControlaTelas.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/dadosnamaquina/ControlaUsuario.class" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/dadosnamaquina/ControlaUsuario.class" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/informacoes/InformacoesSoftware.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/limpesas/LimpesaGrande.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/limpesas/TestaLimpesaGrande.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/perguntas/PerguntaEnergia.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/perguntas/PerguntaIdentidade.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/perguntas/PerguntaMente.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/perguntas/PerguntaNatureza.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/perguntas/PerguntaTaticas.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/perguntas/Perguntas.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/perguntas/VerificaPergunta.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidade/GeradorDePersonalidades.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Advogado.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Animador.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Arquiteto.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Ativista.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Aventureiro.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Comandante.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Consul.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Defensor.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Empresario.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Executivo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Inovador.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Logico.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Logistico.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Mediador.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Personalidades.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Protagonista.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Robo.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/TestaPersonalidades.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/VerificadorDePersonalidades.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/personalidades/Virtuoso.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/telas/Final.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/telas/LoginESenha.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/telas/ManipulaFuncionario.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/telas/Perguntas.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/telas/TelaIntermediaria.fxml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/telas/estilos/PadraoCoresLeves.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/tests/testesmanuais/TestTelaIntermediaria.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/validacoes/Email.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/validacoes/Nome.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/validacoes/Senha.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/validacoes/TiposValidacoes.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/validacoes/Validacoes.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/validacoes/ValidarDados.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/recomendacoes/GeradorDePersonalidades.class" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/recomendacoes/GeradorDePersonalidades.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/telas/Final.fxml" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/telas/Final.fxml" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/telas/ManipulaFuncionario.fxml" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/telas/ManipulaFuncionario.fxml" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/validacoes/Email.class" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/validacoes/Email.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/validacoes/Nome.class" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/validacoes/Nome.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/validacoes/Senha.class" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/validacoes/Senha.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/validacoes/Validacoes.class" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/validacoes/Validacoes.class" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/bookper/validacoes/ValidarDados.class" afterPath="$PROJECT_DIR$/target/classes/br/com/bookper/validacoes/ValidarDados.class" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -113,12 +54,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="IniciadorDoFX.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/com/bookper/IniciadorDoFX.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            <state relative-caret-position="170">
+              <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -127,8 +68,8 @@
       <file leaf-file-name="ControladorPerguntas.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/br/com/bookper/controladores/ControladorPerguntas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+            <state relative-caret-position="108">
+              <caret line="22" column="24" lean-forward="false" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -138,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/UsuarioLogado.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+              <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -199,11 +140,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/JFXTreeTableView/JFXTreeTableView" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -343,32 +287,32 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296355" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -397,8 +341,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/com/bookper/controladores/ControladorPerguntas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
+        <state relative-caret-position="323">
           <caret line="23" column="24" lean-forward="false" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/bookper/IniciadorDoFX.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UsuarioLogado.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="4" lean-forward="false" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/com/bookper/controladores/ControladorPerguntas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="22" column="24" lean-forward="false" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
           <folding />
         </state>
       </provider>

@@ -15,11 +15,6 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="684.0" prefWidth="1150.0" styleClass="panel1" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorFinal">
    <children>
       <JFXButton fx:id="clickRecomecar" layoutX="487.0" layoutY="510.0" prefHeight="62.0" prefWidth="181.0" styleClass="button-simples" text="Recomeçar" />
-      <Label fx:id="lblInformacoes" alignment="CENTER" layoutX="-1.0" layoutY="628.0" prefHeight="56.0" prefWidth="1157.0" styleClass="label-simples" text="Informação&#10;Informação 2" textFill="#4f9beb">
-         <font>
-            <Font name="Dubai Bold" size="12.0" />
-         </font>
-      </Label>
       <AnchorPane fx:id="panRecomendacao1" layoutX="14.0" layoutY="77.0" prefHeight="415.0" prefWidth="333.0" styleClass="panel2">
          <children>
             <ImageView fx:id="imgCapa1" fitHeight="265.0" fitWidth="200.0" layoutX="67.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true" />
@@ -82,7 +77,7 @@
             <DropShadow blurType="TWO_PASS_BOX" height="17.0" radius="8.0" width="17.0" />
          </effect>
       </AnchorPane>
-      <Label layoutX="14.0" layoutY="527.0" styleClass="label-nome-livros" text="Receba notificações de livros por e-mail!" />
-      <JFXTextField layoutX="79.0" layoutY="585.0" prefHeight="33.0" prefWidth="273.0" promptText="E-mail" styleClass="text-field-ok" />
+      <Label layoutX="376.0" layoutY="586.0" styleClass="label-nome-livros" text="Receba notificações de livros por e-mail!" />
+      <JFXTextField layoutX="441.0" layoutY="637.0" prefHeight="33.0" prefWidth="273.0" promptText="E-mail" styleClass="text-field-ok" />
    </children>
 </Pane>
