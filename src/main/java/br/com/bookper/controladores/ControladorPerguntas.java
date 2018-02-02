@@ -68,10 +68,10 @@ public class ControladorPerguntas implements Initializable {
 		alterarPergunta(false);
 	}
 
-	private void alterarPergunta(boolean avancaOuVolta) {
+	private void alterarPergunta(final boolean avancaOuVolta) {
 		if (avancaOuVolta) {
 			if (!rbdResposta1.isSelected() && !rbdResposta2.isSelected()) {
-				JPanel panel = new JPanel();
+				final JPanel panel = new JPanel();
 				JOptionPane.showMessageDialog(panel, "Selecione uma resposta!", "Erro na seleção",
 				        JOptionPane.ERROR_MESSAGE);
 			}
@@ -85,7 +85,7 @@ public class ControladorPerguntas implements Initializable {
 				}
 
 				if (!verificaPergunta.contar()) {
-					ControlaTelas tela = new ControlaTelas();
+					final ControlaTelas tela = new ControlaTelas();
 					tela.iniciarPadrao("Final.fxml");
 					tela.fechar(lblPergunta);
 				}
@@ -105,7 +105,7 @@ public class ControladorPerguntas implements Initializable {
 	}
 
 	@Override
-	public void initialize(URL url, ResourceBundle rb) {
+	public void initialize(final URL url, final ResourceBundle rb) {
 		btnVoltar.setVisible(false);
 		setarTudo();
 	}
@@ -122,7 +122,7 @@ public class ControladorPerguntas implements Initializable {
 		lblNumeroPergunta.setText("Pergunta " + verificaPergunta.getCont() + "/5");
 	}
 
-	public void setPersonalidades(int i, boolean personalidade) {
+	public void setPersonalidades(final int i, final boolean personalidade) {
 		if (i == 1) {
 			this.mente = personalidade;
 		}
@@ -137,7 +137,7 @@ public class ControladorPerguntas implements Initializable {
 		}
 		else if (i == 5) {
 			this.identidade = personalidade;
-			GeradorDePersonalidades gerado = new GeradorDePersonalidades();
+			final GeradorDePersonalidades gerado = new GeradorDePersonalidades();
 			gerado.gerarPersonalidade(this.mente, this.energia, this.natureza, this.taticas, this.identidade);
 		}
 	}

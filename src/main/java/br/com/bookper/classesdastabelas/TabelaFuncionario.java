@@ -2,25 +2,29 @@ package br.com.bookper.classesdastabelas;
 
 import java.util.Calendar;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
 
 public class TabelaFuncionario extends RecursiveTreeObject<TabelaFuncionario> {
-	private StringProperty id;
-	private StringProperty nome;
-	private StringProperty email;
-	private StringProperty senha;
-	private StringProperty cargo;
-	private StringProperty dataDeContratacao;
-	private StringProperty manipulaLivros;
-	private StringProperty manipulaFuncionarios;
+	private final StringProperty id;
+	private final StringProperty nome;
+	private final StringProperty email;
+	private final StringProperty senha;
+	private final StringProperty cargo;
+	private final StringProperty dataDeContratacao;
+	private final StringProperty manipulaLivros;
+	private final StringProperty manipulaFuncionarios;
+	private ObservableValue<JFXButton> jfxButton;
 
-	public TabelaFuncionario(Integer id, String nome, String email,
-	        String senha, String cargo, Calendar dataDeContratacao,
-	        Boolean manipulaLivros, Boolean manipulaFuncionarios) {
+	public TabelaFuncionario(final Integer id, final String nome, final String email,
+	        final String senha, final String cargo, final Calendar dataDeContratacao,
+	        final Boolean manipulaLivros, final Boolean manipulaFuncionarios) {
 		super();
+		// jfxButton.getValue().setText("Teste");
 
 		this.id = new SimpleStringProperty(Integer.toString(id));
 		this.nome = new SimpleStringProperty(nome);
@@ -78,6 +82,9 @@ public class TabelaFuncionario extends RecursiveTreeObject<TabelaFuncionario> {
 	}
 	public String getManipulaFuncionarios() {
 		return manipulaFuncionarios.get();
+	}
+	public ObservableValue<JFXButton> getJfxButton() {
+		return jfxButton;
 	}
 
 }

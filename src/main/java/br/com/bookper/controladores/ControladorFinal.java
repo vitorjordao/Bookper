@@ -15,13 +15,14 @@ import br.com.bookper.controladores.telas.ControlaTelas;
 import br.com.bookper.recomendacoes.RecomendacoesDeLivros;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 
 /**
  *
  * @author LABINFO
  */
 public class ControladorFinal implements Initializable {
-	private ControlaTelas tela = new ControlaTelas();
+	private final ControlaTelas tela = new ControlaTelas();
 
 	@FXML
 	private JFXRadioButton rbdGostou1;
@@ -31,6 +32,15 @@ public class ControladorFinal implements Initializable {
 
 	@FXML
 	private JFXRadioButton rbdGostou3;
+
+	@FXML
+	private Label lblNomeLivro1;
+
+	@FXML
+	private Label lblNomeLivro2;
+
+	@FXML
+	private Label lblNomeLivro3;
 
 	@FXML
 	private void clickNaoGostou1() {
@@ -60,14 +70,14 @@ public class ControladorFinal implements Initializable {
 	}
 
 	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-		RecomendacoesDeLivros recomendacoesDeLivros = new RecomendacoesDeLivros();
-		Livro l1 = recomendacoesDeLivros.getRecomendacao1();
-		l1.getNome();
-		Livro l2 = recomendacoesDeLivros.getRecomendacao2();
-		l2.getNome();
-		Livro l3 = recomendacoesDeLivros.getRecomendacao3();
-		l3.getNome();
+	public void initialize(final URL url, final ResourceBundle rb) {
+		final RecomendacoesDeLivros recomendacoesDeLivros = new RecomendacoesDeLivros();
+		final Livro l1 = recomendacoesDeLivros.getRecomendacao1();
+		lblNomeLivro1.setText(l1.getNome());
+		final Livro l2 = recomendacoesDeLivros.getRecomendacao2();
+		lblNomeLivro2.setText(l2.getNome());
+		final Livro l3 = recomendacoesDeLivros.getRecomendacao3();
+		lblNomeLivro3.setText(l3.getNome());
 
 	}
 

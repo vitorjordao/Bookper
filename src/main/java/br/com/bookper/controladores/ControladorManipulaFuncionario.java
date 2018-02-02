@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import javax.persistence.EntityManager;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
@@ -32,8 +33,8 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.layout.AnchorPane;
 
 public class ControladorManipulaFuncionario implements Initializable {
-	private ControlaTelas tela = new ControlaTelas();
-	private EntityManager em = new JPAUtil().getEntityManager();
+	private final ControlaTelas tela = new ControlaTelas();
+	private final EntityManager em = new JPAUtil().getEntityManager();
 	List<Funcionario> ultimaListaDeFuncionarios = new FuncionarioDAO(em).pegarTodosOsFuncionarios();
 
 	@FXML
@@ -67,15 +68,16 @@ public class ControladorManipulaFuncionario implements Initializable {
 	private JFXTreeTableView<TabelaFuncionario> ttbFuncionario;
 
 	@FXML
-	private void clickCadastrar(ActionEvent event) {
-		String nome = txtCadastrarNomeFuncionario.getText();
-		String senha = txtCadastrarSenhaFuncionario.getText();
-		String email = txtCadastrarEmailFuncionario.getText();
-		String cargo = txtCadastrarCargoFuncionario.getText();
-		LocalDate data = dpCadastrarDataFuncionario.getValue();
-		boolean manipulaLivro = tgCadastrarManipulaLivroFuncionario.isSelected();
-		boolean manipulaFuncionarios = tgCadastrarManipulaFuncionariosFuncionario.isSelected();
-		ValidaRegistroFuncionario registroFuncionario = new ValidaRegistroFuncionario(nome, senha, email, cargo, data,
+	private void clickCadastrar(final ActionEvent event) {
+		final String nome = txtCadastrarNomeFuncionario.getText();
+		final String senha = txtCadastrarSenhaFuncionario.getText();
+		final String email = txtCadastrarEmailFuncionario.getText();
+		final String cargo = txtCadastrarCargoFuncionario.getText();
+		final LocalDate data = dpCadastrarDataFuncionario.getValue();
+		final boolean manipulaLivro = tgCadastrarManipulaLivroFuncionario.isSelected();
+		final boolean manipulaFuncionarios = tgCadastrarManipulaFuncionariosFuncionario.isSelected();
+		final ValidaRegistroFuncionario registroFuncionario = new ValidaRegistroFuncionario(nome, senha, email, cargo,
+		        data,
 		        manipulaLivro, manipulaFuncionarios);
 		if (registroFuncionario.estaOK()) {
 			listarFuncionarios(ultimaListaDeFuncionarios);
@@ -83,26 +85,26 @@ public class ControladorManipulaFuncionario implements Initializable {
 	}
 
 	@FXML
-	private void clickVoltar(ActionEvent event) throws IOException {
+	private void clickVoltar(final ActionEvent event) throws IOException {
 		tela.iniciarPadrao("TelaIntermediaria.fxml");
 		tela.fechar(panPrincipal);
 	}
 
 	@FXML
-	private void clickFechar(ActionEvent event) {
+	private void clickFechar(final ActionEvent event) {
 		tela.fechar(panPrincipal);
 		System.exit(0);
 	}
 
 	@FXML
-	private void clickPesquisar(ActionEvent event) {
+	private void clickPesquisar(final ActionEvent event) {
 		txtPesquisar.setDisable(true);
 
-		String textoDaPesquisa = txtPesquisar.getText();
+		final String textoDaPesquisa = txtPesquisar.getText();
 		if (textoDaPesquisa.equals("") || textoDaPesquisa == null)
 			ultimaListaDeFuncionarios = pegarListaNoBanco();
 		else {
-			List<Funcionario> listaDaPesquisa = new ArrayList<>();
+			final List<Funcionario> listaDaPesquisa = new ArrayList<>();
 			pegarListaNoBanco().forEach(funcionario -> {
 				if (textoDaPesquisa.contains(funcionario.getNome()) || textoDaPesquisa.contains(funcionario.getSenha())
 				        || textoDaPesquisa.contains(funcionario.getEmail())
@@ -120,13 +122,13 @@ public class ControladorManipulaFuncionario implements Initializable {
 	}
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+	public void initialize(final URL location, final ResourceBundle resources) {
 		ultimaListaDeFuncionarios = pegarListaNoBanco();
 		listarFuncionarios(ultimaListaDeFuncionarios);
 	}
 
-	private void listarFuncionarios(List<Funcionario> funcionarios) {
-		ObservableList<TabelaFuncionario> listFuncionarioTabela = FXCollections.observableArrayList();
+	private void listarFuncionarios(final List<Funcionario> funcionarios) {
+		final ObservableList<TabelaFuncionario> listFuncionarioTabela = FXCollections.observableArrayList();
 		if (!listFuncionarioTabela.isEmpty())
 			listFuncionarioTabela.clear();
 		funcionarios.forEach(funcionario -> {
@@ -143,46 +145,60 @@ public class ControladorManipulaFuncionario implements Initializable {
 
 	}
 
-	private void adicionaColunasEDados(ObservableList<TabelaFuncionario> listFuncionarioTabela) {
-		JFXTreeTableColumn<TabelaFuncionario, String> colId = new JFXTreeTableColumn<>("#");
+	private void adicionaColunasEDados(final ObservableList<TabelaFuncionario> listFuncionarioTabela) {
+
+		final JFXTreeTableColumn<TabelaFuncionario, String> colId = new JFXTreeTableColumn<>(
+		        "#");
 		colId.setPrefWidth(30);
 		colId.setCellValueFactory(param -> param.getValue().getValue().getIdProperty());
 
-		JFXTreeTableColumn<TabelaFuncionario, String> colNome = new JFXTreeTableColumn<>("Nome");
+		final JFXTreeTableColumn<TabelaFuncionario, String> colNome = new JFXTreeTableColumn<>(
+		        "Nome");
 		colNome.setPrefWidth(70);
 		colNome.setCellValueFactory(param -> param.getValue().getValue().getNomeProperty());
 
-		JFXTreeTableColumn<TabelaFuncionario, String> colSenha = new JFXTreeTableColumn<>("Senha");
+		final JFXTreeTableColumn<TabelaFuncionario, String> colSenha = new JFXTreeTableColumn<>(
+		        "Senha");
 		colSenha.setPrefWidth(70);
 		colSenha.setCellValueFactory(param -> param.getValue().getValue().getSenhaProperty());
 
-		JFXTreeTableColumn<TabelaFuncionario, String> colEmail = new JFXTreeTableColumn<>("Email");
+		final JFXTreeTableColumn<TabelaFuncionario, String> colEmail = new JFXTreeTableColumn<>(
+		        "Email");
 		colEmail.setPrefWidth(70);
 		colEmail.setCellValueFactory(param -> param.getValue().getValue().getEmailProperty());
 
-		JFXTreeTableColumn<TabelaFuncionario, String> colCargo = new JFXTreeTableColumn<>("Cargo");
+		final JFXTreeTableColumn<TabelaFuncionario, String> colCargo = new JFXTreeTableColumn<>(
+		        "Cargo");
 		colCargo.setPrefWidth(70);
 		colCargo.setCellValueFactory(param -> param.getValue().getValue().getCargoProperty());
 
-		JFXTreeTableColumn<TabelaFuncionario, String> colDataDeContratacao = new JFXTreeTableColumn<>(
+		final JFXTreeTableColumn<TabelaFuncionario, String> colDataDeContratacao = new JFXTreeTableColumn<>(
 		        "Data de contratação");
 		colDataDeContratacao.setPrefWidth(70);
 		colDataDeContratacao.setCellValueFactory(param -> param.getValue().getValue().getDataProperty());
 
-		JFXTreeTableColumn<TabelaFuncionario, String> colManipulaLivros = new JFXTreeTableColumn<>("Manipula livros");
+		final JFXTreeTableColumn<TabelaFuncionario, String> colManipulaLivros = new JFXTreeTableColumn<>(
+		        "Manipula livros");
 		colManipulaLivros.setPrefWidth(110);
 		colManipulaLivros.setCellValueFactory(param -> param.getValue().getValue().getManipulaLivrosProperty());
 
-		JFXTreeTableColumn<TabelaFuncionario, String> colManipulaFuncionarios = new JFXTreeTableColumn<>(
+		final JFXTreeTableColumn<TabelaFuncionario, String> colManipulaFuncionarios = new JFXTreeTableColumn<>(
 		        "Manipula funcionarios");
 		colManipulaFuncionarios.setPrefWidth(120);
 		colManipulaFuncionarios
 		        .setCellValueFactory(param -> param.getValue().getValue().getManipulaFuncionariosProperty());
 
+		final JFXTreeTableColumn<TabelaFuncionario, JFXButton> colAlteraRemoveFuncionario = new JFXTreeTableColumn<>(
+		        "Altera/Remove");
+		colAlteraRemoveFuncionario.setPrefWidth(70);
+		colAlteraRemoveFuncionario
+		        .setCellValueFactory(param -> param.getValue().getValue().getJfxButton());
+
 		final TreeItem<TabelaFuncionario> root = new RecursiveTreeItem<>(listFuncionarioTabela,
 		        RecursiveTreeObject::getChildren);
 		ttbFuncionario.getColumns().setAll(colId, colNome, colSenha, colEmail, colCargo, colDataDeContratacao,
-		        colManipulaLivros, colManipulaFuncionarios);
+		        colManipulaLivros, colManipulaFuncionarios, colAlteraRemoveFuncionario);
+
 		ttbFuncionario.setRoot(root);
 		ttbFuncionario.setShowRoot(false);
 	}
