@@ -21,16 +21,18 @@ public class Livro implements Entidade {
 	private String nome;
 	@ManyToOne
 	private Gerente gerente;
-	private boolean avaliacao;
+	private Integer avaliacao;
 	@OneToMany(mappedBy = "livro", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Personalidade> personalidade;
 
+	@Override
 	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	@Override
+	public void setId(final Integer id) {
 		this.id = id;
 	}
 
@@ -38,23 +40,26 @@ public class Livro implements Entidade {
 		return nome;
 	}
 
-	public void setNome(String nome) {
+	public void setNome(final String nome) {
 		this.nome = nome;
 	}
 
-	public boolean isAvaliacao() {
+	public int isAvaliacao() {
 		return avaliacao;
 	}
 
-	public void setAvaliacao(boolean avaliacao) {
-		this.avaliacao = avaliacao;
+	public void setAvaliacao(final boolean avaliacao) {
+		if (avaliacao)
+			++this.avaliacao;
+		else
+			--this.avaliacao;
 	}
 
 	public Gerente getGerente() {
 		return gerente;
 	}
 
-	public void setGerente(Gerente gerente) {
+	public void setGerente(final Gerente gerente) {
 		this.gerente = gerente;
 	}
 
@@ -62,7 +67,7 @@ public class Livro implements Entidade {
 		return personalidade;
 	}
 
-	public void setPersonalidade(List<Personalidade> personalidade) {
+	public void setPersonalidade(final List<Personalidade> personalidade) {
 		this.personalidade = personalidade;
 	}
 

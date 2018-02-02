@@ -15,11 +15,13 @@ public class Personalidade implements Entidade {
 	private Livro livro;
 	private String personalidade;
 
+	@Override
 	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	@Override
+	public void setId(final Integer id) {
 		this.id = id;
 	}
 
@@ -27,7 +29,7 @@ public class Personalidade implements Entidade {
 		return livro;
 	}
 
-	public void setLivro(Livro livro) {
+	public void setLivro(final Livro livro) {
 		this.livro = livro;
 	}
 
@@ -35,7 +37,7 @@ public class Personalidade implements Entidade {
 		return personalidade;
 	}
 
-	public void setPersonalidade(String personalidade) {
+	public void setPersonalidade(final String personalidade) {
 		this.personalidade = personalidade;
 	}
 
