@@ -7,10 +7,10 @@ import java.util.Scanner;
 
 public class ControlaUsuario {
 
-	public void salvar(String email, String senha, boolean salvar, String emailGerente) {
+	public void salvar(final String email, final String senha, final boolean salvar, final String emailGerente) {
 		try {
 			Scanner entrada;
-			PrintStream saida = new PrintStream(new FileOutputStream("UsuarioLogado.txt"));
+			final PrintStream saida = new PrintStream(new FileOutputStream("UsuarioLogado.txt"));
 			entrada = new Scanner(salvar + "");
 			saida.println(entrada.nextLine());
 			entrada.close();
@@ -24,33 +24,31 @@ public class ControlaUsuario {
 			saida.println(entrada.nextLine());
 			entrada.close();
 			saida.close();
-		}
-		catch (Exception e) {
+		} catch (final Exception e) {
 			System.out.println(e);
 		}
 	}
 
 	public boolean verificarPermanenciaDeLogin() {
 		try {
-			Scanner entrada = new Scanner(new FileInputStream("UsuarioLogado.txt"));
-			boolean b = entrada.nextBoolean();
+			final Scanner entrada = new Scanner(new FileInputStream("UsuarioLogado.txt"));
+			final boolean b = entrada.nextBoolean();
 			entrada.close();
 			return b;
-		}
-		catch (Exception e) {
-			System.out.println(e);
+		} catch (final Exception e) {
+			System.out.println("Não achado o login");
+			e.printStackTrace();
 			return false;
 		}
 	}
 
 	public Scanner getCredenciais() {
 		try {
-			Scanner entrada = new Scanner(new FileInputStream("UsuarioLogado.txt"));
+			final Scanner entrada = new Scanner(new FileInputStream("UsuarioLogado.txt"));
 
 			return entrada;
-		}
-		catch (Exception e) {
-			System.out.println(e);
+		} catch (final Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}

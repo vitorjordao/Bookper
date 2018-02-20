@@ -14,28 +14,39 @@ public class Cliente implements Entidade {
 	@ManyToOne
 	private Gerente gerente;
 	private String email;
+	private String personalidade;
 
-	public Integer getId() {
-		return id;
+	public String getPersonalidade() {
+		return this.personalidade;
 	}
 
-	public void setId(Integer id) {
+	public void setPersonalidade(final String personalidade) {
+		this.personalidade = personalidade;
+	}
+
+	@Override
+	public Integer getId() {
+		return this.id;
+	}
+
+	@Override
+	public void setId(final Integer id) {
 		this.id = id;
 	}
 
 	public Gerente getGerente() {
-		return gerente;
+		return this.gerente;
 	}
 
-	public void setGerente(Gerente gerente) {
+	public void setGerente(final Gerente gerente) {
 		this.gerente = gerente;
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(final String email) {
 		this.email = email;
 	}
 

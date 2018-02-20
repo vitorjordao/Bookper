@@ -4,7 +4,7 @@
 <?import com.jfoenix.controls.JFXMasonryPane?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 
-<JFXMasonryPane cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="315.0" minWidth="475.0" prefHeight="320.0" prefWidth="480.0" styleClass="panel2" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorTelaIntermediaria">
+<JFXMasonryPane cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="315.0" minWidth="475.0" prefHeight="320.0" prefWidth="480.0" styleClass="panel2" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorTelaIntermediaria">
    <children>
       <JFXButton fx:id="btnControle" onAction="#clickControle" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
          <graphic>
@@ -29,6 +29,11 @@
       <JFXButton fx:id="btnFechar" onAction="#clickFechar" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
          <graphic>
             <MaterialDesignIconView glyphName="CLOSE" styleClass="icon-close3" />
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnManipulaLivro" onAction="#clickManipulaLivro" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
+         <graphic>
+            <MaterialDesignIconView glyphName="BOOK_OPEN_VARIANT" styleClass="icon-chart" />
          </graphic>
       </JFXButton>
    </children>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="panPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="1049.0" styleClass="panel2" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorManipulaLivro">
+   <children>
+      <AnchorPane layoutX="-6.0" prefHeight="94.0" prefWidth="1058.0" styleClass="panel1">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <MaterialDesignIconView glyphName="ARROW_LEFT_THICK" layoutX="22.0" layoutY="71.0" styleClass="icon-left" />
+            <JFXButton fx:id="btnVoltar" layoutX="7.0" minWidth="-Infinity" onAction="#clickVoltar" prefHeight="94.0" prefWidth="94.0" styleClass="button-transparent3" text=" " />
+            <MaterialDesignIconView glyphName="CLOSE" layoutX="972.0" layoutY="70.0" styleClass="icon-close2" />
+            <JFXButton fx:id="btnFechar" layoutX="957.0" minWidth="-Infinity" onAction="#clickFechar" prefHeight="94.0" prefWidth="94.0" styleClass="button-transparent3" text=" " />
+         </children>
+      </AnchorPane>
+      <JFXTreeTableView fx:id="ttbLivro" cache="true" layoutX="337.0" layoutY="161.0" prefHeight="462.0" prefWidth="712.0" />
+      <Label layoutX="326.0" layoutY="107.0" styleClass="label-title2" text="Manipulação de Livros" />
+    <AnchorPane layoutY="161.0" minHeight="0.0" minWidth="0.0" prefHeight="462.0" prefWidth="337.0" styleClass="panel1">
+         <children>
+            <JFXTextField fx:id="txtCadastrarNomeLivro" labelFloat="true" layoutX="6.0" layoutY="21.0" prefHeight="33.0" prefWidth="329.0" promptText="Nome do livro" styleClass="text-field-ok" />
+            <JFXButton fx:id="btnCadastrarLivro" layoutX="68.0" layoutY="395.0" onAction="#clickCadastrar" styleClass="button-transparent3" text="Cadastrar" />
+            <JFXTextField fx:id="txtCadastrarUrl" labelFloat="true" layoutX="7.0" layoutY="75.0" prefHeight="33.0" prefWidth="329.0" promptText="Link da imagem da capa do livro" styleClass="text-field-ok" />
+         </children>
+      </AnchorPane>
+      <JFXTextField fx:id="txtPesquisar" labelFloat="true" layoutX="763.0" layoutY="118.0" prefHeight="33.0" prefWidth="210.0" promptText="Pesquisar" styleClass="text-field-ok2" />
+      <JFXButton fx:id="btnPesquisar" layoutX="973.0" layoutY="99.0" onAction="#clickPesquisar" prefHeight="58.0" prefWidth="68.0" ripplerFill="WHITE" styleClass="button-transparent1" text="&#10;">
+         <graphic>
+            <MaterialDesignIconView glyphName="MAGNIFY" styleClass="icon-search" />
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>

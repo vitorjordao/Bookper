@@ -24,25 +24,24 @@ import javafx.stage.Stage;
 public class IniciadorDoFX extends Application {
 
 	@Override
-	public void start(Stage stage) throws IOException {
-		ControlaTelas tela = new ControlaTelas();
-		if (verificaLogin()) {
+	public void start(final Stage stage) throws IOException {
+		final ControlaTelas tela = new ControlaTelas();
+		if (this.verificaLogin()) {
 			tela.iniciarPadrao("TelaIntermediaria.fxml");
-		}
-		else
+		} else
 			tela.iniciarPadrao("LoginESenha.fxml");
 	}
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		launch(args);
 	}
 
 	private boolean verificaLogin() {
-		ControlaUsuario controlaUsuario = new ControlaUsuario();
+		final ControlaUsuario controlaUsuario = new ControlaUsuario();
 		if (controlaUsuario.verificarPermanenciaDeLogin()) {
-			EntityManager em = new JPAUtil().getEntityManager();
-			GerenteDAO gerenteDAO = new GerenteDAO(em);
-			Scanner credenciais = controlaUsuario.getCredenciais();
+			final EntityManager em = new JPAUtil().getEntityManager();
+			final GerenteDAO gerenteDAO = new GerenteDAO(em);
+			final Scanner credenciais = controlaUsuario.getCredenciais();
 			credenciais.nextLine();
 			return gerenteDAO.buscarLogin(credenciais.nextLine(), credenciais.nextLine());
 		}

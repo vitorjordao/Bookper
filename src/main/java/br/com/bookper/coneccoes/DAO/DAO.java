@@ -10,36 +10,37 @@ import br.com.bookper.coneccoes.modelo.Entidade;
 import br.com.bookper.coneccoes.modelo.Gerente;
 
 public class DAO {
-	private EntityManager em;
+	private final EntityManager em;
 
-	public DAO(EntityManager em) {
+	public DAO(final EntityManager em) {
 		this.em = em;
 	}
 
-	public void cadastrar(Entidade entidade) {
-		em.getTransaction().begin();
-		em.persist(entidade);
-		em.getTransaction().commit();
-		em.close();
+	public int cadastrar(final Entidade entidade) {
+		this.em.getTransaction().begin();
+		this.em.persist(entidade);
+		this.em.getTransaction().commit();
+		this.em.close();
+		return entidade.getId();
 	}
 
-	public void remover(Entidade entidade, int id) {
-		em.getTransaction().begin();
-		entidade = em.find(Gerente.class, id);
-		em.remove(entidade);
-		em.getTransaction().commit();
-		em.close();
+	public void remover(Entidade entidade, final int id) {
+		this.em.getTransaction().begin();
+		entidade = this.em.find(Gerente.class, id);
+		this.em.remove(entidade);
+		this.em.getTransaction().commit();
+		this.em.close();
 	}
 
 	// testar
-	public List<Entidade> buscaPorNome(Entidade entidade, String nome) {
-		Class<?> c = entidade.getClass();
-		for (Field f : c.getFields()) {
-			String valor = f.getName();
+	public List<Entidade> buscaPorNome(final Entidade entidade, final String nome) {
+		final Class<?> c = entidade.getClass();
+		for (final Field f : c.getFields()) {
+			final String valor = f.getName();
 			if (valor.equals("nome")) {
-				String jpql = "select * from :pEntidade m where m.nome = :pNome";
+				final String jpql = "select * from :pEntidade m where m.nome = :pNome";
 
-				TypedQuery<Entidade> query = em.createQuery(jpql, Entidade.class);
+				final TypedQuery<Entidade> query = this.em.createQuery(jpql, Entidade.class);
 				query.setParameter("pEntidade", entidade);
 				query.setParameter("pNome", nome);
 

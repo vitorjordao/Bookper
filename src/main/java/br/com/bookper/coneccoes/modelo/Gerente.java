@@ -34,74 +34,76 @@ public class Gerente implements Entidade {
 	public Gerente() {
 	}
 
-	public Gerente(String nome, String email, String senha, String nomeUnidade) {
+	public Gerente(final String nome, final String email, final String senha, final String nomeUnidade) {
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
 		this.nomeUnidade = nomeUnidade;
 	}
 
+	@Override
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 
-	public void setId(Integer id) {
+	@Override
+	public void setId(final Integer id) {
 		this.id = id;
 	}
 
 	public List<Funcionario> getFuncionario() {
-		return funcionario;
+		return this.funcionario;
 	}
 
-	public void setFuncionario(List<Funcionario> funcionario) {
+	public void setFuncionario(final List<Funcionario> funcionario) {
 		this.funcionario = funcionario;
 	}
 
 	public List<Cliente> getCliente() {
-		return cliente;
+		return this.cliente;
 	}
 
-	public void setCliente(List<Cliente> cliente) {
+	public void setCliente(final List<Cliente> cliente) {
 		this.cliente = cliente;
 	}
 
 	public String getNome() {
-		return nome;
+		return this.nome;
 	}
 
-	public void setNome(String nome) {
+	public void setNome(final String nome) {
 		this.nome = nome;
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(final String email) {
 		this.email = email;
 	}
 
 	public String getSenha() {
-		return senha;
+		return this.senha;
 	}
 
-	public void setSenha(String senha) {
+	public void setSenha(final String senha) {
 		this.senha = senha;
 	}
 
 	public String getNomeUnidade() {
-		return nomeUnidade;
+		return this.nomeUnidade;
 	}
 
-	public void setNomeUnidade(String nomeUnidade) {
+	public void setNomeUnidade(final String nomeUnidade) {
 		this.nomeUnidade = nomeUnidade;
 	}
 
 	public List<Livro> getLivro() {
-		return livro;
+		return this.livro;
 	}
 
-	public void setLivro(List<Livro> livro) {
+	public void setLivro(final List<Livro> livro) {
 		this.livro = livro;
 	}
 

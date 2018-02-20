@@ -22,7 +22,7 @@
             <MaterialDesignIconView glyphName="ARROW_LEFT_THICK" layoutX="22.0" layoutY="71.0" styleClass="icon-left" />
             <JFXButton fx:id="btnVoltar" layoutX="7.0" minWidth="-Infinity" onAction="#clickVoltar" prefHeight="94.0" prefWidth="94.0" styleClass="button-transparent3" text=" " />
             <MaterialDesignIconView glyphName="CLOSE" layoutX="972.0" layoutY="70.0" styleClass="icon-close2" />
-            <JFXButton fx:id="btnVoltar1" layoutX="957.0" minWidth="-Infinity" onAction="#clickFechar" prefHeight="94.0" prefWidth="94.0" styleClass="button-transparent3" text=" " />
+            <JFXButton fx:id="btnFechar" layoutX="957.0" minWidth="-Infinity" onAction="#clickFechar" prefHeight="94.0" prefWidth="94.0" styleClass="button-transparent3" text=" " />
          </children>
       </AnchorPane>
       <JFXTreeTableView fx:id="ttbFuncionario" cache="true" layoutX="337.0" layoutY="161.0" prefHeight="462.0" prefWidth="712.0" />

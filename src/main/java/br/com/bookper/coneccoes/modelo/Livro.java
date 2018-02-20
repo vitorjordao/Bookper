@@ -21,14 +21,39 @@ public class Livro implements Entidade {
 	private String nome;
 	@ManyToOne
 	private Gerente gerente;
-	private Integer avaliacao;
+	private String urlDaImagem;
 	@OneToMany(mappedBy = "livro", fetch = FetchType.EAGER)
 	@Fetch(value = FetchMode.SUBSELECT)
-	private List<Personalidade> personalidade;
+	private List<RankDaBusca> rank;
+
+	public Livro() {
+	}
+
+	public Livro(final String nome, final Gerente gerente, final String url) {
+		this.nome = nome;
+		this.gerente = gerente;
+		this.urlDaImagem = url;
+	}
+
+	public List<RankDaBusca> getRank() {
+		return this.rank;
+	}
+
+	public void setRank(final List<RankDaBusca> rank) {
+		this.rank = rank;
+	}
+
+	public String getUrlDaImagem() {
+		return this.urlDaImagem;
+	}
+
+	public void setUrlDaImagem(final String urlDaImagem) {
+		this.urlDaImagem = urlDaImagem;
+	}
 
 	@Override
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 
 	@Override
@@ -37,38 +62,19 @@ public class Livro implements Entidade {
 	}
 
 	public String getNome() {
-		return nome;
+		return this.nome;
 	}
 
 	public void setNome(final String nome) {
 		this.nome = nome;
 	}
 
-	public int isAvaliacao() {
-		return avaliacao;
-	}
-
-	public void setAvaliacao(final boolean avaliacao) {
-		if (avaliacao)
-			++this.avaliacao;
-		else
-			--this.avaliacao;
-	}
-
 	public Gerente getGerente() {
-		return gerente;
+		return this.gerente;
 	}
 
 	public void setGerente(final Gerente gerente) {
 		this.gerente = gerente;
-	}
-
-	public List<Personalidade> getPersonalidade() {
-		return personalidade;
-	}
-
-	public void setPersonalidade(final List<Personalidade> personalidade) {
-		this.personalidade = personalidade;
 	}
 
 }

@@ -11,41 +11,47 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 public class ControladorTelaIntermediaria implements Initializable {
-	private ControlaTelas tela = new ControlaTelas();
+	private final ControlaTelas tela = new ControlaTelas();
 
 	@FXML
 	private JFXButton btnManipulaFuncionario;
 
 	@FXML
-	private void clickFechar(ActionEvent event) {
-		tela.fechar(btnManipulaFuncionario.getGraphic());
+	private void clickFechar(final ActionEvent event) {
+		this.tela.fechar(this.btnManipulaFuncionario.getGraphic());
 		System.exit(0);
 	}
 
 	@FXML
-	private void clickManipulaFuncionario(ActionEvent event) {
-		tela.iniciarPadrao("ManipulaFuncionario.fxml");
-		tela.fechar(btnManipulaFuncionario.getGraphic());
+	private void clickManipulaFuncionario(final ActionEvent event) {
+		this.tela.iniciarPadrao("ManipulaFuncionario.fxml");
+		this.tela.fechar(this.btnManipulaFuncionario.getGraphic());
 	}
 
 	@FXML
-	private void clickControle(ActionEvent event) {
-		tela.fechar(btnManipulaFuncionario.getGraphic());
+	private void clickControle(final ActionEvent event) {
+		this.tela.fechar(this.btnManipulaFuncionario.getGraphic());
 	}
 
 	@FXML
-	private void clickEstatistica(ActionEvent event) {
-		tela.fechar(btnManipulaFuncionario.getGraphic());
+	private void clickEstatistica(final ActionEvent event) {
+		this.tela.fechar(this.btnManipulaFuncionario.getGraphic());
 	}
 
 	@FXML
-	private void clickTestePersonalidade(ActionEvent event) {
-		tela.iniciarPadrao("Perguntas.fxml");
-		tela.fechar(btnManipulaFuncionario.getGraphic());
+	private void clickManipulaLivro(final ActionEvent event) {
+		this.tela.iniciarPadrao("ManipulaLivro.fxml");
+		this.tela.fechar(this.btnManipulaFuncionario.getGraphic());
+	}
+
+	@FXML
+	private void clickTestePersonalidade(final ActionEvent event) {
+		this.tela.iniciarPadrao("Perguntas.fxml");
+		this.tela.fechar(this.btnManipulaFuncionario.getGraphic());
 	}
 
 	@Override
-	public void initialize(URL location, ResourceBundle resources) {
+	public void initialize(final URL location, final ResourceBundle resources) {
 
 	}
 
