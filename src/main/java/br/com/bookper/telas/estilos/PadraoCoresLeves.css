@@ -109,6 +109,11 @@
 	-glyph-size: 110;
 	-glyph-name: CHART_BAR;
 }
+.icon-book{
+	-fx-fill: -fx-primarytext;
+	-glyph-size: 110;
+	-glyph-name: BOOK_OPEN_VARIANT;
+}
 .icon-worker{
 	-fx-fill: -fx-primarytext;
 	-glyph-size: 110;

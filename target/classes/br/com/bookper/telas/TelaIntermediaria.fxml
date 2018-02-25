@@ -33,7 +33,7 @@
       </JFXButton>
       <JFXButton fx:id="btnManipulaLivro" onAction="#clickManipulaLivro" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
          <graphic>
-            <MaterialDesignIconView glyphName="BOOK_OPEN_VARIANT" styleClass="icon-chart" />
+            <MaterialDesignIconView glyphName="BOOK_OPEN_VARIANT" styleClass="icon-book" />
          </graphic>
       </JFXButton>
    </children>
