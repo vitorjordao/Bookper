@@ -20,7 +20,6 @@ import javafx.scene.control.Alert.AlertType;
 
 public class ValidaRegistroLivro implements Validar {
 
-	private static final String Personalidades = null;
 	private final String nome;
 	private final String url;
 
@@ -52,36 +51,44 @@ public class ValidaRegistroLivro implements Validar {
 		final String email = emailGerente.nextLine();
 		final Gerente gerente = gerenteDAO.buscaEmail(email);
 		final Livro livro = new Livro(this.nome, gerente, this.url);
+		final List<RankDaBusca> ranks = this.criarRank(livro);
 
 		final DAO dao = new DAO(em);
-		this.criarRank(dao.cadastrar(livro), livro);
+		dao.abrirCadastro();
+		ranks.forEach(rank -> {
+			dao.cadastrarEntidade(rank);
+		});
+		livro.setRank(ranks);
+		dao.cadastrarEntidade(livro);
+		dao.fecharCadastro(livro);
 		new TelasPopUp(AlertType.CONFIRMATION, "Cadastro", "Livro cadastrado!",
 				"Nome: " + this.nome + ", url da imagem: " + this.url + ", gerente: " + gerente.getNome());
 		return true;
 	}
 
-	private void criarRank(final int id, final Livro livro) {
+	private List<RankDaBusca> criarRank(final Livro livro) {
 
 		final List<RankDaBusca> lista = new ArrayList<>();
 
-		lista.add(new RankDaBusca("Advogado", id));
-		lista.add(new RankDaBusca("Animador", id));
-		lista.add(new RankDaBusca("Arquiteto", id));
-		lista.add(new RankDaBusca("Ativista", id));
-		lista.add(new RankDaBusca("Aventureiro", id));
-		lista.add(new RankDaBusca("Comandante", id));
-		lista.add(new RankDaBusca("Cônsul", id));
-		lista.add(new RankDaBusca("Defensor", id));
-		lista.add(new RankDaBusca("Empresário", id));
-		lista.add(new RankDaBusca("Executivo", id));
-		lista.add(new RankDaBusca("Inovador", id));
-		lista.add(new RankDaBusca("Lógico", id));
-		lista.add(new RankDaBusca("Logistico", id));
-		lista.add(new RankDaBusca("Mediador", id));
-		lista.add(new RankDaBusca("Protagonista", id));
-		lista.add(new RankDaBusca("Robô", id));
-		lista.add(new RankDaBusca("Virtuoso", id));
+		lista.add(new RankDaBusca("Advogado"));
+		lista.add(new RankDaBusca("Animador"));
+		lista.add(new RankDaBusca("Arquiteto"));
+		lista.add(new RankDaBusca("Ativista"));
+		lista.add(new RankDaBusca("Aventureiro"));
+		lista.add(new RankDaBusca("Comandante"));
+		lista.add(new RankDaBusca("Cônsul"));
+		lista.add(new RankDaBusca("Defensor"));
+		lista.add(new RankDaBusca("Empresário"));
+		lista.add(new RankDaBusca("Executivo"));
+		lista.add(new RankDaBusca("Inovador"));
+		lista.add(new RankDaBusca("Lógico"));
+		lista.add(new RankDaBusca("Logistico"));
+		lista.add(new RankDaBusca("Mediador"));
+		lista.add(new RankDaBusca("Protagonista"));
+		lista.add(new RankDaBusca("Robô"));
+		lista.add(new RankDaBusca("Virtuoso"));
 		livro.setRank(lista);
+		return lista;
 	}
 
 }

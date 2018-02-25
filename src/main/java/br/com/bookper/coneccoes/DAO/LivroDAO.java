@@ -24,11 +24,14 @@ public class LivroDAO {
 	}
 
 	public List<Livro> pegarLivrosComAPersonalidade(final String personalidade) {
-		final List<Livro> query = this.pegarTodosOsLivros();
+		final String jpql = "select m from Livro m inner join m.rank";
+
+		final TypedQuery<Livro> query = this.em.createQuery(jpql, Livro.class);
+		final List<Livro> listaLivros = query.getResultList();
 		final List<Livro> livros = new ArrayList<>();
-		for (final Livro livro : query) {
+		for (final Livro livro : listaLivros) {
 			livro.getRank().forEach(rank -> {
-				if (personalidade.equals(rank.getPersonalidade())) {
+				if (personalidade.contains(rank.getPersonalidade())) {
 					livros.add(livro);
 				}
 			});

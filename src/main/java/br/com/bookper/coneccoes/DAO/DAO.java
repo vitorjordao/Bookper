@@ -16,12 +16,25 @@ public class DAO {
 		this.em = em;
 	}
 
-	public int cadastrar(final Entidade entidade) {
+	public void abrirCadastro() {
 		this.em.getTransaction().begin();
+	}
+
+	public void cadastrarEntidade(final Entidade entidade) {
 		this.em.persist(entidade);
+	}
+
+	public int fecharCadastro(final Entidade entidade) {
 		this.em.getTransaction().commit();
 		this.em.close();
 		return entidade.getId();
+	}
+
+	public int cadastrar(final Entidade entidade) {
+		this.abrirCadastro();
+		this.cadastrarEntidade(entidade);
+		return this.fecharCadastro(entidade);
+
 	}
 
 	public void remover(Entidade entidade, final int id) {

@@ -31,7 +31,7 @@ import javafx.scene.layout.AnchorPane;
 public class ControladorManipulaLivro implements Initializable {
 	private final ControlaTelas tela = new ControlaTelas();
 	private final EntityManager em = new JPAUtil().getEntityManager();
-	List<Livro> ultimaListaDeLivros = new LivroDAO(this.em).pegarTodosOsLivros();
+	List<Livro> ultimaListaDeLivros;
 
 	@FXML
 	private AnchorPane panPrincipal;
@@ -54,6 +54,7 @@ public class ControladorManipulaLivro implements Initializable {
 		final String url = this.txtCadastrarUrl.getText();
 		final ValidaRegistroLivro registroLivro = new ValidaRegistroLivro(nome, url);
 		if (registroLivro.estaOK()) {
+			this.ultimaListaDeLivros = this.pegarListaNoBanco();
 			this.listarLivros(this.ultimaListaDeLivros);
 		}
 	}
