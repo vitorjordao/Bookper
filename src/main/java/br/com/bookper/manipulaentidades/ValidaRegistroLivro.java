@@ -55,12 +55,15 @@ public class ValidaRegistroLivro implements Validar {
 
 		final DAO dao = new DAO(em);
 		dao.abrirCadastro();
+		final int id = dao.cadastrarEntidade(livro);
+		livro.setId(id);
+
 		ranks.forEach(rank -> {
+			rank.setLivro(livro);
 			dao.cadastrarEntidade(rank);
 		});
-		livro.setRank(ranks);
-		dao.cadastrarEntidade(livro);
 		dao.fecharCadastro(livro);
+
 		new TelasPopUp(AlertType.CONFIRMATION, "Cadastro", "Livro cadastrado!",
 				"Nome: " + this.nome + ", url da imagem: " + this.url + ", gerente: " + gerente.getNome());
 		return true;
