@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="684.0" prefWidth="1150.0" styleClass="panel1" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorFinal">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="684.0" prefWidth="1150.0" styleClass="panel1" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorFinal">
    <children>
-      <JFXButton fx:id="clickRecomecar" layoutX="487.0" layoutY="510.0" prefHeight="62.0" prefWidth="181.0" styleClass="button-simples" text="Recomeçar" />
+      <JFXButton fx:id="btnRecomecar" layoutX="487.0" layoutY="510.0" onAction="#clickRecomecar" prefHeight="62.0" prefWidth="181.0" styleClass="button-simples" text="Recomeçar" />
       <AnchorPane fx:id="panRecomendacao1" layoutX="14.0" layoutY="77.0" prefHeight="415.0" prefWidth="333.0" styleClass="panel2">
          <children>
             <ImageView fx:id="imgCapa1" fitHeight="265.0" fitWidth="200.0" layoutX="67.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true" />
@@ -23,7 +23,7 @@
                   <ToggleGroup fx:id="recomendacao1" />
                </toggleGroup>
             </JFXRadioButton>
-            <JFXRadioButton fx:id="rbdNãoGostou1" layoutY="374.0" onAction="#clickNaoGostou1" prefHeight="23.0" prefWidth="333.0" styleClass="radio-simples" text="Não gostei da recomendação" toggleGroup="$recomendacao1" />
+            <JFXRadioButton fx:id="rbdNaoGostou1" layoutY="374.0" prefHeight="23.0" prefWidth="333.0" styleClass="radio-simples" text="Não gostei da recomendação" toggleGroup="$recomendacao1" />
             <Label fx:id="lblNomeLivro1" alignment="CENTER" layoutX="1.0" layoutY="3.0" prefHeight="23.0" prefWidth="333.0" styleClass="label-nome-livros" text="Livro recomendado" textAlignment="CENTER" />
          </children>
          <effect>
@@ -38,7 +38,7 @@
                   <ToggleGroup fx:id="recomendacao2" />
                </toggleGroup>
             </JFXRadioButton>
-            <JFXRadioButton fx:id="rbdNãoGostou2" layoutY="374.0" onAction="#clickNaoGostou2" prefHeight="23.0" prefWidth="333.0" styleClass="radio-simples" text="Não gostei da recomendação" toggleGroup="$recomendacao2" />
+            <JFXRadioButton fx:id="rbdNaoGostou2" layoutY="374.0" prefHeight="23.0" prefWidth="333.0" styleClass="radio-simples" text="Não gostei da recomendação" toggleGroup="$recomendacao2" />
             <Label fx:id="lblNomeLivro2" alignment="CENTER" layoutX="1.0" layoutY="3.0" prefHeight="23.0" prefWidth="333.0" styleClass="label-nome-livros" text="Livro recomendado" textAlignment="CENTER" />
          </children>
          <effect>
@@ -53,7 +53,7 @@
                   <ToggleGroup fx:id="recomendacao3" />
                </toggleGroup>
             </JFXRadioButton>
-            <JFXRadioButton fx:id="rbdNãoGostou3" layoutY="374.0" onAction="#clickNaoGostou3" prefHeight="23.0" prefWidth="333.0" styleClass="radio-simples" text="Não gostei da recomendação" toggleGroup="$recomendacao3" />
+            <JFXRadioButton fx:id="rbdNaoGostou3" layoutY="374.0" prefHeight="23.0" prefWidth="333.0" styleClass="radio-simples" text="Não gostei da recomendação" toggleGroup="$recomendacao3" />
             <Label fx:id="lblNomeLivro3" alignment="CENTER" layoutX="1.0" layoutY="3.0" prefHeight="23.0" prefWidth="333.0" styleClass="label-nome-livros" text="Livro recomendado" textAlignment="CENTER" />
          </children>
          <effect>

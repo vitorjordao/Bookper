@@ -40,6 +40,14 @@ public class RankDaBusca implements Entidade {
 		this.avaliacao = avaliacao;
 	}
 
+	public void somaUm() {
+		this.avaliacao++;
+	}
+
+	public void subtraiUm() {
+		this.avaliacao--;
+	}
+
 	public Livro getLivro() {
 		return this.livro;
 	}

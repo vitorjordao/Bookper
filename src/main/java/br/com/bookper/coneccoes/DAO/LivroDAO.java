@@ -1,6 +1,5 @@
 package br.com.bookper.coneccoes.DAO;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -21,23 +20,6 @@ public class LivroDAO {
 		final TypedQuery<Livro> query = this.em.createQuery(jpql, Livro.class);
 
 		return query.getResultList();
-	}
-
-	public List<Livro> pegarLivrosComAPersonalidade(final String personalidade) {
-		final String jpql = "select m from Livro m inner join m.rank";
-
-		final TypedQuery<Livro> query = this.em.createQuery(jpql, Livro.class);
-		final List<Livro> listaLivros = query.getResultList();
-		final List<Livro> livros = new ArrayList<>();
-		for (final Livro livro : listaLivros) {
-			livro.getRank().forEach(rank -> {
-				if (personalidade.contains(rank.getPersonalidade())) {
-					livros.add(livro);
-				}
-			});
-		}
-
-		return livros;
 	}
 
 }

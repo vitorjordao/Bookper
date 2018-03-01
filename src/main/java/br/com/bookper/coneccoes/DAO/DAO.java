@@ -38,6 +38,11 @@ public class DAO {
 
 	}
 
+	public int reSubir(final Entidade entidade) {
+		this.em.merge(entidade);
+		return entidade.getId();
+	}
+
 	public void remover(Entidade entidade, final int id) {
 		this.em.getTransaction().begin();
 		entidade = this.em.find(Gerente.class, id);
