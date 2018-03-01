@@ -22,16 +22,20 @@ public class ValidaRegistroLivro implements Validar {
 
 	private final String nome;
 	private final String url;
+	private final String sinopse;
+	private final String nomeAutor;
 
-	public ValidaRegistroLivro(final String nome, final String url) {
+	public ValidaRegistroLivro(final String nome, final String url, final String sinopse, final String nomeAutor) {
 		this.nome = nome;
 		this.url = url;
+		this.sinopse = sinopse;
+		this.nomeAutor = nomeAutor;
 	}
 
 	@Override
 	public boolean estaOK() {
 		final ValidarDados validarDados = new ValidarDados();
-		if (validarDados.validaRegistroLivro(this.nome, this.url)) {
+		if (validarDados.validaRegistroLivro(this.nome, this.url, this.nomeAutor)) {
 			return this.procurarNoBD();
 		} else {
 			new TelasPopUp(AlertType.ERROR, "Cadastro", "Erro no cadastro", validarDados.getValidado());
@@ -50,7 +54,7 @@ public class ValidaRegistroLivro implements Validar {
 		emailGerente.nextLine();
 		final String email = emailGerente.nextLine();
 		final Gerente gerente = gerenteDAO.buscaEmail(email);
-		final Livro livro = new Livro(this.nome, gerente, this.url);
+		final Livro livro = new Livro(this.nome, gerente, this.url, this.nomeAutor, this.sinopse);
 		final List<RankDaBusca> ranks = this.criarRank(livro);
 
 		final DAO dao = new DAO(em);

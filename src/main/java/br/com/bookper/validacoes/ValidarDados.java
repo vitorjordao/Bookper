@@ -77,15 +77,19 @@ public class ValidarDados {
 		return this.erro;
 	}
 
-	public boolean validaRegistroLivro(final String nome, final String url) {
+	public boolean validaRegistroLivro(final String nome, final String url, final String nomeAutor) {
 		this.erros = true;
 		this.erro = "";
 		if (new Nome().isValido(nome) == TiposValidacoes.NOTOK) {
-			this.erro += "Nome inválido! ";
+			this.erro += "Nome do livro é inválido! ";
 			this.erros = false;
 		}
 		if (new Url().isValido(url) == TiposValidacoes.NOTOK) {
 			this.erro += "Link inválido! ";
+			this.erros = false;
+		}
+		if (new Nome().isValido(nomeAutor) == TiposValidacoes.NOTOK) {
+			this.erro += "Nome do autor é inválido! ";
 			this.erros = false;
 		}
 		return this.erros;

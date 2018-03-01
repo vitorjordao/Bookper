@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import javax.persistence.EntityManager;
 
+import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeTableColumn;
 import com.jfoenix.controls.JFXTreeTableView;
@@ -49,10 +50,18 @@ public class ControladorManipulaLivro implements Initializable {
 	private JFXTreeTableView<TabelaLivro> ttbLivro;
 
 	@FXML
+	private JFXTextArea txtSinopse;
+
+	@FXML
+	private JFXTextField txtNomeAutor;
+
+	@FXML
 	private void clickCadastrar(final ActionEvent event) {
 		final String nome = this.txtCadastrarNomeLivro.getText();
 		final String url = this.txtCadastrarUrl.getText();
-		final ValidaRegistroLivro registroLivro = new ValidaRegistroLivro(nome, url);
+		final String sinopse = this.txtSinopse.getText();
+		final String nomeAutor = this.txtNomeAutor.getText();
+		final ValidaRegistroLivro registroLivro = new ValidaRegistroLivro(nome, url, sinopse, nomeAutor);
 		if (registroLivro.estaOK()) {
 			this.ultimaListaDeLivros = this.pegarListaNoBanco();
 			this.listarLivros(this.ultimaListaDeLivros);
@@ -105,7 +114,7 @@ public class ControladorManipulaLivro implements Initializable {
 			listLivroTabela.clear();
 		livros.forEach(livro -> {
 			listLivroTabela.add(new TabelaLivro(livro.getId(), livro.getNome(), livro.getUrlDaImagem(),
-					livro.getGerente(), livro.getRank()));
+					livro.getGerente(), livro.getRank(), livro.getSinopse(), livro.getNomeAutor()));
 		});
 		this.adicionaColunasEDados(listLivroTabela);
 	}
@@ -137,8 +146,16 @@ public class ControladorManipulaLivro implements Initializable {
 		colRank.setPrefWidth(70);
 		colRank.setCellValueFactory(param -> param.getValue().getValue().getRank());
 
+		final JFXTreeTableColumn<TabelaLivro, String> colSinopse = new JFXTreeTableColumn<>("Sinopse");
+		colRank.setPrefWidth(70);
+		colRank.setCellValueFactory(param -> param.getValue().getValue().getSinopse());
+
+		final JFXTreeTableColumn<TabelaLivro, String> colNomeAutor = new JFXTreeTableColumn<>("Nome do autor");
+		colRank.setPrefWidth(70);
+		colRank.setCellValueFactory(param -> param.getValue().getValue().getNomeAutor());
+
 		final TreeItem<TabelaLivro> root = new RecursiveTreeItem<>(listLivroTabela, RecursiveTreeObject::getChildren);
-		this.ttbLivro.getColumns().setAll(colId, colNome, colGerente, colUrl, colRank);
+		this.ttbLivro.getColumns().setAll(colId, colNome, colGerente, colUrl, colRank, colSinopse, colNomeAutor);
 
 		this.ttbLivro.setRoot(root);
 		this.ttbLivro.setShowRoot(false);

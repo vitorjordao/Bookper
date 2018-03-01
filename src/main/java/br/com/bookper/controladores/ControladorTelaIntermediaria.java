@@ -29,12 +29,8 @@ public class ControladorTelaIntermediaria implements Initializable {
 	}
 
 	@FXML
-	private void clickControle(final ActionEvent event) {
-		this.tela.fechar(this.btnManipulaFuncionario.getGraphic());
-	}
-
-	@FXML
 	private void clickEstatistica(final ActionEvent event) {
+		this.tela.iniciarPadrao(".fxml");
 		this.tela.fechar(this.btnManipulaFuncionario.getGraphic());
 	}
 

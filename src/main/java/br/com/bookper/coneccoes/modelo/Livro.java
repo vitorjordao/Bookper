@@ -19,6 +19,8 @@ public class Livro implements Entidade {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	private String sinopse;
+	private String nomeAutor;
 	@ManyToOne
 	private Gerente gerente;
 	private String urlDaImagem;
@@ -29,10 +31,13 @@ public class Livro implements Entidade {
 	public Livro() {
 	}
 
-	public Livro(final String nome, final Gerente gerente, final String url) {
+	public Livro(final String nome, final Gerente gerente, final String url, final String nomeAutor,
+			final String sinopse) {
 		this.nome = nome;
 		this.gerente = gerente;
 		this.urlDaImagem = url;
+		this.nomeAutor = nomeAutor;
+		this.sinopse = sinopse;
 	}
 
 	public List<RankDaBusca> getRank() {
@@ -63,6 +68,22 @@ public class Livro implements Entidade {
 
 	public String getNome() {
 		return this.nome;
+	}
+
+	public String getSinopse() {
+		return this.sinopse;
+	}
+
+	public void setSinopse(final String sinopse) {
+		this.sinopse = sinopse;
+	}
+
+	public String getNomeAutor() {
+		return this.nomeAutor;
+	}
+
+	public void setNomeAutor(final String nomeAutor) {
+		this.nomeAutor = nomeAutor;
 	}
 
 	public void setNome(final String nome) {

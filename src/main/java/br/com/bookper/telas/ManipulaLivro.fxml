@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTreeTableView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
@@ -28,6 +29,8 @@
             <JFXTextField fx:id="txtCadastrarNomeLivro" labelFloat="true" layoutX="6.0" layoutY="21.0" prefHeight="33.0" prefWidth="329.0" promptText="Nome do livro" styleClass="text-field-ok" />
             <JFXButton fx:id="btnCadastrarLivro" layoutX="68.0" layoutY="395.0" onAction="#clickCadastrar" styleClass="button-transparent3" text="Cadastrar" />
             <JFXTextField fx:id="txtCadastrarUrl" labelFloat="true" layoutX="7.0" layoutY="75.0" prefHeight="33.0" prefWidth="329.0" promptText="Link da imagem da capa do livro" styleClass="text-field-ok" />
+            <JFXTextArea fx:id="txtSinopse" labelFloat="true" layoutX="4.0" layoutY="135.0" prefHeight="160.0" prefWidth="329.0" promptText="Sinopse do livro" styleClass="text-field-ok" />
+            <JFXTextField fx:id="txtNomeAutor" labelFloat="true" layoutX="4.0" layoutY="325.0" prefHeight="33.0" prefWidth="329.0" promptText="Nome do autor" styleClass="text-field-ok" />
          </children>
       </AnchorPane>
       <JFXTextField fx:id="txtPesquisar" labelFloat="true" layoutX="763.0" layoutY="118.0" prefHeight="33.0" prefWidth="210.0" promptText="Pesquisar" styleClass="text-field-ok2" />
