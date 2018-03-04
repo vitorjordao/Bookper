@@ -2,7 +2,7 @@ package br.com.bookper.tests.testesmanuais;
 
 import java.util.Scanner;
 
-import br.com.bookper.dadosnamaquina.ControlaUsuario;
+import br.com.bookper.segurancaedados.ControlaUsuario;
 
 public class TestControlaUsuario {
 	public static void main(String[] args) {

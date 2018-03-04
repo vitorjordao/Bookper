@@ -24,6 +24,7 @@ import br.com.bookper.coneccoes.modelo.Funcionario;
 import br.com.bookper.coneccoes.util.JPAUtil;
 import br.com.bookper.controladores.telas.ControlaTelas;
 import br.com.bookper.manipulaentidades.ValidaRegistroFuncionario;
+import br.com.bookper.segurancaedados.Criptografia;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -35,7 +36,7 @@ import javafx.scene.layout.AnchorPane;
 public class ControladorManipulaFuncionario implements Initializable {
 	private final ControlaTelas tela = new ControlaTelas();
 	private final EntityManager em = new JPAUtil().getEntityManager();
-	List<Funcionario> ultimaListaDeFuncionarios = new FuncionarioDAO(em).pegarTodosOsFuncionarios();
+	List<Funcionario> ultimaListaDeFuncionarios = new FuncionarioDAO(this.em).pegarTodosOsFuncionarios();
 
 	@FXML
 	private AnchorPane panPrincipal;
@@ -69,62 +70,62 @@ public class ControladorManipulaFuncionario implements Initializable {
 
 	@FXML
 	private void clickCadastrar(final ActionEvent event) {
-		final String nome = txtCadastrarNomeFuncionario.getText();
-		final String senha = txtCadastrarSenhaFuncionario.getText();
-		final String email = txtCadastrarEmailFuncionario.getText();
-		final String cargo = txtCadastrarCargoFuncionario.getText();
-		final LocalDate data = dpCadastrarDataFuncionario.getValue();
-		final boolean manipulaLivro = tgCadastrarManipulaLivroFuncionario.isSelected();
-		final boolean manipulaFuncionarios = tgCadastrarManipulaFuncionariosFuncionario.isSelected();
+
+		final String nome = this.txtCadastrarNomeFuncionario.getText();
+		final String senha = Criptografia.transformaStringEmHash(this.txtCadastrarSenhaFuncionario.getText());
+		final String email = this.txtCadastrarEmailFuncionario.getText();
+		final String cargo = this.txtCadastrarCargoFuncionario.getText();
+		final LocalDate data = this.dpCadastrarDataFuncionario.getValue();
+		final boolean manipulaLivro = this.tgCadastrarManipulaLivroFuncionario.isSelected();
+		final boolean manipulaFuncionarios = this.tgCadastrarManipulaFuncionariosFuncionario.isSelected();
 		final ValidaRegistroFuncionario registroFuncionario = new ValidaRegistroFuncionario(nome, senha, email, cargo,
-		        data,
-		        manipulaLivro, manipulaFuncionarios);
+				data, manipulaLivro, manipulaFuncionarios);
 		if (registroFuncionario.estaOK()) {
-			listarFuncionarios(ultimaListaDeFuncionarios);
+			this.listarFuncionarios(this.ultimaListaDeFuncionarios);
 		}
 	}
 
 	@FXML
 	private void clickVoltar(final ActionEvent event) throws IOException {
-		tela.iniciarPadrao("TelaIntermediaria.fxml");
-		tela.fechar(panPrincipal);
+		this.tela.iniciarPadrao("TelaIntermediaria.fxml");
+		this.tela.fechar(this.panPrincipal);
 	}
 
 	@FXML
 	private void clickFechar(final ActionEvent event) {
-		tela.fechar(panPrincipal);
+		this.tela.fechar(this.panPrincipal);
 		System.exit(0);
 	}
 
 	@FXML
 	private void clickPesquisar(final ActionEvent event) {
-		txtPesquisar.setDisable(true);
+		this.txtPesquisar.setDisable(true);
 
-		final String textoDaPesquisa = txtPesquisar.getText();
+		final String textoDaPesquisa = this.txtPesquisar.getText();
 		if (textoDaPesquisa.equals("") || textoDaPesquisa == null)
-			ultimaListaDeFuncionarios = pegarListaNoBanco();
+			this.ultimaListaDeFuncionarios = this.pegarListaNoBanco();
 		else {
 			final List<Funcionario> listaDaPesquisa = new ArrayList<>();
-			pegarListaNoBanco().forEach(funcionario -> {
+			this.pegarListaNoBanco().forEach(funcionario -> {
 				if (textoDaPesquisa.contains(funcionario.getNome()) || textoDaPesquisa.contains(funcionario.getSenha())
-				        || textoDaPesquisa.contains(funcionario.getEmail())
-				        || textoDaPesquisa.contains(funcionario.getCargo())
-				        || textoDaPesquisa.contains(funcionario.getDataDeContratacao().getTime().toString())
-				        || textoDaPesquisa.contains(funcionario.isManipulaLivros() + "")
-				        || textoDaPesquisa.contains(funcionario.isManipulaFuncionarios() + "")) {
+						|| textoDaPesquisa.contains(funcionario.getEmail())
+						|| textoDaPesquisa.contains(funcionario.getCargo())
+						|| textoDaPesquisa.contains(funcionario.getDataDeContratacao().getTime().toString())
+						|| textoDaPesquisa.contains(funcionario.isManipulaLivros() + "")
+						|| textoDaPesquisa.contains(funcionario.isManipulaFuncionarios() + "")) {
 					listaDaPesquisa.add(funcionario);
 				}
 			});
-			ultimaListaDeFuncionarios = listaDaPesquisa;
+			this.ultimaListaDeFuncionarios = listaDaPesquisa;
 		}
-		listarFuncionarios(ultimaListaDeFuncionarios);
-		txtPesquisar.setDisable(false);
+		this.listarFuncionarios(this.ultimaListaDeFuncionarios);
+		this.txtPesquisar.setDisable(false);
 	}
 
 	@Override
 	public void initialize(final URL location, final ResourceBundle resources) {
-		ultimaListaDeFuncionarios = pegarListaNoBanco();
-		listarFuncionarios(ultimaListaDeFuncionarios);
+		this.ultimaListaDeFuncionarios = this.pegarListaNoBanco();
+		this.listarFuncionarios(this.ultimaListaDeFuncionarios);
 	}
 
 	private void listarFuncionarios(final List<Funcionario> funcionarios) {
@@ -133,74 +134,68 @@ public class ControladorManipulaFuncionario implements Initializable {
 			listFuncionarioTabela.clear();
 		funcionarios.forEach(funcionario -> {
 			listFuncionarioTabela
-			        .add(new TabelaFuncionario(funcionario.getId(), funcionario.getNome(), funcionario.getEmail(),
-			                funcionario.getSenha(), funcionario.getCargo(), funcionario.getDataDeContratacao(),
-			                funcionario.isManipulaLivros(), funcionario.isManipulaFuncionarios()));
+					.add(new TabelaFuncionario(funcionario.getId(), funcionario.getNome(), funcionario.getEmail(),
+							funcionario.getSenha(), funcionario.getCargo(), funcionario.getDataDeContratacao(),
+							funcionario.isManipulaLivros(), funcionario.isManipulaFuncionarios()));
 		});
-		adicionaColunasEDados(listFuncionarioTabela);
+		this.adicionaColunasEDados(listFuncionarioTabela);
 	}
 
 	private List<Funcionario> pegarListaNoBanco() {
-		return new FuncionarioDAO(em).pegarTodosOsFuncionarios();
+		return new FuncionarioDAO(this.em).pegarTodosOsFuncionarios();
 
 	}
 
 	private void adicionaColunasEDados(final ObservableList<TabelaFuncionario> listFuncionarioTabela) {
 
-		final JFXTreeTableColumn<TabelaFuncionario, String> colId = new JFXTreeTableColumn<>(
-		        "#");
+		final JFXTreeTableColumn<TabelaFuncionario, String> colId = new JFXTreeTableColumn<>("#");
 		colId.setPrefWidth(30);
 		colId.setCellValueFactory(param -> param.getValue().getValue().getIdProperty());
 
-		final JFXTreeTableColumn<TabelaFuncionario, String> colNome = new JFXTreeTableColumn<>(
-		        "Nome");
+		final JFXTreeTableColumn<TabelaFuncionario, String> colNome = new JFXTreeTableColumn<>("Nome");
 		colNome.setPrefWidth(70);
 		colNome.setCellValueFactory(param -> param.getValue().getValue().getNomeProperty());
 
-		final JFXTreeTableColumn<TabelaFuncionario, String> colSenha = new JFXTreeTableColumn<>(
-		        "Senha");
+		final JFXTreeTableColumn<TabelaFuncionario, String> colSenha = new JFXTreeTableColumn<>("Senha");
 		colSenha.setPrefWidth(70);
 		colSenha.setCellValueFactory(param -> param.getValue().getValue().getSenhaProperty());
 
-		final JFXTreeTableColumn<TabelaFuncionario, String> colEmail = new JFXTreeTableColumn<>(
-		        "Email");
+		final JFXTreeTableColumn<TabelaFuncionario, String> colEmail = new JFXTreeTableColumn<>("Email");
 		colEmail.setPrefWidth(70);
 		colEmail.setCellValueFactory(param -> param.getValue().getValue().getEmailProperty());
 
-		final JFXTreeTableColumn<TabelaFuncionario, String> colCargo = new JFXTreeTableColumn<>(
-		        "Cargo");
+		final JFXTreeTableColumn<TabelaFuncionario, String> colCargo = new JFXTreeTableColumn<>("Cargo");
 		colCargo.setPrefWidth(70);
 		colCargo.setCellValueFactory(param -> param.getValue().getValue().getCargoProperty());
 
 		final JFXTreeTableColumn<TabelaFuncionario, String> colDataDeContratacao = new JFXTreeTableColumn<>(
-		        "Data de contratação");
+				"Data de contratação");
 		colDataDeContratacao.setPrefWidth(70);
 		colDataDeContratacao.setCellValueFactory(param -> param.getValue().getValue().getDataProperty());
 
 		final JFXTreeTableColumn<TabelaFuncionario, String> colManipulaLivros = new JFXTreeTableColumn<>(
-		        "Manipula livros");
+				"Manipula livros");
 		colManipulaLivros.setPrefWidth(110);
 		colManipulaLivros.setCellValueFactory(param -> param.getValue().getValue().getManipulaLivrosProperty());
 
 		final JFXTreeTableColumn<TabelaFuncionario, String> colManipulaFuncionarios = new JFXTreeTableColumn<>(
-		        "Manipula funcionarios");
+				"Manipula funcionarios");
 		colManipulaFuncionarios.setPrefWidth(120);
 		colManipulaFuncionarios
-		        .setCellValueFactory(param -> param.getValue().getValue().getManipulaFuncionariosProperty());
+				.setCellValueFactory(param -> param.getValue().getValue().getManipulaFuncionariosProperty());
 
 		final JFXTreeTableColumn<TabelaFuncionario, JFXButton> colAlteraRemoveFuncionario = new JFXTreeTableColumn<>(
-		        "Altera/Remove");
+				"Altera/Remove");
 		colAlteraRemoveFuncionario.setPrefWidth(70);
-		colAlteraRemoveFuncionario
-		        .setCellValueFactory(param -> param.getValue().getValue().getJfxButton());
+		colAlteraRemoveFuncionario.setCellValueFactory(param -> param.getValue().getValue().getJfxButton());
 
 		final TreeItem<TabelaFuncionario> root = new RecursiveTreeItem<>(listFuncionarioTabela,
-		        RecursiveTreeObject::getChildren);
-		ttbFuncionario.getColumns().setAll(colId, colNome, colSenha, colEmail, colCargo, colDataDeContratacao,
-		        colManipulaLivros, colManipulaFuncionarios, colAlteraRemoveFuncionario);
+				RecursiveTreeObject::getChildren);
+		this.ttbFuncionario.getColumns().setAll(colId, colNome, colSenha, colEmail, colCargo, colDataDeContratacao,
+				colManipulaLivros, colManipulaFuncionarios, colAlteraRemoveFuncionario);
 
-		ttbFuncionario.setRoot(root);
-		ttbFuncionario.setShowRoot(false);
+		this.ttbFuncionario.setRoot(root);
+		this.ttbFuncionario.setShowRoot(false);
 	}
 
 }

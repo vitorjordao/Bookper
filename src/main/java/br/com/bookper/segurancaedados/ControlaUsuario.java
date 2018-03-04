@@ -1,4 +1,4 @@
-package br.com.bookper.dadosnamaquina;
+package br.com.bookper.segurancaedados;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

@@ -8,44 +8,48 @@ import br.com.bookper.coneccoes.DAO.GerenteDAO;
 import br.com.bookper.coneccoes.modelo.Gerente;
 import br.com.bookper.coneccoes.util.JPAUtil;
 import br.com.bookper.controladores.telas.TelasPopUp;
+import br.com.bookper.segurancaedados.Criptografia;
 import br.com.bookper.validacoes.ValidarDados;
 import javafx.scene.control.Alert.AlertType;
 
 public class ValidarRegistro implements Validar {
-	private String nomeUnidade;
-	private String nome;
-	private String senha;
-	private String repitaSenha;
-	private String email;
-	public ValidarRegistro(String nomeUnidade, String nome, String senha, String repitaSenha, String email) {
+	private final String nomeUnidade;
+	private final String nome;
+	private final String senha;
+	private final String repitaSenha;
+	private final String email;
+
+	public ValidarRegistro(final String nomeUnidade, final String nome, final String senha, final String repitaSenha,
+			final String email) {
 		this.nomeUnidade = nomeUnidade;
 		this.nome = nome;
 		this.senha = senha;
 		this.repitaSenha = repitaSenha;
 		this.email = email;
 	}
+
 	@Override
 	public boolean estaOK() {
-		ValidarDados validarDados = new ValidarDados();
-		if (validarDados.validaRegistroGerente(nome, nomeUnidade, senha, repitaSenha, email)) {
-			return procurarNoBD();
-		}
-		else {
+		final ValidarDados validarDados = new ValidarDados();
+		if (validarDados.validaRegistroGerente(this.nome, this.nomeUnidade, this.senha, this.repitaSenha, this.email)) {
+			return this.procurarNoBD();
+		} else {
 			new TelasPopUp(AlertType.ERROR, "Cadastro", "Erro no cadastro", validarDados.getValidado());
 		}
 		return false;
 	}
+
 	private boolean procurarNoBD() {
-		EntityManager em = new JPAUtil().getEntityManager();
-		GerenteDAO gerenteDAO = new GerenteDAO(em);
-		FuncionarioDAO funcionarioDAO = new FuncionarioDAO(em);
-		if (!gerenteDAO.existeEmail(email) && !funcionarioDAO.buscarEmail(email)) {
-			Gerente gerente = new Gerente(nome, email, senha, nomeUnidade);
-			DAO dao = new DAO(em);
+		final EntityManager em = new JPAUtil().getEntityManager();
+		final GerenteDAO gerenteDAO = new GerenteDAO(em);
+		final FuncionarioDAO funcionarioDAO = new FuncionarioDAO(em);
+		if (!gerenteDAO.existeEmail(this.email) && !funcionarioDAO.buscarEmail(this.email)) {
+			final Gerente gerente = new Gerente(this.nome, this.email, Criptografia.transformaStringEmHash(this.senha),
+					this.nomeUnidade);
+			final DAO dao = new DAO(em);
 			dao.cadastrar(gerente);
 			return true;
-		}
-		else {
+		} else {
 			new TelasPopUp(AlertType.ERROR, "Cadastro", "Erro no cadastro", "Já existe esse e-mail!");
 		}
 		return false;

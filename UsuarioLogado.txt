@@ -1,4 +1,0 @@
-true
-teste@teste.teste
-123456789
-teste@teste.teste

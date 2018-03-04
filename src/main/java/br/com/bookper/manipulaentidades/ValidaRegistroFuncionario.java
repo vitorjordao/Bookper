@@ -12,8 +12,8 @@ import br.com.bookper.coneccoes.modelo.Funcionario;
 import br.com.bookper.coneccoes.modelo.Gerente;
 import br.com.bookper.coneccoes.util.JPAUtil;
 import br.com.bookper.controladores.telas.TelasPopUp;
-import br.com.bookper.dadosnamaquina.ControlaUsuario;
 import br.com.bookper.manipuladatas.ConversorDeDatas;
+import br.com.bookper.segurancaedados.ControlaUsuario;
 import br.com.bookper.validacoes.ValidarDados;
 import javafx.scene.control.Alert.AlertType;
 
