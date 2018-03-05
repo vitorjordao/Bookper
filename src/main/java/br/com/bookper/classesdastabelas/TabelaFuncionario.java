@@ -18,11 +18,12 @@ public class TabelaFuncionario extends RecursiveTreeObject<TabelaFuncionario> {
 	private final StringProperty dataDeContratacao;
 	private final StringProperty manipulaLivros;
 	private final StringProperty manipulaFuncionarios;
+	private final StringProperty manipulaFerramentasAvancadas;
 	private ObservableValue<JFXButton> jfxButton;
 
-	public TabelaFuncionario(final Integer id, final String nome, final String email,
-	        final String senha, final String cargo, final Calendar dataDeContratacao,
-	        final Boolean manipulaLivros, final Boolean manipulaFuncionarios) {
+	public TabelaFuncionario(final Integer id, final String nome, final String email, final String senha,
+			final String cargo, final Calendar dataDeContratacao, final Boolean manipulaLivros,
+			final Boolean manipulaFuncionarios, final Boolean manipulaFerramentasAvancadas) {
 		super();
 		// jfxButton.getValue().setText("Teste");
 
@@ -34,57 +35,83 @@ public class TabelaFuncionario extends RecursiveTreeObject<TabelaFuncionario> {
 		this.dataDeContratacao = new SimpleStringProperty(dataDeContratacao.getTime().toString());
 		this.manipulaLivros = new SimpleStringProperty(manipulaLivros.toString());
 		this.manipulaFuncionarios = new SimpleStringProperty(manipulaFuncionarios.toString());
+		this.manipulaFerramentasAvancadas = new SimpleStringProperty(manipulaFerramentasAvancadas.toString());
 	}
+
 	public StringProperty getIdProperty() {
 		return this.id;
 	}
+
 	public String getId() {
-		return id.get();
+		return this.id.get();
 	}
+
+	public StringProperty getManipulaFerramentasAvancadasProperty() {
+		return this.manipulaFerramentasAvancadas;
+	}
+
+	public String getManipulaFerramentasAvancadas() {
+		return this.manipulaFerramentasAvancadas.get();
+	}
+
 	public StringProperty getNomeProperty() {
 		return this.nome;
 	}
+
 	public String getNome() {
-		return nome.get();
+		return this.nome.get();
 	}
+
 	public StringProperty getEmailProperty() {
 		return this.email;
 	}
+
 	public String getEmail() {
-		return email.get();
+		return this.email.get();
 	}
+
 	public StringProperty getSenhaProperty() {
 		return this.senha;
 	}
+
 	public String getSenha() {
-		return senha.get();
+		return this.senha.get();
 	}
+
 	public StringProperty getCargoProperty() {
 		return this.cargo;
 	}
+
 	public String getCargo() {
-		return cargo.get();
+		return this.cargo.get();
 	}
+
 	public StringProperty getDataProperty() {
 		return this.dataDeContratacao;
 	}
+
 	public String getDataDeContratacao() {
-		return dataDeContratacao.get();
+		return this.dataDeContratacao.get();
 	}
+
 	public StringProperty getManipulaLivrosProperty() {
 		return this.manipulaLivros;
 	}
+
 	public String getManipulaLivros() {
-		return manipulaLivros.get();
+		return this.manipulaLivros.get();
 	}
+
 	public StringProperty getManipulaFuncionariosProperty() {
 		return this.manipulaFuncionarios;
 	}
+
 	public String getManipulaFuncionarios() {
-		return manipulaFuncionarios.get();
+		return this.manipulaFuncionarios.get();
 	}
+
 	public ObservableValue<JFXButton> getJfxButton() {
-		return jfxButton;
+		return this.jfxButton;
 	}
 
 }

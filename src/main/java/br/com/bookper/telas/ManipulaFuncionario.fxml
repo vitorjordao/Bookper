@@ -34,19 +34,24 @@
             <JFXTextField fx:id="txtCadastrarEmailFuncionario" labelFloat="true" layoutX="6.0" layoutY="131.0" prefHeight="33.0" prefWidth="329.0" promptText="Email do funcionario" styleClass="text-field-ok" />
             <JFXTextField fx:id="txtCadastrarCargoFuncionario" labelFloat="true" layoutX="6.0" layoutY="182.0" prefHeight="33.0" prefWidth="109.0" promptText="Cargo" styleClass="text-field-ok" />
             <JFXDatePicker fx:id="dpCadastrarDataFuncionario" layoutX="121.0" layoutY="182.0" prefHeight="33.0" prefWidth="214.0" promptText="Data de contratação" showWeekNumbers="true" styleClass="Date-Picker" />
-            <Line endX="100.0" layoutX="170.0" layoutY="255.0" scaleX="1.5" startX="-100.0" strokeWidth="2.0" styleClass="Line" />
-            <Label fx:id="lblPermissoesCadastrarFuncionario" layoutX="113.0" layoutY="226.0" styleClass="label-nome-livros" text="Permissões" />
-            <JFXToggleButton fx:id="tgCadastrarManipulaLivroFuncionario" layoutX="6.0" layoutY="256.0" prefHeight="50.0" prefWidth="197.0" size="8.0" styleClass="Toggle-Button" text="Manipular livros">
+            <Line endX="100.0" layoutX="171.0" layoutY="245.0" scaleX="1.5" startX="-100.0" strokeWidth="2.0" styleClass="Line" />
+            <Label fx:id="lblPermissoesCadastrarFuncionario" layoutX="114.0" layoutY="216.0" styleClass="label-nome-livros" text="Permissões" />
+            <JFXToggleButton fx:id="tgCadastrarManipulaLivroFuncionario" layoutX="6.0" layoutY="246.0" prefHeight="50.0" prefWidth="197.0" size="8.0" styleClass="Toggle-Button" text="Manipular livros">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </JFXToggleButton>
-            <JFXToggleButton fx:id="tgCadastrarManipulaFuncionariosFuncionario" layoutX="6.0" layoutY="306.0" prefHeight="50.0" prefWidth="252.0" size="8.0" styleClass="Toggle-Button" text="Manipular funcionários">
+            <JFXToggleButton fx:id="tgCadastrarManipulaFuncionariosFuncionario" layoutX="6.0" layoutY="296.0" prefHeight="50.0" prefWidth="252.0" size="8.0" styleClass="Toggle-Button" text="Manipular funcionários">
                <font>
                   <Font name="Arial Black" size="15.0" />
                </font>
             </JFXToggleButton>
-            <JFXButton fx:id="btnCadastrarFuncionario" layoutX="70.0" layoutY="384.0" onAction="#clickCadastrar" styleClass="button-transparent3" text="Cadastrar" />
+            <JFXButton fx:id="btnCadastrarFuncionario" layoutX="70.0" layoutY="396.0" onAction="#clickCadastrar" prefHeight="58.0" prefWidth="202.0" styleClass="button-transparent3" text="Cadastrar" />
+            <JFXToggleButton fx:id="tgCadastrarManipulaFerramentasAvancadasFuncionario" layoutX="6.0" layoutY="346.0" prefHeight="50.0" prefWidth="252.0" size="8.0" styleClass="Toggle-Button" text="Controles avançados">
+               <font>
+                  <Font name="Arial Black" size="15.0" />
+               </font>
+            </JFXToggleButton>
          </children>
       </AnchorPane>
       <JFXTextField fx:id="txtPesquisar" labelFloat="true" layoutX="763.0" layoutY="118.0" prefHeight="33.0" prefWidth="210.0" promptText="Pesquisar" styleClass="text-field-ok2" />

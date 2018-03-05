@@ -41,7 +41,7 @@ public class ValidarLogin implements Validar {
 		if (gerenteDAO.buscarLogin(this.email, this.senha)) {
 			final ControlaUsuario controlaUsuario = new ControlaUsuario();
 			controlaUsuario.salvar(this.email, this.senha, this.continuarLogado, this.email);
-			new PermisoesESeguranca(this.email, this.senha, true, true);
+			new PermisoesESeguranca(this.email, this.senha, true, true, true);
 			return true;
 		} else if (funcionarioDAO.buscarLogin(this.email, this.senha)) {
 			final Funcionario funcionario = funcionarioDAO.buscarLogin(this.email);
@@ -49,7 +49,7 @@ public class ValidarLogin implements Validar {
 			controlaUsuario.salvar(this.email, this.senha, this.continuarLogado,
 					funcionarioDAO.buscarGerente(this.email).getEmail());
 			new PermisoesESeguranca(this.email, this.senha, funcionario.isManipulaLivros(),
-					funcionario.isManipulaFuncionarios());
+					funcionario.isManipulaFuncionarios(), funcionario.isManipulaFerramentasAvancadas());
 			return true;
 		} else {
 			new TelasPopUp(AlertType.ERROR, "Login", "Erro no login", "Não existe essa conta!");

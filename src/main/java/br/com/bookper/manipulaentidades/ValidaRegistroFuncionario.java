@@ -19,16 +19,18 @@ import javafx.scene.control.Alert.AlertType;
 
 public class ValidaRegistroFuncionario implements Validar {
 
-	private String nome;
-	private String senha;
-	private String email;
-	private String cargo;
-	private LocalDate data;
-	private boolean manipulaLivro;
-	private boolean manipulaFuncionarios;
+	private final String nome;
+	private final String senha;
+	private final String email;
+	private final String cargo;
+	private final LocalDate data;
+	private final boolean manipulaLivro;
+	private final boolean manipulaFuncionarios;
+	private final boolean manipulaFerramentasAvancadas;
 
-	public ValidaRegistroFuncionario(String nome, String senha, String email, String cargo, LocalDate data,
-	        boolean manipulaLivro, boolean manipulaFuncionarios) {
+	public ValidaRegistroFuncionario(final String nome, final String senha, final String email, final String cargo,
+			final LocalDate data, final boolean manipulaLivro, final boolean manipulaFuncionarios,
+			final boolean manipulaFerramentasAvancadas) {
 		this.nome = nome;
 		this.senha = senha;
 		this.email = email;
@@ -36,44 +38,43 @@ public class ValidaRegistroFuncionario implements Validar {
 		this.data = data;
 		this.manipulaLivro = manipulaLivro;
 		this.manipulaFuncionarios = manipulaFuncionarios;
+		this.manipulaFerramentasAvancadas = manipulaFerramentasAvancadas;
 	}
 
 	@Override
 	public boolean estaOK() {
-		ValidarDados validarDados = new ValidarDados();
-		if (validarDados.validaRegistroFuncionario(nome, senha, email, cargo, data)) {
-			return procurarNoBD();
-		}
-		else {
+		final ValidarDados validarDados = new ValidarDados();
+		if (validarDados.validaRegistroFuncionario(this.nome, this.senha, this.email, this.cargo, this.data)) {
+			return this.procurarNoBD();
+		} else {
 			new TelasPopUp(AlertType.ERROR, "Cadastro", "Erro no cadastro", validarDados.getValidado());
 		}
 		return false;
 	}
 
 	private boolean procurarNoBD() {
-		EntityManager em = new JPAUtil().getEntityManager();
-		ConversorDeDatas converteData = new ConversorDeDatas();
-		ControlaUsuario controlaUsuario = new ControlaUsuario();
-		GerenteDAO gerenteDAO = new GerenteDAO(em);
-		FuncionarioDAO funcionarioDAO = new FuncionarioDAO(em);
-		if (!gerenteDAO.existeEmail(email) && !funcionarioDAO.buscarEmail(email)) {
-			Scanner emailGerente = controlaUsuario.getCredenciais();
+		final EntityManager em = new JPAUtil().getEntityManager();
+		final ConversorDeDatas converteData = new ConversorDeDatas();
+		final ControlaUsuario controlaUsuario = new ControlaUsuario();
+		final GerenteDAO gerenteDAO = new GerenteDAO(em);
+		final FuncionarioDAO funcionarioDAO = new FuncionarioDAO(em);
+		if (!gerenteDAO.existeEmail(this.email) && !funcionarioDAO.buscarEmail(this.email)) {
+			final Scanner emailGerente = controlaUsuario.getCredenciais();
 			emailGerente.nextLine();
 			emailGerente.nextLine();
 			emailGerente.nextLine();
-			Gerente gerente = gerenteDAO.buscaEmail(emailGerente.nextLine());
-			Funcionario funcionario = new Funcionario(nome, email, senha, cargo,
-			        converteData.converterLocalDataParaJodaTime(this.data), manipulaLivro, manipulaFuncionarios,
-			        gerente);
-			DAO dao = new DAO(em);
+			final Gerente gerente = gerenteDAO.buscaEmail(emailGerente.nextLine());
+			final Funcionario funcionario = new Funcionario(this.nome, this.email, this.senha, this.cargo,
+					converteData.converterLocalDataParaJodaTime(this.data), this.manipulaLivro,
+					this.manipulaFuncionarios, this.manipulaFerramentasAvancadas, gerente);
+			final DAO dao = new DAO(em);
 			dao.cadastrar(funcionario);
 			new TelasPopUp(AlertType.CONFIRMATION, "Cadastro", "Funcionário cadastrado!",
-			        "Nome: " + this.nome + ", senha: " + this.senha + ", email: " + this.email + ", cargo: "
-			                + this.cargo + ", data de contratação: " + this.data + ", pode manipular livros: "
-			                + this.manipulaLivro + ", pode manipular funcionarios: " + this.manipulaFuncionarios);
+					"Nome: " + this.nome + ", senha: " + this.senha + ", email: " + this.email + ", cargo: "
+							+ this.cargo + ", data de contratação: " + this.data + ", pode manipular livros: "
+							+ this.manipulaLivro + ", pode manipular funcionarios: " + this.manipulaFuncionarios);
 			return true;
-		}
-		else {
+		} else {
 			new TelasPopUp(AlertType.ERROR, "Cadastro", "Erro no cadastro", "Já existe esse e-mail!");
 		}
 		return false;

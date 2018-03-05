@@ -8,6 +8,7 @@ import javax.persistence.TypedQuery;
 import br.com.bookper.coneccoes.modelo.Funcionario;
 import br.com.bookper.coneccoes.modelo.Gerente;
 import br.com.bookper.segurancaedados.Criptografia;
+import br.com.bookper.segurancaedados.PermisoesESeguranca;
 
 public class FuncionarioDAO {
 	private final EntityManager em;
@@ -68,6 +69,15 @@ public class FuncionarioDAO {
 
 		final TypedQuery<Funcionario> query = this.em.createQuery(jpql, Funcionario.class);
 
+		return query.getResultList();
+	}
+
+	public List<Funcionario> pegarTodosOsFuncionariosMenosEste() {
+		final String jpql = "select f from Funcionario f where f.email <> :pEmail";
+
+		final TypedQuery<Funcionario> query = this.em.createQuery(jpql, Funcionario.class);
+
+		query.setParameter("pEmail", PermisoesESeguranca.getEMAIL());
 		return query.getResultList();
 	}
 

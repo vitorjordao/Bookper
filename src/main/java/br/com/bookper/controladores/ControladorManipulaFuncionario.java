@@ -66,6 +66,9 @@ public class ControladorManipulaFuncionario implements Initializable {
 	private JFXToggleButton tgCadastrarManipulaFuncionariosFuncionario;
 
 	@FXML
+	private JFXToggleButton tgCadastrarManipulaFerramentasAvancadasFuncionario;
+
+	@FXML
 	private JFXTreeTableView<TabelaFuncionario> ttbFuncionario;
 
 	@FXML
@@ -76,11 +79,14 @@ public class ControladorManipulaFuncionario implements Initializable {
 		final String email = this.txtCadastrarEmailFuncionario.getText();
 		final String cargo = this.txtCadastrarCargoFuncionario.getText();
 		final LocalDate data = this.dpCadastrarDataFuncionario.getValue();
-		final boolean manipulaLivro = this.tgCadastrarManipulaLivroFuncionario.isSelected();
+		final boolean manipulaLivros = this.tgCadastrarManipulaLivroFuncionario.isSelected();
 		final boolean manipulaFuncionarios = this.tgCadastrarManipulaFuncionariosFuncionario.isSelected();
+		final boolean manipulaFerramentasAvancadas = this.tgCadastrarManipulaFerramentasAvancadasFuncionario
+				.isSelected();
 		final ValidaRegistroFuncionario registroFuncionario = new ValidaRegistroFuncionario(nome, senha, email, cargo,
-				data, manipulaLivro, manipulaFuncionarios);
+				data, manipulaLivros, manipulaFuncionarios, manipulaFerramentasAvancadas);
 		if (registroFuncionario.estaOK()) {
+			this.ultimaListaDeFuncionarios = this.pegarListaNoBanco();
 			this.listarFuncionarios(this.ultimaListaDeFuncionarios);
 		}
 	}
@@ -133,16 +139,16 @@ public class ControladorManipulaFuncionario implements Initializable {
 		if (!listFuncionarioTabela.isEmpty())
 			listFuncionarioTabela.clear();
 		funcionarios.forEach(funcionario -> {
-			listFuncionarioTabela
-					.add(new TabelaFuncionario(funcionario.getId(), funcionario.getNome(), funcionario.getEmail(),
-							funcionario.getSenha(), funcionario.getCargo(), funcionario.getDataDeContratacao(),
-							funcionario.isManipulaLivros(), funcionario.isManipulaFuncionarios()));
+			listFuncionarioTabela.add(new TabelaFuncionario(funcionario.getId(), funcionario.getNome(),
+					funcionario.getEmail(), funcionario.getSenha(), funcionario.getCargo(),
+					funcionario.getDataDeContratacao(), funcionario.isManipulaLivros(),
+					funcionario.isManipulaFuncionarios(), funcionario.isManipulaFerramentasAvancadas()));
 		});
 		this.adicionaColunasEDados(listFuncionarioTabela);
 	}
 
 	private List<Funcionario> pegarListaNoBanco() {
-		return new FuncionarioDAO(this.em).pegarTodosOsFuncionarios();
+		return new FuncionarioDAO(this.em).pegarTodosOsFuncionariosMenosEste();
 
 	}
 
@@ -184,6 +190,12 @@ public class ControladorManipulaFuncionario implements Initializable {
 		colManipulaFuncionarios
 				.setCellValueFactory(param -> param.getValue().getValue().getManipulaFuncionariosProperty());
 
+		final JFXTreeTableColumn<TabelaFuncionario, String> colManipulaFerramentasAvancadas = new JFXTreeTableColumn<>(
+				"Manipula ferramentas avancadas");
+		colManipulaFerramentasAvancadas.setPrefWidth(120);
+		colManipulaFerramentasAvancadas
+				.setCellValueFactory(param -> param.getValue().getValue().getManipulaFerramentasAvancadasProperty());
+
 		final JFXTreeTableColumn<TabelaFuncionario, JFXButton> colAlteraRemoveFuncionario = new JFXTreeTableColumn<>(
 				"Altera/Remove");
 		colAlteraRemoveFuncionario.setPrefWidth(70);
@@ -191,8 +203,9 @@ public class ControladorManipulaFuncionario implements Initializable {
 
 		final TreeItem<TabelaFuncionario> root = new RecursiveTreeItem<>(listFuncionarioTabela,
 				RecursiveTreeObject::getChildren);
-		this.ttbFuncionario.getColumns().setAll(colId, colNome, colSenha, colEmail, colCargo, colDataDeContratacao,
-				colManipulaLivros, colManipulaFuncionarios, colAlteraRemoveFuncionario);
+		this.ttbFuncionario.getColumns().setAll(colId, colNome, colEmail, colCargo, colDataDeContratacao,
+				colManipulaLivros, colManipulaFuncionarios, colManipulaFerramentasAvancadas,
+				colAlteraRemoveFuncionario);
 
 		this.ttbFuncionario.setRoot(root);
 		this.ttbFuncionario.setShowRoot(false);
