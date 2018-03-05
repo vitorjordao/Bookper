@@ -73,11 +73,18 @@ public class FuncionarioDAO {
 	}
 
 	public List<Funcionario> pegarTodosOsFuncionariosMenosEste() {
-		final String jpql = "select f from Funcionario f where f.email <> :pEmail";
+		final String jpql = "select f from Funcionario f where f.email <> :pEmail and f.gerente = :pGerente";
 
 		final TypedQuery<Funcionario> query = this.em.createQuery(jpql, Funcionario.class);
 
 		query.setParameter("pEmail", PermisoesESeguranca.getEMAIL());
+		final String email = PermisoesESeguranca.getEMAIL();
+		try {
+			query.setParameter("pGerente", this.buscarGerente(email));
+		} catch (final Exception e) {
+			query.setParameter("pGerente", new GerenteDAO(this.em).buscaEmail(email));
+
+		}
 		return query.getResultList();
 	}
 

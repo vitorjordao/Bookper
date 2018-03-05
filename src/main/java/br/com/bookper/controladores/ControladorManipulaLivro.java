@@ -120,7 +120,7 @@ public class ControladorManipulaLivro implements Initializable {
 	}
 
 	private List<Livro> pegarListaNoBanco() {
-		return new LivroDAO(this.em).pegarTodosOsLivros();
+		return new LivroDAO(this.em).pegarTodosOsLivrosComAPermissao();
 
 	}
 
