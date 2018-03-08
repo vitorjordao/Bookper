@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="panPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="1049.0" styleClass="panel2" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorFerramentasAvancadas">
+   <children>
+      <AnchorPane layoutX="-6.0" prefHeight="94.0" prefWidth="1058.0" styleClass="panel1">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <MaterialDesignIconView glyphName="ARROW_LEFT_THICK" layoutX="22.0" layoutY="71.0" styleClass="icon-left" />
+            <JFXButton fx:id="btnVoltar" layoutX="7.0" minWidth="-Infinity" onAction="#clickVoltar" prefHeight="94.0" prefWidth="94.0" styleClass="button-transparent3" text=" " />
+            <MaterialDesignIconView glyphName="CLOSE" layoutX="972.0" layoutY="70.0" styleClass="icon-close2" />
+            <JFXButton fx:id="btnFechar" layoutX="957.0" minWidth="-Infinity" onAction="#clickFechar" prefHeight="94.0" prefWidth="94.0" styleClass="button-transparent3" text=" " />
+            <Label fx:id="lblNome" layoutX="447.0" layoutY="28.0" styleClass="label-title" text="Ferramentas avançadas" />
+         </children>
+      </AnchorPane>
+      <JFXTabPane layoutY="99.0" prefHeight="525.0" prefWidth="1049.0">
+         <tabs>
+            <Tab fx:id="tbEstatitica" text="Estatísticas">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="387.0" prefWidth="1049.0">
+                     <children>
+                        <PieChart fx:id="estatisticasQuantidadesDePersonalidades" layoutX="14.0" layoutY="14.0" prefHeight="262.0" prefWidth="291.0" title="Personalidades" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tbEmail" text="Enviadoria de E-mail">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+   </children>
+</AnchorPane>

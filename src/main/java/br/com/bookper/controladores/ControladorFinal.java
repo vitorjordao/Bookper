@@ -11,13 +11,19 @@ import java.util.ResourceBundle;
 import javax.persistence.EntityManager;
 
 import com.jfoenix.controls.JFXRadioButton;
+import com.jfoenix.controls.JFXTextField;
 
 import br.com.bookper.coneccoes.DAO.DAO;
+import br.com.bookper.coneccoes.DAO.FuncionarioDAO;
+import br.com.bookper.coneccoes.DAO.GerenteDAO;
+import br.com.bookper.coneccoes.modelo.Cliente;
+import br.com.bookper.coneccoes.modelo.Gerente;
 import br.com.bookper.coneccoes.modelo.Livro;
 import br.com.bookper.coneccoes.util.JPAUtil;
 import br.com.bookper.controladores.telas.ControlaTelas;
 import br.com.bookper.recomendacoes.GeradorDePersonalidades;
 import br.com.bookper.recomendacoes.RecomendacoesDeLivros;
+import br.com.bookper.segurancaedados.PermisoesESeguranca;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -72,6 +78,9 @@ public class ControladorFinal implements Initializable {
 	@FXML
 	private ImageView imgCapa3;
 
+	@FXML
+	private JFXTextField txtEmail;
+
 	private final RecomendacoesDeLivros recomendacoesDeLivros = new RecomendacoesDeLivros();
 
 	private final Livro l1 = this.recomendacoesDeLivros.getRecomendacao1();
@@ -82,16 +91,33 @@ public class ControladorFinal implements Initializable {
 
 	@FXML
 	private void clickRecomecar(final ActionEvent event) {
+		this.dao.abrirCadastro();
 		this.salvarRecomendacao();
+		this.salvarUsuario();
+		this.dao.fecharCadastro(this.l1);
 		this.tela.iniciarPadrao("Perguntas.fxml");
 		this.tela.fechar(this.rbdGostou1);
 
 	}
 
+	private void salvarUsuario() {
+		final String email = PermisoesESeguranca.getEMAIL();
+		Gerente gerente;
+		try {
+			gerente = new FuncionarioDAO(this.em).buscarGerente(email);
+		} catch (final Exception e) {
+			gerente = new GerenteDAO(this.em).buscaEmail(email);
+		}
+
+		final Cliente cliente = new Cliente(gerente, this.txtEmail.getText(),
+				GeradorDePersonalidades.getPersonalidade());
+
+		this.dao.cadastrarEntidade(cliente);
+
+	}
+
 	private void salvarRecomendacao() {
 		final String personalidade = GeradorDePersonalidades.getPersonalidade();
-
-		this.dao.abrirCadastro();
 
 		if (this.rbdGostou1.isSelected())
 			this.l1.getRank().forEach(rank -> {
@@ -138,7 +164,6 @@ public class ControladorFinal implements Initializable {
 				}
 			});
 
-		this.dao.fecharCadastro(this.l1);
 	}
 
 	@Override

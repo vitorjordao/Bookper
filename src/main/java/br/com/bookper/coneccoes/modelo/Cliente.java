@@ -16,6 +16,18 @@ public class Cliente implements Entidade {
 	private String email;
 	private String personalidade;
 
+	public Cliente(final Gerente gerente, String email, final String personalidade) {
+		this.gerente = gerente;
+		if (email == null)
+			email = "";
+		this.email = email;
+		this.personalidade = personalidade;
+	}
+
+	public Cliente() {
+
+	}
+
 	public String getPersonalidade() {
 		return this.personalidade;
 	}

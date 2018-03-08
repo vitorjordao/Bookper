@@ -9,6 +9,7 @@ import br.com.bookper.coneccoes.modelo.Gerente;
 import br.com.bookper.coneccoes.util.JPAUtil;
 import br.com.bookper.controladores.telas.TelasPopUp;
 import br.com.bookper.segurancaedados.Criptografia;
+import br.com.bookper.segurancaedados.PermisoesESeguranca;
 import br.com.bookper.validacoes.ValidarDados;
 import javafx.scene.control.Alert.AlertType;
 
@@ -48,6 +49,7 @@ public class ValidarRegistro implements Validar {
 					this.nomeUnidade);
 			final DAO dao = new DAO(em);
 			dao.cadastrar(gerente);
+			new PermisoesESeguranca(this.email, this.senha, true, true, true);
 			return true;
 		} else {
 			new TelasPopUp(AlertType.ERROR, "Cadastro", "Erro no cadastro", "Já existe esse e-mail!");

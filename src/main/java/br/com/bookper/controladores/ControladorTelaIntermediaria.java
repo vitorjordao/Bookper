@@ -1,10 +1,16 @@
 package br.com.bookper.controladores;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import javax.persistence.EntityManager;
 
 import com.jfoenix.controls.JFXButton;
 
+import br.com.bookper.coneccoes.DAO.LivroDAO;
+import br.com.bookper.coneccoes.modelo.Livro;
+import br.com.bookper.coneccoes.util.JPAUtil;
 import br.com.bookper.controladores.telas.ControlaTelas;
 import br.com.bookper.controladores.telas.TelasPopUp;
 import br.com.bookper.segurancaedados.PermisoesESeguranca;
@@ -37,7 +43,7 @@ public class ControladorTelaIntermediaria implements Initializable {
 	@FXML
 	private void clickEstatistica(final ActionEvent event) {
 		if (PermisoesESeguranca.isFERRAMENTASAVANCADAS()) {
-			this.tela.iniciarPadrao(".fxml");
+			this.tela.iniciarPadrao("FerramentasAvancadas.fxml");
 			this.tela.fechar(this.btnManipulaFuncionario.getGraphic());
 		} else
 			this.erroPermissaoNaTela();
@@ -45,17 +51,26 @@ public class ControladorTelaIntermediaria implements Initializable {
 
 	@FXML
 	private void clickManipulaLivro(final ActionEvent event) {
+
 		if (PermisoesESeguranca.isCADASTROLIVRO()) {
 			this.tela.iniciarPadrao("ManipulaLivro.fxml");
 			this.tela.fechar(this.btnManipulaFuncionario.getGraphic());
 		} else
 			this.erroPermissaoNaTela();
+
 	}
 
 	@FXML
 	private void clickTestePersonalidade(final ActionEvent event) {
-		this.tela.iniciarPadrao("Perguntas.fxml");
-		this.tela.fechar(this.btnManipulaFuncionario.getGraphic());
+		final EntityManager em = new JPAUtil().getEntityManager();
+		final List<Livro> livros = new LivroDAO(em).pegarTodosOsLivrosComAPermissao();
+		System.out.println("Teste " + livros.size());
+		if (livros.size() != 0) {
+			this.tela.iniciarPadrao("Perguntas.fxml");
+			this.tela.fechar(this.btnManipulaFuncionario.getGraphic());
+		} else
+			new TelasPopUp(AlertType.CONFIRMATION, "Erro ao tentar abri tela", "Falha",
+					"Cadastre pelo menos 1 livro antes de iniciar o teste!");
 	}
 
 	private void erroPermissaoNaTela() {

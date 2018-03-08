@@ -17,7 +17,7 @@ public class RecomendacoesDeLivros {
 	private final List<Livro> livrosComAPersonalidade;
 
 	public RecomendacoesDeLivros() {
-		this.livrosComAPersonalidade = this.livroDAO.pegarTodosOsLivros();
+		this.livrosComAPersonalidade = this.livroDAO.pegarTodosOsLivrosComAPermissao();
 		if (this.livrosComAPersonalidade.size() == 0)
 			this.livrosComAPersonalidade.add(new Livro());
 		else
