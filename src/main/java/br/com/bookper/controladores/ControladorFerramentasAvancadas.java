@@ -9,10 +9,16 @@ import java.util.ResourceBundle;
 
 import javax.persistence.EntityManager;
 
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
+
 import br.com.bookper.coneccoes.DAO.ClienteDAO;
 import br.com.bookper.coneccoes.modelo.Cliente;
 import br.com.bookper.coneccoes.util.JPAUtil;
 import br.com.bookper.controladores.telas.ControlaTelas;
+import br.com.bookper.email.EnviadorDeEmail;
 import br.com.bookper.personalidades.TodasPersonalidades;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,12 +32,40 @@ import javafx.scene.layout.AnchorPane;
 public class ControladorFerramentasAvancadas implements Initializable {
 	private final ControlaTelas tela = new ControlaTelas();
 	private final TodasPersonalidades personalidades = new TodasPersonalidades();
+	private final EnviadorDeEmail email = new EnviadorDeEmail();
 
 	@FXML
 	private AnchorPane panPrincipal;
 
 	@FXML
 	private Label lblNome;
+
+	@FXML
+	private JFXTextField txtHost;
+
+	@FXML
+	private JFXTextField txtPorta;
+
+	@FXML
+	private JFXTextField txtEmailAutenticador;
+
+	@FXML
+	private JFXPasswordField txtSenha;
+
+	@FXML
+	private JFXCheckBox chkUsaDeCriptografiaOHost;
+
+	@FXML
+	private JFXTextField txtEmailEnviador;
+
+	@FXML
+	private JFXTextField txtTitulo;
+
+	@FXML
+	private JFXTextArea txtMensagem;
+
+	@FXML
+	private JFXTextField txtEmailDestinatario;
 
 	@FXML
 	private PieChart estatisticasQuantidadesDePersonalidades;
@@ -48,25 +82,34 @@ public class ControladorFerramentasAvancadas implements Initializable {
 		System.exit(0);
 	}
 
-	@Override
-	public void initialize(final URL location, final ResourceBundle resources) {
-		this.geraGraficoDaQunatidadeDePessoasComAquelaPersonalidadeQueFiseraoOTeste();
+	@FXML
+	private void clickEnviar(final ActionEvent event) {
+
+		if (!this.email.enviadorDeEmail(this.txtHost.getText(), Integer.parseInt(this.txtPorta.getText()),
+				this.txtEmailAutenticador.getText(), this.txtSenha.getText(),
+				this.chkUsaDeCriptografiaOHost.isSelected(), this.txtEmailEnviador.getText(), this.txtTitulo.getText(),
+				this.txtMensagem.getText(), this.txtEmailDestinatario.getText())) {
+			this.tela.iniciarPadrao("Eroo ao tentar enviar o e-mail!");
+		}
+
 	}
 
-	private void geraGraficoDaQunatidadeDePessoasComAquelaPersonalidadeQueFiseraoOTeste() {
+	@Override
+	public void initialize(final URL location, final ResourceBundle resources) {
+		this.geraGraficoDaQunatidadeDePessoasComAquelaPersonalidadeQueFizeraoOTeste();
+	}
+
+	private void geraGraficoDaQunatidadeDePessoasComAquelaPersonalidadeQueFizeraoOTeste() {
 
 		final EntityManager em = new JPAUtil().getEntityManager();
 		final ClienteDAO clienteDAO = new ClienteDAO(em);
 		final List<Cliente> clientes = clienteDAO.pegarTodosOsLvrosDesteGerente();
 		for (final Cliente cliente : clientes) {
 			String personalidade = cliente.getPersonalidade();
-			// personalidade = personalidade.toLowerCase();
 			personalidade = Normalizer.normalize(personalidade, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");
-			getAtributos(personalidade, this.personalidades);
+			this.getAtributos(personalidade, this.personalidades);
 
 		}
-		System.out.println("Arquiteto " + this.personalidades.getArquiteto());
-		System.out.println("Comandante " + this.personalidades.getComandante());
 		final ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
 				new PieChart.Data("Advogado", this.personalidades.getAdvogado()),
 				new PieChart.Data("Animador", this.personalidades.getAnimador()),
@@ -87,7 +130,7 @@ public class ControladorFerramentasAvancadas implements Initializable {
 		this.estatisticasQuantidadesDePersonalidades.setData(pieChartData);
 	}
 
-	public static void getAtributos(final String personalidade, final Object o) {
+	public void getAtributos(final String personalidade, final Object o) {
 
 		try {
 			final Class<?> c = o.getClass();
@@ -103,7 +146,6 @@ public class ControladorFerramentasAvancadas implements Initializable {
 				if (f.getName().equals("set" + personalidade)) {
 					f.invoke(o, value + 1);
 				}
-				System.out.println("Nomes " + f.getName() + " valor " + value);
 			}
 		} catch (final Exception e) {
 			e.printStackTrace();

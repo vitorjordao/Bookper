@@ -17,6 +17,14 @@ public class FuncionarioDAO {
 		this.em = em;
 	}
 
+	public Funcionario pegarOFuncionario(final int id) {
+		final String jpql = "select m from Funcionario m where m.id = :pId";
+
+		final TypedQuery<Funcionario> query = this.em.createQuery(jpql, Funcionario.class);
+		query.setParameter("pId", id);
+		return query.getSingleResult();
+	}
+
 	public boolean buscarLogin(final String email, final String senha) {
 		final String jpql = "select m from Funcionario m where m.email = :pEmail";
 

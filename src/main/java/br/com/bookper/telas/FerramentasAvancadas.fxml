@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
@@ -20,14 +24,14 @@
             <JFXButton fx:id="btnVoltar" layoutX="7.0" minWidth="-Infinity" onAction="#clickVoltar" prefHeight="94.0" prefWidth="94.0" styleClass="button-transparent3" text=" " />
             <MaterialDesignIconView glyphName="CLOSE" layoutX="972.0" layoutY="70.0" styleClass="icon-close2" />
             <JFXButton fx:id="btnFechar" layoutX="957.0" minWidth="-Infinity" onAction="#clickFechar" prefHeight="94.0" prefWidth="94.0" styleClass="button-transparent3" text=" " />
-            <Label fx:id="lblNome" layoutX="447.0" layoutY="28.0" styleClass="label-title" text="Ferramentas avançadas" />
+            <Label fx:id="lblNome" layoutX="364.0" layoutY="28.0" styleClass="label-title" text="Ferramentas avançadas" />
          </children>
       </AnchorPane>
       <JFXTabPane layoutY="99.0" prefHeight="525.0" prefWidth="1049.0">
          <tabs>
             <Tab fx:id="tbEstatitica" text="Estatísticas">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="387.0" prefWidth="1049.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="387.0" prefWidth="1049.0" styleClass="panel1">
                      <children>
                         <PieChart fx:id="estatisticasQuantidadesDePersonalidades" layoutX="14.0" layoutY="14.0" prefHeight="262.0" prefWidth="291.0" title="Personalidades" />
                      </children>
@@ -36,7 +40,19 @@
             </Tab>
             <Tab fx:id="tbEmail" text="Enviadoria de E-mail">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="panel1">
+                     <children>
+                        <JFXButton fx:id="btnEnviar" layoutX="450.0" layoutY="364.0" onAction="#clickEnviar" styleClass="button-transparent3" text="Enviar" />
+                        <JFXTextField fx:id="txtHost" labelFloat="true" layoutX="23.0" layoutY="40.0" promptText="Host do email" styleClass="text-field-ok" />
+                        <JFXTextField fx:id="txtPorta" labelFloat="true" layoutX="23.0" layoutY="97.0" promptText="Porta do host" styleClass="text-field-ok" />
+                        <JFXTextField fx:id="txtEmailAutenticador" labelFloat="true" layoutX="23.0" layoutY="165.0" promptText="Email autenticador" styleClass="text-field-ok" />
+                        <JFXPasswordField fx:id="txtSenha" labelFloat="true" layoutX="31.0" layoutY="233.0" promptText="Senha" styleClass="text-field-ok" />
+                        <JFXCheckBox fx:id="chkUsaDeCriptografiaOHost" layoutX="31.0" layoutY="301.0" styleClass="check-automatic" text="Usa SSL na conexão" />
+                        <JFXTextField fx:id="txtEmailEnviador" labelFloat="true" layoutX="31.0" layoutY="363.0" promptText="Email enviador" styleClass="text-field-ok" />
+                        <JFXTextField fx:id="txtTitulo" labelFloat="true" layoutX="738.0" layoutY="40.0" prefHeight="33.0" prefWidth="247.0" promptText="Título" styleClass="text-field-ok" />
+                        <JFXTextField fx:id="txtEmailDestinatario" labelFloat="true" layoutX="738.0" layoutY="363.0" prefHeight="33.0" prefWidth="243.0" promptText="Email destinatário" styleClass="text-field-ok" />
+                        <JFXTextArea fx:id="txtMensagem" layoutX="738.0" layoutY="118.0" prefHeight="231.0" prefWidth="241.0" promptText="Mensagem" styleClass="text-field-ok" />
+                     </children></AnchorPane>
               </content>
             </Tab>
          </tabs>

@@ -25,10 +25,19 @@ public class DAO {
 		return entidade.getId();
 	}
 
+	public void removeEntidade(final Entidade entidade) {
+		this.em.remove(entidade);
+	}
+
 	public int fecharCadastro(final Entidade entidade) {
 		this.em.getTransaction().commit();
 		this.em.close();
 		return entidade.getId();
+	}
+
+	public void fecharCadastroPuro() {
+		this.em.getTransaction().commit();
+		this.em.close();
 	}
 
 	public int cadastrar(final Entidade entidade) {

@@ -19,6 +19,7 @@ import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
 import br.com.bookper.classesdastabelas.TabelaFuncionario;
+import br.com.bookper.coneccoes.DAO.DAO;
 import br.com.bookper.coneccoes.DAO.FuncionarioDAO;
 import br.com.bookper.coneccoes.modelo.Funcionario;
 import br.com.bookper.coneccoes.util.JPAUtil;
@@ -36,7 +37,9 @@ import javafx.scene.layout.AnchorPane;
 public class ControladorManipulaFuncionario implements Initializable {
 	private final ControlaTelas tela = new ControlaTelas();
 	private final EntityManager em = new JPAUtil().getEntityManager();
-	List<Funcionario> ultimaListaDeFuncionarios = new FuncionarioDAO(this.em).pegarTodosOsFuncionarios();
+	FuncionarioDAO funcionarioDao = new FuncionarioDAO(this.em);
+	List<Funcionario> ultimaListaDeFuncionarios = this.funcionarioDao.pegarTodosOsFuncionarios();
+	DAO dao = new DAO(this.em);
 
 	@FXML
 	private AnchorPane panPrincipal;
@@ -93,12 +96,32 @@ public class ControladorManipulaFuncionario implements Initializable {
 
 	@FXML
 	private void clickVoltar(final ActionEvent event) throws IOException {
+
 		this.tela.iniciarPadrao("TelaIntermediaria.fxml");
 		this.tela.fechar(this.panPrincipal);
 	}
 
 	@FXML
 	private void clickFechar(final ActionEvent event) {
+		this.tela.fechar(this.panPrincipal);
+		System.exit(0);
+	}
+
+	@FXML
+	private void clickDeletarFuncionario(final ActionEvent event) {
+		final TabelaFuncionario tabelaFuncionario = this.ttbFuncionario.getSelectionModel().getSelectedItem()
+				.getValue();
+		final Funcionario funcionario = this.funcionarioDao
+				.pegarOFuncionario(Integer.parseInt(tabelaFuncionario.getId()));
+		this.dao.abrirCadastro();
+		this.dao.removeEntidade(funcionario);
+		this.dao.fecharCadastroPuro();
+		this.ultimaListaDeFuncionarios = this.pegarListaNoBanco();
+		this.listarFuncionarios(this.ultimaListaDeFuncionarios);
+	}
+
+	@FXML
+	private void clickAlterarFuncionario(final ActionEvent event) {
 		this.tela.fechar(this.panPrincipal);
 		System.exit(0);
 	}
