@@ -2,12 +2,10 @@ package br.com.bookper.classesdastabelas;
 
 import java.util.Calendar;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ObservableValue;
 
 public class TabelaFuncionario extends RecursiveTreeObject<TabelaFuncionario> {
 	private final StringProperty id;
@@ -19,7 +17,9 @@ public class TabelaFuncionario extends RecursiveTreeObject<TabelaFuncionario> {
 	private final StringProperty manipulaLivros;
 	private final StringProperty manipulaFuncionarios;
 	private final StringProperty manipulaFerramentasAvancadas;
-	private ObservableValue<JFXButton> jfxButton;
+	private final int dia;
+	private final int mes;
+	private final int ano;
 
 	public TabelaFuncionario(final Integer id, final String nome, final String email, final String senha,
 			final String cargo, final Calendar dataDeContratacao, final Boolean manipulaLivros,
@@ -36,6 +36,21 @@ public class TabelaFuncionario extends RecursiveTreeObject<TabelaFuncionario> {
 		this.manipulaLivros = new SimpleStringProperty(manipulaLivros.toString());
 		this.manipulaFuncionarios = new SimpleStringProperty(manipulaFuncionarios.toString());
 		this.manipulaFerramentasAvancadas = new SimpleStringProperty(manipulaFerramentasAvancadas.toString());
+		this.dia = dataDeContratacao.get(Calendar.DAY_OF_WEEK);
+		this.mes = dataDeContratacao.get(Calendar.MONTH);
+		this.ano = dataDeContratacao.get(Calendar.YEAR);
+	}
+
+	public int getDia() {
+		return this.dia;
+	}
+
+	public int getMes() {
+		return this.mes;
+	}
+
+	public int getAno() {
+		return this.ano;
 	}
 
 	public StringProperty getIdProperty() {
@@ -108,10 +123,6 @@ public class TabelaFuncionario extends RecursiveTreeObject<TabelaFuncionario> {
 
 	public String getManipulaFuncionarios() {
 		return this.manipulaFuncionarios.get();
-	}
-
-	public ObservableValue<JFXButton> getJfxButton() {
-		return this.jfxButton;
 	}
 
 }

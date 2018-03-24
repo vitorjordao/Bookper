@@ -15,7 +15,6 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 /**
- *
  * @author Vitor Jordão
  */
 public class IniciadorDoFX extends Application {

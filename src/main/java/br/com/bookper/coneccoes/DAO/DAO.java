@@ -40,10 +40,19 @@ public class DAO {
 		this.em.close();
 	}
 
+	public void commit() {
+		this.em.getTransaction().commit();
+	}
+
+	public void close() {
+		this.em.close();
+	}
+
 	public int cadastrar(final Entidade entidade) {
 		this.abrirCadastro();
-		this.cadastrarEntidade(entidade);
-		return this.fecharCadastro(entidade);
+		final int idEntidade = this.cadastrarEntidade(entidade);
+		this.commit();
+		return idEntidade;
 
 	}
 

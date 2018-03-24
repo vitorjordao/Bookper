@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="684.0" prefWidth="1150.0" styleClass="panel1" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorFinal">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="684.0" prefWidth="1150.0" styleClass="panel1" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorFinal">
    <children>
       <JFXButton fx:id="btnRecomecar" layoutX="487.0" layoutY="510.0" onAction="#clickRecomecar" prefHeight="62.0" prefWidth="181.0" styleClass="button-simples" text="Recomeçar" />
       <AnchorPane fx:id="panRecomendacao1" layoutX="14.0" layoutY="77.0" prefHeight="415.0" prefWidth="333.0" styleClass="panel2">

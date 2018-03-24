@@ -9,7 +9,6 @@ import java.util.ResourceBundle;
 
 import javax.persistence.EntityManager;
 
-import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
@@ -19,7 +18,6 @@ import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
 
 import br.com.bookper.classesdastabelas.TabelaFuncionario;
-import br.com.bookper.coneccoes.DAO.DAO;
 import br.com.bookper.coneccoes.DAO.FuncionarioDAO;
 import br.com.bookper.coneccoes.modelo.Funcionario;
 import br.com.bookper.coneccoes.util.JPAUtil;
@@ -31,15 +29,16 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TreeItem;
 import javafx.scene.layout.AnchorPane;
 
 public class ControladorManipulaFuncionario implements Initializable {
 	private final ControlaTelas tela = new ControlaTelas();
 	private final EntityManager em = new JPAUtil().getEntityManager();
-	FuncionarioDAO funcionarioDao = new FuncionarioDAO(this.em);
-	List<Funcionario> ultimaListaDeFuncionarios = this.funcionarioDao.pegarTodosOsFuncionarios();
-	DAO dao = new DAO(this.em);
+	private final FuncionarioDAO funcionarioDao = new FuncionarioDAO(this.em);
+	private List<Funcionario> ultimaListaDeFuncionarios = this.funcionarioDao.pegarTodosOsFuncionarios();
 
 	@FXML
 	private AnchorPane panPrincipal;
@@ -72,25 +71,69 @@ public class ControladorManipulaFuncionario implements Initializable {
 	private JFXToggleButton tgCadastrarManipulaFerramentasAvancadasFuncionario;
 
 	@FXML
+	private JFXTextField txtAlterarNomeFuncionario;
+
+	@FXML
+	private JFXTextField txtAlterarSenhaFuncionario;
+
+	@FXML
+	private JFXTextField txtAlterarEmailFuncionario;
+
+	@FXML
+	private JFXTextField txtAlterarCargoFuncionario;
+
+	@FXML
+	private JFXDatePicker dpAlterarDataFuncionario;
+
+	@FXML
+	private JFXToggleButton tgAlterarManipulaLivroFuncionario;
+
+	@FXML
+	private JFXToggleButton tgAlterarManipulaFuncionariosFuncionario;
+
+	@FXML
+	private JFXToggleButton tgAlterarManipulaFerramentasAvancadasFuncionario;
+
+	@FXML
+	private Label lblId;
+
+	@FXML
 	private JFXTreeTableView<TabelaFuncionario> ttbFuncionario;
 
 	@FXML
-	private void clickCadastrar(final ActionEvent event) {
+	private Tab tbAlterarFuncionario;
 
-		final String nome = this.txtCadastrarNomeFuncionario.getText();
-		final String senha = Criptografia.transformaStringEmHash(this.txtCadastrarSenhaFuncionario.getText());
-		final String email = this.txtCadastrarEmailFuncionario.getText();
-		final String cargo = this.txtCadastrarCargoFuncionario.getText();
-		final LocalDate data = this.dpCadastrarDataFuncionario.getValue();
-		final boolean manipulaLivros = this.tgCadastrarManipulaLivroFuncionario.isSelected();
-		final boolean manipulaFuncionarios = this.tgCadastrarManipulaFuncionariosFuncionario.isSelected();
-		final boolean manipulaFerramentasAvancadas = this.tgCadastrarManipulaFerramentasAvancadasFuncionario
-				.isSelected();
-		final ValidaRegistroFuncionario registroFuncionario = new ValidaRegistroFuncionario(nome, senha, email, cargo,
-				data, manipulaLivros, manipulaFuncionarios, manipulaFerramentasAvancadas);
-		if (registroFuncionario.estaOK()) {
-			this.ultimaListaDeFuncionarios = this.pegarListaNoBanco();
-			this.listarFuncionarios(this.ultimaListaDeFuncionarios);
+	@FXML
+	private void clickCadastrar(final ActionEvent event) {
+		try {
+			final String nome = this.txtCadastrarNomeFuncionario.getText();
+			final String senha = Criptografia.transformaStringEmHash(this.txtCadastrarSenhaFuncionario.getText());
+			final String email = this.txtCadastrarEmailFuncionario.getText();
+			final String cargo = this.txtCadastrarCargoFuncionario.getText();
+			final LocalDate data = this.dpCadastrarDataFuncionario.getValue();
+			final boolean manipulaLivros = this.tgCadastrarManipulaLivroFuncionario.isSelected();
+			final boolean manipulaFuncionarios = this.tgCadastrarManipulaFuncionariosFuncionario.isSelected();
+			final boolean manipulaFerramentasAvancadas = this.tgCadastrarManipulaFerramentasAvancadasFuncionario
+					.isSelected();
+			final ValidaRegistroFuncionario registroFuncionario = new ValidaRegistroFuncionario(nome, senha, email,
+					cargo, data, manipulaLivros, manipulaFuncionarios, manipulaFerramentasAvancadas);
+
+			if (registroFuncionario.estaOK()) {
+				this.ultimaListaDeFuncionarios = this.pegarListaNoBanco();
+				this.listarFuncionarios(this.ultimaListaDeFuncionarios);
+
+				this.txtCadastrarNomeFuncionario.setText("");
+				this.txtCadastrarSenhaFuncionario.setText("");
+				this.txtCadastrarEmailFuncionario.setText("");
+				this.txtCadastrarCargoFuncionario.setText("");
+				this.dpCadastrarDataFuncionario.setValue(null);
+				this.tgCadastrarManipulaLivroFuncionario.setSelected(false);
+				this.tgCadastrarManipulaFuncionariosFuncionario.setSelected(false);
+				this.tgCadastrarManipulaFerramentasAvancadasFuncionario.setSelected(false);
+
+			}
+		} catch (final Exception e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -111,19 +154,51 @@ public class ControladorManipulaFuncionario implements Initializable {
 	private void clickDeletarFuncionario(final ActionEvent event) {
 		final TabelaFuncionario tabelaFuncionario = this.ttbFuncionario.getSelectionModel().getSelectedItem()
 				.getValue();
-		final Funcionario funcionario = this.funcionarioDao
-				.pegarOFuncionario(Integer.parseInt(tabelaFuncionario.getId()));
-		this.dao.abrirCadastro();
-		this.dao.removeEntidade(funcionario);
-		this.dao.fecharCadastroPuro();
+		this.funcionarioDao.deletarFuncionario(tabelaFuncionario);
+		this.ultimaListaDeFuncionarios = this.pegarListaNoBanco();
+		this.listarFuncionarios(this.ultimaListaDeFuncionarios);
+	}
+
+	@FXML
+	private void clickAlterar(final ActionEvent event) {
+		final String id = this.lblId.getText();
+
+		final LocalDate dataContratacao = this.dpAlterarDataFuncionario.getValue();
+		final boolean manipulaLivros = this.tgAlterarManipulaLivroFuncionario.isSelected();
+		final boolean manipulaFuncionario = this.tgAlterarManipulaFuncionariosFuncionario.isSelected();
+		final boolean manipulaFerramentasAvancadas = this.tgAlterarManipulaFerramentasAvancadasFuncionario.isSelected();
+
+		final String nome = this.txtAlterarNomeFuncionario.getText();
+		final String senha = this.txtAlterarSenhaFuncionario.getText();
+		final String email = this.txtAlterarEmailFuncionario.getText();
+		final String cargo = this.txtAlterarCargoFuncionario.getText();
+		this.funcionarioDao.alterarDados(Integer.parseInt(id), dataContratacao, manipulaLivros,
+				manipulaFerramentasAvancadas, manipulaFuncionario, nome, senha, email, cargo);
 		this.ultimaListaDeFuncionarios = this.pegarListaNoBanco();
 		this.listarFuncionarios(this.ultimaListaDeFuncionarios);
 	}
 
 	@FXML
 	private void clickAlterarFuncionario(final ActionEvent event) {
-		this.tela.fechar(this.panPrincipal);
-		System.exit(0);
+		final TabelaFuncionario tabelaFuncionario = this.ttbFuncionario.getSelectionModel().getSelectedItem()
+				.getValue();
+
+		this.lblId.setText(tabelaFuncionario.getId());
+
+		this.dpAlterarDataFuncionario.setValue(
+				LocalDate.of(tabelaFuncionario.getAno(), tabelaFuncionario.getMes(), tabelaFuncionario.getDia()));
+		this.tgAlterarManipulaLivroFuncionario.setSelected(Boolean.parseBoolean(tabelaFuncionario.getManipulaLivros()));
+		this.tgAlterarManipulaFuncionariosFuncionario
+				.setSelected(Boolean.parseBoolean(tabelaFuncionario.getManipulaFuncionarios()));
+		this.tgAlterarManipulaFerramentasAvancadasFuncionario
+				.setSelected(Boolean.parseBoolean(tabelaFuncionario.getManipulaFerramentasAvancadas()));
+
+		this.txtAlterarNomeFuncionario.setText(tabelaFuncionario.getNome());
+		this.txtAlterarSenhaFuncionario.setText(tabelaFuncionario.getSenha());
+		this.txtAlterarEmailFuncionario.setText(tabelaFuncionario.getEmail());
+		this.txtAlterarCargoFuncionario.setText(tabelaFuncionario.getCargo());
+
+		this.tbAlterarFuncionario.setDisable(false);
 	}
 
 	@FXML
@@ -219,16 +294,10 @@ public class ControladorManipulaFuncionario implements Initializable {
 		colManipulaFerramentasAvancadas
 				.setCellValueFactory(param -> param.getValue().getValue().getManipulaFerramentasAvancadasProperty());
 
-		final JFXTreeTableColumn<TabelaFuncionario, JFXButton> colAlteraRemoveFuncionario = new JFXTreeTableColumn<>(
-				"Altera/Remove");
-		colAlteraRemoveFuncionario.setPrefWidth(70);
-		colAlteraRemoveFuncionario.setCellValueFactory(param -> param.getValue().getValue().getJfxButton());
-
 		final TreeItem<TabelaFuncionario> root = new RecursiveTreeItem<>(listFuncionarioTabela,
 				RecursiveTreeObject::getChildren);
 		this.ttbFuncionario.getColumns().setAll(colId, colNome, colEmail, colCargo, colDataDeContratacao,
-				colManipulaLivros, colManipulaFuncionarios, colManipulaFerramentasAvancadas,
-				colAlteraRemoveFuncionario);
+				colManipulaLivros, colManipulaFuncionarios, colManipulaFerramentasAvancadas);
 
 		this.ttbFuncionario.setRoot(root);
 		this.ttbFuncionario.setShowRoot(false);

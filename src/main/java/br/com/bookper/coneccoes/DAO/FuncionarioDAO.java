@@ -1,10 +1,14 @@
 package br.com.bookper.coneccoes.DAO;
 
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import br.com.bookper.classesdastabelas.TabelaFuncionario;
 import br.com.bookper.coneccoes.modelo.Funcionario;
 import br.com.bookper.coneccoes.modelo.Gerente;
 import br.com.bookper.segurancaedados.Criptografia;
@@ -54,6 +58,28 @@ public class FuncionarioDAO {
 		}
 	}
 
+	public void alterarDados(final Integer id, final LocalDate dataContratacao, final boolean manipulaLivros,
+			final boolean manipulaFerramentasAvancadas, final boolean manipulaFuncionario, final String nome,
+			final String senha, final String email, final String cargo) {
+
+		final DAO dao = new DAO(this.em);
+
+		final Funcionario funcionario = this.em.find(Funcionario.class, id);
+
+		final Calendar dataDeContratacao = new GregorianCalendar(dataContratacao.getYear(),
+				dataContratacao.getMonthValue(), dataContratacao.getDayOfMonth());
+
+		funcionario.setDataDeContratacao(dataDeContratacao);
+		funcionario.setCargo(cargo);
+		funcionario.setEmail(email);
+		funcionario.setManipulaFerramentasAvancadas(manipulaFerramentasAvancadas);
+		funcionario.setManipulaFuncionarios(manipulaFuncionario);
+		funcionario.setManipulaLivros(manipulaLivros);
+		funcionario.setNome(nome);
+		funcionario.setSenha(Criptografia.transformaStringEmHash(senha));
+		dao.cadastrar(funcionario);
+	}
+
 	public boolean buscarEmail(final String email) {
 		final String jpql = "select m from Funcionario m where m.email = :pEmail";
 
@@ -81,6 +107,7 @@ public class FuncionarioDAO {
 	}
 
 	public List<Funcionario> pegarTodosOsFuncionariosMenosEste() {
+
 		final String jpql = "select f from Funcionario f where f.email <> :pEmail and f.gerente = :pGerente";
 
 		final TypedQuery<Funcionario> query = this.em.createQuery(jpql, Funcionario.class);
@@ -94,6 +121,15 @@ public class FuncionarioDAO {
 
 		}
 		return query.getResultList();
+	}
+
+	public void deletarFuncionario(final TabelaFuncionario tabelaFuncionario) {
+		final DAO dao = new DAO(this.em);
+		final Funcionario funcionario = this.pegarOFuncionario(Integer.parseInt(tabelaFuncionario.getId()));
+		dao.abrirCadastro();
+		dao.removeEntidade(funcionario);
+		dao.commit();
+
 	}
 
 }

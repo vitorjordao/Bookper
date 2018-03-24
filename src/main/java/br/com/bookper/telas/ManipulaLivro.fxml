@@ -9,7 +9,7 @@
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="panPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="1049.0" styleClass="panel2" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorManipulaLivro">
+<AnchorPane fx:id="panPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="1049.0" styleClass="panel2" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorManipulaLivro">
    <children>
       <AnchorPane layoutX="-6.0" prefHeight="94.0" prefWidth="1058.0" styleClass="panel1">
          <effect>
