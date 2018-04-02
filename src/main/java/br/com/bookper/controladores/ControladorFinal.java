@@ -94,7 +94,7 @@ public class ControladorFinal implements Initializable {
 		this.dao.abrirCadastro();
 		this.salvarRecomendacao();
 		this.salvarUsuario();
-		this.dao.fecharCadastro(this.l1);
+		this.dao.commit();
 		this.tela.iniciarPadrao("Perguntas.fxml");
 		this.tela.fechar(this.rbdGostou1);
 

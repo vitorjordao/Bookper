@@ -29,24 +29,24 @@ public class DAO {
 		this.em.remove(entidade);
 	}
 
-	public int fecharCadastro(final Entidade entidade) {
-		this.em.getTransaction().commit();
-		this.em.close();
-		return entidade.getId();
-	}
+	// public int fecharCadastro(final Entidade entidade) {
+	// this.em.getTransaction().commit();
+	// this.em.close();
+	// return entidade.getId();
+	// }
 
-	public void fecharCadastroPuro() {
-		this.em.getTransaction().commit();
-		this.em.close();
-	}
+	// public void fecharCadastroPuro() {
+	// this.em.getTransaction().commit();
+	// this.em.close();
+	// }
 
 	public void commit() {
 		this.em.getTransaction().commit();
 	}
 
-	public void close() {
-		this.em.close();
-	}
+	// public void close() {
+	// this.em.close();
+	// }
 
 	public int cadastrar(final Entidade entidade) {
 		this.abrirCadastro();
@@ -66,7 +66,6 @@ public class DAO {
 		entidade = this.em.find(Gerente.class, id);
 		this.em.remove(entidade);
 		this.em.getTransaction().commit();
-		this.em.close();
 	}
 
 	// testar

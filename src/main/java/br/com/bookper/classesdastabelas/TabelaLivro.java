@@ -34,23 +34,23 @@ public class TabelaLivro extends RecursiveTreeObject<TabelaLivro> {
 		this.rank = new SimpleStringProperty(pontuacao + "");
 	}
 
-	public StringProperty getSinopse() {
+	public StringProperty getSinopseProperty() {
 		return this.sinopse;
 	}
 
-	public StringProperty getNomeAutor() {
+	public StringProperty getNomeAutorProperty() {
 		return this.nomeAutor;
 	}
 
-	public StringProperty getUrlDaImagem() {
+	public StringProperty getUrlDaImagemProperty() {
 		return this.urlDaImagem;
 	}
 
-	public StringProperty getGerente() {
+	public StringProperty getGerenteProperty() {
 		return this.gerente;
 	}
 
-	public StringProperty getRank() {
+	public StringProperty getRankProperty() {
 		return this.rank;
 	}
 
@@ -68,6 +68,26 @@ public class TabelaLivro extends RecursiveTreeObject<TabelaLivro> {
 
 	public String getNome() {
 		return this.nome.get();
+	}
+
+	public String getUrlDaImagem() {
+		return this.urlDaImagem.get();
+	}
+
+	public String getGerente() {
+		return this.gerente.get();
+	}
+
+	public String getRank() {
+		return this.rank.get();
+	}
+
+	public String getSinopse() {
+		return this.sinopse.get();
+	}
+
+	public String getNomeAutor() {
+		return this.nomeAutor.get();
 	}
 
 }

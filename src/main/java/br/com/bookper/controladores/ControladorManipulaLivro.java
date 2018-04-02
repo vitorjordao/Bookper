@@ -1,6 +1,5 @@
 package br.com.bookper.controladores;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,13 +25,16 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TreeItem;
 import javafx.scene.layout.AnchorPane;
 
 public class ControladorManipulaLivro implements Initializable {
 	private final ControlaTelas tela = new ControlaTelas();
 	private final EntityManager em = new JPAUtil().getEntityManager();
-	List<Livro> ultimaListaDeLivros;
+	private final LivroDAO livroDao = new LivroDAO(this.em);
+	private List<Livro> ultimaListaDeLivros = this.livroDao.pegarTodosOsLivros();
 
 	@FXML
 	private AnchorPane panPrincipal;
@@ -47,20 +49,38 @@ public class ControladorManipulaLivro implements Initializable {
 	private JFXTextField txtCadastrarUrl;
 
 	@FXML
+	private JFXTextArea txtCadastrarSinopse;
+
+	@FXML
+	private JFXTextField txtCadastrarNomeAutor;
+
+	@FXML
+	private JFXTextField txtAlterarNomeLivro;
+
+	@FXML
+	private JFXTextField txtAlterarUrl;
+
+	@FXML
+	private JFXTextArea txtAlterarSinopse;
+
+	@FXML
+	private JFXTextField txtAlterarNomeAutor;
+
+	@FXML
+	private Label lblId;
+
+	@FXML
+	private Tab tbAlterarLivro;
+
+	@FXML
 	private JFXTreeTableView<TabelaLivro> ttbLivro;
-
-	@FXML
-	private JFXTextArea txtSinopse;
-
-	@FXML
-	private JFXTextField txtNomeAutor;
 
 	@FXML
 	private void clickCadastrar(final ActionEvent event) {
 		final String nome = this.txtCadastrarNomeLivro.getText();
 		final String url = this.txtCadastrarUrl.getText();
-		final String sinopse = this.txtSinopse.getText();
-		final String nomeAutor = this.txtNomeAutor.getText();
+		final String sinopse = this.txtCadastrarSinopse.getText();
+		final String nomeAutor = this.txtCadastrarNomeAutor.getText();
 		final ValidaRegistroLivro registroLivro = new ValidaRegistroLivro(nome, url, sinopse, nomeAutor);
 		if (registroLivro.estaOK()) {
 			this.ultimaListaDeLivros = this.pegarListaNoBanco();
@@ -69,9 +89,44 @@ public class ControladorManipulaLivro implements Initializable {
 	}
 
 	@FXML
-	private void clickVoltar(final ActionEvent event) throws IOException {
+	private void clickVoltar(final ActionEvent event) {
 		this.tela.iniciarPadrao("TelaIntermediaria.fxml");
 		this.tela.fechar(this.panPrincipal);
+	}
+
+	@FXML
+	private void clickDeletarLivro(final ActionEvent event) {
+		final TabelaLivro livro = this.ttbLivro.getSelectionModel().getSelectedItem().getValue();
+		this.livroDao.deletarLivro(livro);
+		this.ultimaListaDeLivros = this.pegarListaNoBanco();
+		this.listarLivros(this.ultimaListaDeLivros);
+	}
+
+	@FXML
+	private void clickAlterarLivro(final ActionEvent event) {
+		final TabelaLivro tabelaLivro = this.ttbLivro.getSelectionModel().getSelectedItem().getValue();
+
+		this.lblId.setText(tabelaLivro.getId());
+
+		this.txtAlterarNomeAutor.setText(tabelaLivro.getNomeAutor());
+		this.txtAlterarNomeLivro.setText(tabelaLivro.getNome());
+		this.txtAlterarSinopse.setText(tabelaLivro.getSinopse());
+		this.txtAlterarUrl.setText(tabelaLivro.getUrlDaImagem());
+
+		this.tbAlterarLivro.setDisable(false);
+	}
+
+	@FXML
+	private void clickAlterar(final ActionEvent event) {
+		final String id = this.lblId.getText();
+
+		final String nomeAutor = this.txtAlterarNomeAutor.getText();
+		final String livro = this.txtAlterarNomeLivro.getText();
+		final String sinopse = this.txtAlterarSinopse.getText();
+		final String url = this.txtAlterarUrl.getText();
+		this.livroDao.alterarDados(Integer.parseInt(id), nomeAutor, livro, sinopse, url);
+		this.ultimaListaDeLivros = this.pegarListaNoBanco();
+		this.listarLivros(this.ultimaListaDeLivros);
 	}
 
 	@FXML
@@ -136,23 +191,23 @@ public class ControladorManipulaLivro implements Initializable {
 
 		final JFXTreeTableColumn<TabelaLivro, String> colGerente = new JFXTreeTableColumn<>("Nome do Gerente");
 		colGerente.setPrefWidth(70);
-		colGerente.setCellValueFactory(param -> param.getValue().getValue().getGerente());
+		colGerente.setCellValueFactory(param -> param.getValue().getValue().getGerenteProperty());
 
 		final JFXTreeTableColumn<TabelaLivro, String> colUrl = new JFXTreeTableColumn<>("Url da iamegm");
 		colUrl.setPrefWidth(70);
-		colUrl.setCellValueFactory(param -> param.getValue().getValue().getUrlDaImagem());
+		colUrl.setCellValueFactory(param -> param.getValue().getValue().getUrlDaImagemProperty());
 
 		final JFXTreeTableColumn<TabelaLivro, String> colRank = new JFXTreeTableColumn<>("Rank do livro");
 		colRank.setPrefWidth(70);
-		colRank.setCellValueFactory(param -> param.getValue().getValue().getRank());
+		colRank.setCellValueFactory(param -> param.getValue().getValue().getRankProperty());
 
 		final JFXTreeTableColumn<TabelaLivro, String> colSinopse = new JFXTreeTableColumn<>("Sinopse");
 		colRank.setPrefWidth(70);
-		colRank.setCellValueFactory(param -> param.getValue().getValue().getSinopse());
+		colRank.setCellValueFactory(param -> param.getValue().getValue().getSinopseProperty());
 
 		final JFXTreeTableColumn<TabelaLivro, String> colNomeAutor = new JFXTreeTableColumn<>("Nome do autor");
 		colRank.setPrefWidth(70);
-		colRank.setCellValueFactory(param -> param.getValue().getValue().getNomeAutor());
+		colRank.setCellValueFactory(param -> param.getValue().getValue().getNomeAutorProperty());
 
 		final TreeItem<TabelaLivro> root = new RecursiveTreeItem<>(listLivroTabela, RecursiveTreeObject::getChildren);
 		this.ttbLivro.getColumns().setAll(colId, colNome, colGerente, colUrl, colRank, colSinopse, colNomeAutor);
