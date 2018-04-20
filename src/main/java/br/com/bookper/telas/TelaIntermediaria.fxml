@@ -1,36 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXMasonryPane?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<JFXMasonryPane cache="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="315.0" minWidth="475.0" prefHeight="320.0" prefWidth="480.0" styleClass="panel2" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorTelaIntermediaria">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="451.0" styleClass="panel2" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorTelaIntermediaria">
    <children>
-      <JFXButton fx:id="btnManipulaFuncionario" onAction="#clickManipulaFuncionario" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
-         <graphic>
-            <MaterialDesignIconView glyphName="WORKER" styleClass="icon-worker" />
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnEstatisticas" onAction="#clickEstatistica" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
-         <graphic>
-            <MaterialDesignIconView glyphName="CHART_BAR" styleClass="icon-chart" />
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnTestePersonalidade" onAction="#clickTestePersonalidade" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
-         <graphic>
-            <MaterialDesignIconView glyphName="FORMAT_LIST_CHECKS" styleClass="icon-questionary" />
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnManipulaLivro" onAction="#clickManipulaLivro" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
-         <graphic>
-            <MaterialDesignIconView glyphName="BOOK_OPEN_VARIANT" styleClass="icon-book" />
-         </graphic>
-      </JFXButton>
-      <JFXButton fx:id="btnFechar" onAction="#clickFechar" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
-         <graphic>
-            <MaterialDesignIconView glyphName="CLOSE" styleClass="icon-close3" />
-         </graphic>
-      </JFXButton>
+      <AnchorPane layoutY="171.0" prefHeight="305.0" prefWidth="451.0" styleClass="panel1">
+         <children>
+            <JFXButton fx:id="btnTestePersonalidade" layoutX="14.0" layoutY="26.0" onAction="#clickTestePersonalidade" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
+               <graphic>
+                  <MaterialDesignIconView glyphName="FORMAT_LIST_CHECKS" styleClass="icon-questionary" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnManipulaLivro" layoutX="14.0" layoutY="181.0" onAction="#clickManipulaLivro" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
+               <graphic>
+                  <MaterialDesignIconView glyphName="BOOK_OPEN_VARIANT" styleClass="icon-book" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnManipulaFuncionario" layoutX="158.0" layoutY="26.0" onAction="#clickManipulaFuncionario" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
+               <graphic>
+                  <MaterialDesignIconView glyphName="WORKER" styleClass="icon-worker" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnEstatisticas" layoutX="302.0" layoutY="26.0" onAction="#clickEstatistica" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
+               <graphic>
+                  <MaterialDesignIconView glyphName="CHART_BAR" styleClass="icon-chart" />
+               </graphic>
+            </JFXButton>
+            <Label layoutX="32.0" layoutY="3.0" styleClass="label-simples2" text="Iniciar teste" />
+            <Label layoutX="173.0" layoutY="3.0" styleClass="label-simples2" text="Funcionarios" />
+            <Label layoutX="329.0" layoutY="3.0" styleClass="label-simples2" text="Avançado" />
+            <Label layoutX="57.0" layoutY="153.0" styleClass="label-simples2" text="Livros" />
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="94.0" prefWidth="451.0" styleClass="panel1">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <MaterialDesignIconView glyphName="CLOSE" layoutX="379.0" layoutY="71.0" styleClass="icon-close2" />
+            <JFXButton fx:id="btnFechar" layoutX="365.0" minWidth="-Infinity" onAction="#clickFechar" prefHeight="94.0" prefWidth="94.0" styleClass="button-transparent3" text=" " />
+         </children>
+      </AnchorPane>
+      <Label layoutX="104.0" layoutY="118.0" styleClass="label-title2" text="Tela intermediária" />
       
    </children>
-</JFXMasonryPane>
+</AnchorPane>
