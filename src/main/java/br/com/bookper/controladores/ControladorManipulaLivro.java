@@ -189,11 +189,7 @@ public class ControladorManipulaLivro implements Initializable {
 		colNome.setPrefWidth(70);
 		colNome.setCellValueFactory(param -> param.getValue().getValue().getNomeProperty());
 
-		final JFXTreeTableColumn<TabelaLivro, String> colGerente = new JFXTreeTableColumn<>("Nome do Gerente");
-		colGerente.setPrefWidth(70);
-		colGerente.setCellValueFactory(param -> param.getValue().getValue().getGerenteProperty());
-
-		final JFXTreeTableColumn<TabelaLivro, String> colUrl = new JFXTreeTableColumn<>("Url da iamegm");
+		final JFXTreeTableColumn<TabelaLivro, String> colUrl = new JFXTreeTableColumn<>("Url da imagem");
 		colUrl.setPrefWidth(70);
 		colUrl.setCellValueFactory(param -> param.getValue().getValue().getUrlDaImagemProperty());
 
@@ -202,15 +198,15 @@ public class ControladorManipulaLivro implements Initializable {
 		colRank.setCellValueFactory(param -> param.getValue().getValue().getRankProperty());
 
 		final JFXTreeTableColumn<TabelaLivro, String> colSinopse = new JFXTreeTableColumn<>("Sinopse");
-		colRank.setPrefWidth(70);
-		colRank.setCellValueFactory(param -> param.getValue().getValue().getSinopseProperty());
+		colSinopse.setPrefWidth(70);
+		colSinopse.setCellValueFactory(param -> param.getValue().getValue().getSinopseProperty());
 
 		final JFXTreeTableColumn<TabelaLivro, String> colNomeAutor = new JFXTreeTableColumn<>("Nome do autor");
-		colRank.setPrefWidth(70);
-		colRank.setCellValueFactory(param -> param.getValue().getValue().getNomeAutorProperty());
+		colNomeAutor.setPrefWidth(70);
+		colNomeAutor.setCellValueFactory(param -> param.getValue().getValue().getNomeAutorProperty());
 
 		final TreeItem<TabelaLivro> root = new RecursiveTreeItem<>(listLivroTabela, RecursiveTreeObject::getChildren);
-		this.ttbLivro.getColumns().setAll(colId, colNome, colGerente, colUrl, colRank, colSinopse, colNomeAutor);
+		this.ttbLivro.getColumns().setAll(colId, colNome, colUrl, colRank, colSinopse, colNomeAutor);
 
 		this.ttbLivro.setRoot(root);
 		this.ttbLivro.setShowRoot(false);
