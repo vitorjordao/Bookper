@@ -5,47 +5,51 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="451.0" styleClass="panel2" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorTelaIntermediaria">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="476.0" prefWidth="451.0" styleClass="panel2" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorTelaIntermediaria">
    <children>
-      <AnchorPane layoutY="171.0" prefHeight="305.0" prefWidth="451.0" styleClass="panel1">
+      <AnchorPane layoutY="146.0" prefHeight="330.0" prefWidth="451.0" styleClass="panel1">
          <children>
-            <JFXButton fx:id="btnTestePersonalidade" layoutX="14.0" layoutY="26.0" onAction="#clickTestePersonalidade" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
+            <JFXButton fx:id="btnTestePersonalidade" layoutX="14.0" layoutY="38.0" onAction="#clickTestePersonalidade" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
                <graphic>
                   <MaterialDesignIconView glyphName="FORMAT_LIST_CHECKS" styleClass="icon-questionary" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnManipulaLivro" layoutX="14.0" layoutY="181.0" onAction="#clickManipulaLivro" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
+            <JFXButton fx:id="btnManipulaLivro" layoutX="14.0" layoutY="198.0" onAction="#clickManipulaLivro" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
                <graphic>
                   <MaterialDesignIconView glyphName="BOOK_OPEN_VARIANT" styleClass="icon-book" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnManipulaFuncionario" layoutX="158.0" layoutY="26.0" onAction="#clickManipulaFuncionario" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
+            <JFXButton fx:id="btnManipulaFuncionario" layoutX="158.0" layoutY="37.0" onAction="#clickManipulaFuncionario" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
                <graphic>
                   <MaterialDesignIconView glyphName="WORKER" styleClass="icon-worker" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnEstatisticas" layoutX="302.0" layoutY="26.0" onAction="#clickEstatistica" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
+            <JFXButton fx:id="btnEstatisticas" layoutX="302.0" layoutY="37.0" onAction="#clickEstatistica" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
                <graphic>
                   <MaterialDesignIconView glyphName="CHART_BAR" styleClass="icon-chart" />
                </graphic>
             </JFXButton>
-            <Label layoutX="32.0" layoutY="3.0" styleClass="label-simples2" text="Iniciar teste" />
-            <Label layoutX="173.0" layoutY="3.0" styleClass="label-simples2" text="Funcionarios" />
-            <Label layoutX="329.0" layoutY="3.0" styleClass="label-simples2" text="Avançado" />
-            <Label layoutX="57.0" layoutY="153.0" styleClass="label-simples2" text="Livros" />
+            <Label layoutX="32.0" layoutY="15.0" styleClass="label-simples2" text="Iniciar teste" />
+            <Label layoutX="173.0" layoutY="14.0" styleClass="label-simples2" text="Funcionarios" />
+            <Label layoutX="329.0" layoutY="14.0" styleClass="label-simples2" text="Avançado" />
+            <Label layoutX="57.0" layoutY="171.0" styleClass="label-simples2" text="Livros" />
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="94.0" prefWidth="451.0" styleClass="panel1">
+      <AnchorPane prefHeight="44.0" prefWidth="451.0" styleClass="panel1">
          <effect>
             <DropShadow />
          </effect>
          <children>
-            <MaterialDesignIconView glyphName="CLOSE" layoutX="379.0" layoutY="71.0" styleClass="icon-close2" />
-            <JFXButton fx:id="btnFechar" layoutX="365.0" minWidth="-Infinity" onAction="#clickFechar" prefHeight="94.0" prefWidth="94.0" styleClass="button-transparent3" text=" " />
+            <MaterialDesignIconView glyphName="CLOSE" layoutX="374.0" layoutY="62.0" styleClass="icon-close2" />
+            <JFXButton fx:id="btnFechar" layoutX="369.0" layoutY="1.0" minWidth="-Infinity" onAction="#clickFechar" prefHeight="75.0" prefWidth="75.0" styleClass="button-transparent3" text=" " />
          </children>
       </AnchorPane>
-      <Label layoutX="104.0" layoutY="118.0" styleClass="label-title2" text="Tela intermediária" />
+      <Label layoutX="100.0" layoutY="93.0" styleClass="label-title2" text="Tela intermediária" textAlignment="CENTER">
+         <font>
+            <Font size="10.0" />
+         </font></Label>
       
    </children>
 </AnchorPane>

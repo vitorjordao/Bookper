@@ -80,7 +80,7 @@ public class FuncionarioDAO {
 		dao.cadastrar(funcionario);
 	}
 
-	public boolean buscarEmail(final String email) {
+	public boolean buscaEmail(final String email) {
 		final String jpql = "select m from Funcionario m where m.email = :pEmail";
 
 		final TypedQuery<Funcionario> query = this.em.createQuery(jpql, Funcionario.class);
@@ -89,7 +89,7 @@ public class FuncionarioDAO {
 		return query.getResultList().size() != 0;
 	}
 
-	public Gerente buscarGerente(final String email) {
+	public Gerente buscaGerente(final String email) {
 		final String jpql = "select m from Funcionario m where m.email = :pEmail";
 
 		final TypedQuery<Funcionario> query = this.em.createQuery(jpql, Funcionario.class);
@@ -115,7 +115,7 @@ public class FuncionarioDAO {
 		query.setParameter("pEmail", PermisoesESeguranca.getEMAIL());
 		final String email = PermisoesESeguranca.getEMAIL();
 		try {
-			query.setParameter("pGerente", this.buscarGerente(email));
+			query.setParameter("pGerente", this.buscaGerente(email));
 		} catch (final Exception e) {
 			query.setParameter("pGerente", new GerenteDAO(this.em).buscaEmail(email));
 

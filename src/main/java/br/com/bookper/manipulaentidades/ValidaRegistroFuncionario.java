@@ -58,7 +58,7 @@ public class ValidaRegistroFuncionario implements Validar {
 		final ControlaUsuario controlaUsuario = new ControlaUsuario();
 		final GerenteDAO gerenteDAO = new GerenteDAO(em);
 		final FuncionarioDAO funcionarioDAO = new FuncionarioDAO(em);
-		if (!gerenteDAO.existeEmail(this.email) && !funcionarioDAO.buscarEmail(this.email)) {
+		if (!gerenteDAO.existeEmail(this.email) && !funcionarioDAO.buscaEmail(this.email)) {
 			final Scanner emailGerente = controlaUsuario.getCredenciais();
 			emailGerente.nextLine();
 			emailGerente.nextLine();

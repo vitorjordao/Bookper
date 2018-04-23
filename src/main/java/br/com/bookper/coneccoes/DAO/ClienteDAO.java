@@ -22,7 +22,7 @@ public class ClienteDAO {
 
 		final String email = PermisoesESeguranca.getEMAIL();
 		try {
-			query.setParameter("pGerente", new FuncionarioDAO(this.em).buscarGerente(email));
+			query.setParameter("pGerente", new FuncionarioDAO(this.em).buscaGerente(email));
 		} catch (final Exception e) {
 			query.setParameter("pGerente", new GerenteDAO(this.em).buscaEmail(email));
 		}

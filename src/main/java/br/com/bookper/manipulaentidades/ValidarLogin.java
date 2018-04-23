@@ -47,7 +47,7 @@ public class ValidarLogin implements Validar {
 			final Funcionario funcionario = funcionarioDAO.buscarLogin(this.email);
 			final ControlaUsuario controlaUsuario = new ControlaUsuario();
 			controlaUsuario.salvar(this.email, this.senha, this.continuarLogado,
-					funcionarioDAO.buscarGerente(this.email).getEmail());
+					funcionarioDAO.buscaGerente(this.email).getEmail());
 			new PermisoesESeguranca(this.email, this.senha, funcionario.isManipulaLivros(),
 					funcionario.isManipulaFuncionarios(), funcionario.isManipulaFerramentasAvancadas());
 			return true;

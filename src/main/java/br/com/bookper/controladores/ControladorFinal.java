@@ -104,7 +104,7 @@ public class ControladorFinal implements Initializable {
 		final String email = PermisoesESeguranca.getEMAIL();
 		Gerente gerente;
 		try {
-			gerente = new FuncionarioDAO(this.em).buscarGerente(email);
+			gerente = new FuncionarioDAO(this.em).buscaGerente(email);
 		} catch (final Exception e) {
 			gerente = new GerenteDAO(this.em).buscaEmail(email);
 		}

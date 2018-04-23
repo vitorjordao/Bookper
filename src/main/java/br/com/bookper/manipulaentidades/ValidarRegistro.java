@@ -44,7 +44,7 @@ public class ValidarRegistro implements Validar {
 		final EntityManager em = new JPAUtil().getEntityManager();
 		final GerenteDAO gerenteDAO = new GerenteDAO(em);
 		final FuncionarioDAO funcionarioDAO = new FuncionarioDAO(em);
-		if (!gerenteDAO.existeEmail(this.email) && !funcionarioDAO.buscarEmail(this.email)) {
+		if (!gerenteDAO.existeEmail(this.email) && !funcionarioDAO.buscaEmail(this.email)) {
 			final Gerente gerente = new Gerente(this.nome, this.email, Criptografia.transformaStringEmHash(this.senha),
 					this.nomeUnidade);
 			final DAO dao = new DAO(em);

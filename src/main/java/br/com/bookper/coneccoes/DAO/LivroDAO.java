@@ -30,8 +30,11 @@ public class LivroDAO {
 
 		final TypedQuery<Livro> query = this.em.createQuery(jpql, Livro.class);
 
-		query.setParameter("pGerente", new GerenteDAO(this.em).buscaEmail(PermisoesESeguranca.getEMAIL()));
-
+		try {
+			query.setParameter("pGerente", new GerenteDAO(this.em).buscaEmail(PermisoesESeguranca.getEMAIL()));
+		} catch (final Exception e) {
+			query.setParameter("pGerente", new FuncionarioDAO(this.em).buscaGerente(PermisoesESeguranca.getEMAIL()));
+		}
 		return query.getResultList();
 	}
 
