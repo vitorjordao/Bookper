@@ -18,7 +18,6 @@ import javafx.stage.Stage;
  * @author Vitor Jordão
  */
 public class IniciadorDoFX extends Application {
-
 	@Override
 	public void start(final Stage stage) throws IOException {
 		final ControlaTelas tela = new ControlaTelas();

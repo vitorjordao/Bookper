@@ -2,7 +2,6 @@
 
     <!-- unidade de persistencia com o nome financas -->
     <persistence-unit name="bookper">
-
         <!-- Implementação do JPA, no nosso caso Hibernate -->
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
@@ -17,7 +16,7 @@
             <!-- Propriedades JDBC -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
 
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/bookper"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/bookper?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
 
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value=""/>

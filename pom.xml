@@ -2,38 +2,57 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>Bookper</groupId>
+  <groupId>br.com.bookper</groupId>
   <artifactId>Bookper</artifactId>
-  <version>1.0.1-BETA</version>
+  <version>1.1.0-BETA</version>
   <packaging>jar</packaging>
 
   <name>Bookper</name>
-  <url>http://maven.apache.org</url>
 
   <properties>
-  	<maven.compiler.source>1.8</maven.compiler.source>
-  	<maven.compiler.target>1.8</maven.compiler.target>
+  	<class>IniciadorDoFX</class>
+  	<maven.compiler.source>9.0</maven.compiler.source>
+  	<maven.compiler.target>9.0</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
+<build>
+  <plugins>
+    <plugin>
+    <artifactId>maven-assembly-plugin</artifactId>
+    <executions>
+      <execution>
+        <phase>package</phase>
+        <goals>
+          <goal>single</goal>
+        </goals>
+      </execution>
+    </executions>
+    <configuration>
+      <archive>
+        <manifest>
+          <addClasspath>true</addClasspath>
+          <mainClass>br.com.bookper.IniciadorDoFX</mainClass>
+        </manifest>
+      </archive>
+      <descriptorRefs>
+        <descriptorRef>jar-with-dependencies</descriptorRef>
+      </descriptorRefs>
+    </configuration>
+  </plugin> 
+  </plugins>
+</build>
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
     
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>5.1.6</version>
+      <version>5.1.12</version>
     </dependency>
 
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
-      <version>5.2.12.Final</version>
+      <version>5.3.0.CR1</version>
     </dependency>
 
     <dependency>
@@ -60,5 +79,11 @@
 	    <version>1.5</version>
 	</dependency>
 	
+	<dependency>
+	    <groupId>com.jfoenix</groupId>
+	    <artifactId>jfoenix</artifactId>
+	    <version>9.0.3</version>
+	</dependency>
+
   </dependencies>
 </project>

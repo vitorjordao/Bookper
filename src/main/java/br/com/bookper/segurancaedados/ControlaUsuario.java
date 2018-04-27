@@ -8,9 +8,13 @@ import java.util.Scanner;
 public class ControlaUsuario {
 
 	public void salvar(final String email, final String senha, final boolean salvar, final String emailGerente) {
+
 		try {
 			Scanner entrada;
-			final PrintStream saida = new PrintStream(new FileOutputStream("UsuarioLogado.txt"));
+			final FileOutputStream fileOutputStream = new FileOutputStream(
+					"C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Local\\UsuarioLogado.txt");
+
+			final PrintStream saida = new PrintStream(fileOutputStream);
 			entrada = new Scanner(salvar + "");
 			saida.println(entrada.nextLine());
 			entrada.close();
@@ -31,7 +35,8 @@ public class ControlaUsuario {
 
 	public boolean verificarPermanenciaDeLogin() {
 		try {
-			final Scanner entrada = new Scanner(new FileInputStream("UsuarioLogado.txt"));
+			final Scanner entrada = new Scanner(new FileInputStream(
+					"C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Local\\UsuarioLogado.txt"));
 			final boolean b = entrada.nextBoolean();
 			entrada.close();
 			return b;
@@ -44,7 +49,8 @@ public class ControlaUsuario {
 
 	public Scanner getCredenciais() {
 		try {
-			final Scanner entrada = new Scanner(new FileInputStream("UsuarioLogado.txt"));
+			final Scanner entrada = new Scanner(new FileInputStream(
+					"C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Local\\UsuarioLogado.txt"));
 
 			return entrada;
 		} catch (final Exception e) {

@@ -250,6 +250,7 @@ public class ControladorManipulaFuncionario implements Initializable {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	private void adicionaColunasEDados(final ObservableList<TabelaFuncionario> listFuncionarioTabela) {
 
 		final JFXTreeTableColumn<TabelaFuncionario, String> colId = new JFXTreeTableColumn<>("#");
@@ -296,6 +297,7 @@ public class ControladorManipulaFuncionario implements Initializable {
 
 		final TreeItem<TabelaFuncionario> root = new RecursiveTreeItem<>(listFuncionarioTabela,
 				RecursiveTreeObject::getChildren);
+
 		this.ttbFuncionario.getColumns().setAll(colId, colNome, colEmail, colCargo, colDataDeContratacao,
 				colManipulaLivros, colManipulaFuncionarios, colManipulaFerramentasAvancadas);
 

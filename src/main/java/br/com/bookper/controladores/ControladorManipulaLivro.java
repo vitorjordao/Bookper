@@ -179,6 +179,7 @@ public class ControladorManipulaLivro implements Initializable {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	private void adicionaColunasEDados(final ObservableList<TabelaLivro> listLivroTabela) {
 
 		final JFXTreeTableColumn<TabelaLivro, String> colId = new JFXTreeTableColumn<>("#");
