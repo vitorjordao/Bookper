@@ -8,17 +8,16 @@ package br.com.bookper.controladores;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 
 import br.com.bookper.controladores.telas.ControlaTelas;
+import br.com.bookper.controladores.telas.TelasPopUp;
 import br.com.bookper.perguntas.VerificaPergunta;
 import br.com.bookper.recomendacoes.GeradorDePersonalidades;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 
@@ -55,87 +54,78 @@ public class ControladorPerguntas implements Initializable {
 
 	@FXML
 	private void selecionar() {
-		btnAvancar.setVisible(true);
+		this.btnAvancar.setVisible(true);
 	}
 
 	@FXML
 	private void clickAvancar() {
-		alterarPergunta(true);
+		this.alterarPergunta(true);
 	}
 
 	@FXML
 	private void clickVoltar() {
-		alterarPergunta(false);
+		this.alterarPergunta(false);
 	}
 
 	private void alterarPergunta(final boolean avancaOuVolta) {
 		if (avancaOuVolta) {
-			if (!rbdResposta1.isSelected() && !rbdResposta2.isSelected()) {
-				final JPanel panel = new JPanel();
-				JOptionPane.showMessageDialog(panel, "Selecione uma resposta!", "Erro na seleção",
-				        JOptionPane.ERROR_MESSAGE);
-			}
-			else {
+			if (!this.rbdResposta1.isSelected() && !this.rbdResposta2.isSelected()) {
+				new TelasPopUp(AlertType.CONFIRMATION, "Selecione uma resposta!", "Falha", "Erro na seleção");
+			} else {
 
-				if (rbdResposta1.isSelected()) {
-					setPersonalidades(verificaPergunta.getCont(), true);
-				}
-				else {
-					setPersonalidades(verificaPergunta.getCont(), false);
+				if (this.rbdResposta1.isSelected()) {
+					this.setPersonalidades(this.verificaPergunta.getCont(), true);
+				} else {
+					this.setPersonalidades(this.verificaPergunta.getCont(), false);
 				}
 
-				if (!verificaPergunta.contar()) {
+				if (!this.verificaPergunta.contar()) {
 					final ControlaTelas tela = new ControlaTelas();
 					tela.iniciarPadrao("Final.fxml");
-					tela.fechar(lblPergunta);
+					tela.fechar(this.lblPergunta);
 				}
-				setarTudo();
-				btnVoltar.setVisible(true);
+				this.setarTudo();
+				this.btnVoltar.setVisible(true);
 			}
-		}
-		else {
-			if (!verificaPergunta.voltarContagem()) {
+		} else {
+			if (!this.verificaPergunta.voltarContagem()) {
 				System.out.println("Erro no contador");
 			}
-			if (verificaPergunta.getCont() <= 1) {
-				btnVoltar.setVisible(false);
+			if (this.verificaPergunta.getCont() <= 1) {
+				this.btnVoltar.setVisible(false);
 			}
-			setarTudo();
+			this.setarTudo();
 		}
 	}
 
 	@Override
 	public void initialize(final URL url, final ResourceBundle rb) {
-		btnVoltar.setVisible(false);
-		setarTudo();
+		this.btnVoltar.setVisible(false);
+		this.setarTudo();
 	}
 
 	private void setarTudo() {
-		verificaPergunta.pegarPergunta();
-		verificaPergunta.randomizar();
-		rbdResposta1.setSelected(false);
-		rbdResposta2.setSelected(false);
-		btnAvancar.setVisible(false);
-		lblPergunta.setText(verificaPergunta.pegarPergunta().pergunta());
-		rbdResposta1.setText(verificaPergunta.pegarPergunta().RespostaTrue());
-		rbdResposta2.setText(verificaPergunta.pegarPergunta().RespostaFalse());
-		lblNumeroPergunta.setText("Pergunta " + verificaPergunta.getCont() + "/5");
+		this.verificaPergunta.pegarPergunta();
+		this.verificaPergunta.randomizar();
+		this.rbdResposta1.setSelected(false);
+		this.rbdResposta2.setSelected(false);
+		this.btnAvancar.setVisible(false);
+		this.lblPergunta.setText(this.verificaPergunta.pegarPergunta().pergunta());
+		this.rbdResposta1.setText(this.verificaPergunta.pegarPergunta().RespostaTrue());
+		this.rbdResposta2.setText(this.verificaPergunta.pegarPergunta().RespostaFalse());
+		this.lblNumeroPergunta.setText("Pergunta " + this.verificaPergunta.getCont() + "/5");
 	}
 
 	public void setPersonalidades(final int i, final boolean personalidade) {
 		if (i == 1) {
 			this.mente = personalidade;
-		}
-		else if (i == 2) {
+		} else if (i == 2) {
 			this.energia = personalidade;
-		}
-		else if (i == 3) {
+		} else if (i == 3) {
 			this.natureza = personalidade;
-		}
-		else if (i == 4) {
+		} else if (i == 4) {
 			this.taticas = personalidade;
-		}
-		else if (i == 5) {
+		} else if (i == 5) {
 			this.identidade = personalidade;
 			final GeradorDePersonalidades gerado = new GeradorDePersonalidades();
 			gerado.gerarPersonalidade(this.mente, this.energia, this.natureza, this.taticas, this.identidade);

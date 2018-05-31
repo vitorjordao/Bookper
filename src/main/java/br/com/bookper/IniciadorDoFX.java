@@ -23,8 +23,9 @@ public class IniciadorDoFX extends Application {
 		final ControlaTelas tela = new ControlaTelas();
 		if (this.verificaLogin()) {
 			tela.iniciarPadrao("TelaIntermediaria.fxml");
-		} else
+		} else {
 			tela.iniciarPadrao("LoginESenha.fxml");
+		}
 	}
 
 	public static void main(final String[] args) {

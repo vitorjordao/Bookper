@@ -2,6 +2,7 @@ package br.com.bookper.segurancaedados;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Scanner;
 
@@ -42,7 +43,6 @@ public class ControlaUsuario {
 			return b;
 		} catch (final Exception e) {
 			System.out.println("Não achado o login");
-			e.printStackTrace();
 			return false;
 		}
 	}
@@ -57,6 +57,20 @@ public class ControlaUsuario {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	public void deslogar() {
+		try {
+			final FileOutputStream fileOutputStream = new FileOutputStream(
+					"C:\\Users\\" + System.getProperty("user.name") + "\\AppData\\Local\\UsuarioLogado.txt");
+			final PrintStream saida = new PrintStream(fileOutputStream);
+			saida.print("");
+			saida.close();
+			fileOutputStream.close();
+		} catch (final IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }

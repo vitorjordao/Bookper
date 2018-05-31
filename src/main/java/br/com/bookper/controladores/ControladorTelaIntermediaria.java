@@ -13,6 +13,7 @@ import br.com.bookper.coneccoes.modelo.Livro;
 import br.com.bookper.coneccoes.util.JPAUtil;
 import br.com.bookper.controladores.telas.ControlaTelas;
 import br.com.bookper.controladores.telas.TelasPopUp;
+import br.com.bookper.segurancaedados.ControlaUsuario;
 import br.com.bookper.segurancaedados.PermisoesESeguranca;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -71,6 +72,13 @@ public class ControladorTelaIntermediaria implements Initializable {
 		} else
 			new TelasPopUp(AlertType.CONFIRMATION, "Erro ao tentar abri tela", "Falha",
 					"Cadastre pelo menos 1 livro antes de iniciar o teste!");
+	}
+
+	@FXML
+	private void clickDeslogar(final ActionEvent event) {
+		new ControlaUsuario().deslogar();
+		this.tela.iniciarPadrao("LoginESenha.fxml");
+		this.tela.fechar(this.btnManipulaFuncionario.getGraphic());
 	}
 
 	private void erroPermissaoNaTela() {

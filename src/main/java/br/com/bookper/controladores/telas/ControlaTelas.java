@@ -1,7 +1,5 @@
 package br.com.bookper.controladores.telas;
 
-import java.io.IOException;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -12,37 +10,37 @@ import javafx.stage.StageStyle;
 public class ControlaTelas {
 	private Stage stage;
 
-	public void iniciarPadrao(String nome) {
+	public void iniciarPadrao(final String nome) {
 		try {
-			stage = new Stage();
-			Parent root = FXMLLoader.load(getClass().getResource("/br/com/bookper/telas/" + nome));
-			Scene scene = new Scene(root);
-			stage.initStyle(StageStyle.UNDECORATED);
-			stage.setScene(scene);
-			stage.show();
-		}
-		catch (IOException e) {
+			this.stage = new Stage();
+			final Parent root = FXMLLoader.load(this.getClass().getResource("/br/com/bookper/telas/" + nome));
+			final Scene scene = new Scene(root);
+			this.stage.initStyle(StageStyle.UNDECORATED);
+			this.stage.setScene(scene);
+			this.stage.show();
+		} catch (final Exception e) {
+			System.out.println("Erro ao carregar tela");
 			e.printStackTrace();
+			System.exit(1);
 		}
 	}
 
-	public void iniciarSimples(String nome) {
+	public void iniciarSimples(final String nome) {
 		try {
-			stage = new Stage();
-			Parent root = FXMLLoader.load(getClass().getResource("/br/com/bookper/telas/" + nome));
-			Scene scene = new Scene(root);
-			stage.initStyle(StageStyle.UTILITY);
-			stage.setScene(scene);
-			stage.show();
-		}
-		catch (Exception e) {
+			this.stage = new Stage();
+			final Parent root = FXMLLoader.load(this.getClass().getResource("/br/com/bookper/telas/" + nome));
+			final Scene scene = new Scene(root);
+			this.stage.initStyle(StageStyle.UTILITY);
+			this.stage.setScene(scene);
+			this.stage.show();
+		} catch (final Exception e) {
 			System.out.println("Aqui tem erro! " + e);
 		}
 	}
 
-	public void fechar(Node node) {
-		Stage stage = (Stage) node.getScene().getWindow(); // Obtendo a janela
-		                                                   // atual
+	public void fechar(final Node node) {
+		final Stage stage = (Stage) node.getScene().getWindow(); // Obtendo a janela
+		// atual
 		stage.close();
 	}
 }
