@@ -15,5 +15,7 @@ Mesmo com tudo isso pode ainda não rodar no seu pc.
 Caso tenha algum problema pode perguntar a mim pelo meu e-mail "srvitorlol@gmail.com" com o título "AJUDA".
 
 Atuais criadores do projeto:
+
 Vitor Jordão Peviano Simonato
+
 Luca Vilches Poloni
