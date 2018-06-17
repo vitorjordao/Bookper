@@ -19,14 +19,19 @@ import br.com.bookper.coneccoes.DAO.LivroDAO;
 import br.com.bookper.coneccoes.modelo.Livro;
 import br.com.bookper.coneccoes.util.JPAUtil;
 import br.com.bookper.controladores.telas.ControlaTelas;
-import br.com.bookper.manipulaentidades.ValidaRegistroLivro;
+import br.com.bookper.controladores.telas.TelasPopUp;
+import br.com.bookper.validacoes.ValidarDados;
+import br.com.bookper.validaentidades.ValidaRegistroLivro;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
+import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TreeItem;
 import javafx.scene.layout.AnchorPane;
 
@@ -76,6 +81,9 @@ public class ControladorManipulaLivro implements Initializable {
 	private JFXTreeTableView<TabelaLivro> ttbLivro;
 
 	@FXML
+	private TabPane tabPane;
+
+	@FXML
 	private void clickCadastrar(final ActionEvent event) {
 		final String nome = this.txtCadastrarNomeLivro.getText();
 		final String url = this.txtCadastrarUrl.getText();
@@ -85,6 +93,11 @@ public class ControladorManipulaLivro implements Initializable {
 		if (registroLivro.estaOK()) {
 			this.ultimaListaDeLivros = this.pegarListaNoBanco();
 			this.listarLivros(this.ultimaListaDeLivros);
+
+			this.txtCadastrarNomeLivro.setText("");
+			this.txtCadastrarUrl.setText("");
+			this.txtCadastrarSinopse.setText("");
+			this.txtCadastrarNomeAutor.setText("");
 		}
 	}
 
@@ -96,24 +109,42 @@ public class ControladorManipulaLivro implements Initializable {
 
 	@FXML
 	private void clickDeletarLivro(final ActionEvent event) {
+		this.lblId.setText("");
+		this.txtAlterarNomeLivro.setText("");
+		this.txtAlterarUrl.setText("");
+		this.txtAlterarSinopse.setText("");
+		this.txtAlterarNomeAutor.setText("");
+
 		final TabelaLivro livro = this.ttbLivro.getSelectionModel().getSelectedItem().getValue();
 		this.livroDao.deletarLivro(livro);
 		this.ultimaListaDeLivros = this.pegarListaNoBanco();
 		this.listarLivros(this.ultimaListaDeLivros);
+		TelasPopUp.telaPadrao(AlertType.INFORMATION, "Deletado", "Livro deletado!",
+				"Livro deletado: " + livro.getNome());
 	}
 
 	@FXML
 	private void clickAlterarLivro(final ActionEvent event) {
 		final TabelaLivro tabelaLivro = this.ttbLivro.getSelectionModel().getSelectedItem().getValue();
 
-		this.lblId.setText(tabelaLivro.getId());
+		final String id = tabelaLivro.getId();
+		final String nomeAutor = tabelaLivro.getNomeAutor();
+		final String nome = tabelaLivro.getNome();
+		final String sinopse = tabelaLivro.getSinopse();
+		final String url = tabelaLivro.getUrlDaImagem();
 
-		this.txtAlterarNomeAutor.setText(tabelaLivro.getNomeAutor());
-		this.txtAlterarNomeLivro.setText(tabelaLivro.getNome());
-		this.txtAlterarSinopse.setText(tabelaLivro.getSinopse());
-		this.txtAlterarUrl.setText(tabelaLivro.getUrlDaImagem());
+		this.lblId.setText(id);
+		this.txtAlterarNomeAutor.setText(nomeAutor);
+		this.txtAlterarNomeLivro.setText(nome);
+		this.txtAlterarSinopse.setText(sinopse);
+		this.txtAlterarUrl.setText(url);
 
 		this.tbAlterarLivro.setDisable(false);
+
+		final SingleSelectionModel<Tab> selectionModel = this.tabPane.getSelectionModel();
+
+		selectionModel.select(this.tbAlterarLivro);
+		this.txtAlterarNomeLivro.requestFocus();
 	}
 
 	@FXML
@@ -124,9 +155,23 @@ public class ControladorManipulaLivro implements Initializable {
 		final String livro = this.txtAlterarNomeLivro.getText();
 		final String sinopse = this.txtAlterarSinopse.getText();
 		final String url = this.txtAlterarUrl.getText();
-		this.livroDao.alterarDados(Integer.parseInt(id), nomeAutor, livro, sinopse, url);
-		this.ultimaListaDeLivros = this.pegarListaNoBanco();
-		this.listarLivros(this.ultimaListaDeLivros);
+
+		final ValidarDados validarDados = new ValidarDados();
+		if (validarDados.validaLivro(livro, url, nomeAutor) && !id.equals("")) {
+			this.livroDao.alterarDados(Integer.parseInt(id), nomeAutor, livro, sinopse, url);
+			this.ultimaListaDeLivros = this.pegarListaNoBanco();
+			this.listarLivros(this.ultimaListaDeLivros);
+			TelasPopUp.telaPadrao(AlertType.INFORMATION, "Alterado", "Livro alterado!",
+					"Livro " + livro + " alterado com sucesso!");
+
+			this.lblId.setText("");
+			this.txtAlterarNomeLivro.setText("");
+			this.txtAlterarUrl.setText("");
+			this.txtAlterarSinopse.setText("");
+			this.txtAlterarNomeAutor.setText("");
+		} else
+			TelasPopUp.telaPadrao(AlertType.ERROR, "Alteracao", "Erro ao alterar o livro", validarDados.getValidado());
+
 	}
 
 	@FXML

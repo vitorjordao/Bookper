@@ -8,8 +8,8 @@ import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
 import br.com.bookper.controladores.telas.ControlaTelas;
-import br.com.bookper.manipulaentidades.ValidarLogin;
-import br.com.bookper.manipulaentidades.ValidarRegistro;
+import br.com.bookper.validaentidades.ValidarLogin;
+import br.com.bookper.validaentidades.ValidarRegistro;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

@@ -16,32 +16,11 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="panPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1049.0" styleClass="panel2" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/9.0.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorManipulaFuncionario">
+<AnchorPane fx:id="panPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="676.0" prefWidth="1049.0" styleClass="panel2" stylesheets="@estilos/PadraoCoresLeves.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.bookper.controladores.ControladorManipulaFuncionario">
    <children>
-      <AnchorPane layoutX="-6.0" prefHeight="94.0" prefWidth="1058.0" styleClass="panel1">
-         <effect>
-            <DropShadow />
-         </effect>
-         <children>
-            <MaterialDesignIconView glyphName="ARROW_LEFT_THICK" layoutX="22.0" layoutY="71.0" styleClass="icon-left" />
-            <JFXButton fx:id="btnVoltar" layoutX="7.0" minWidth="-Infinity" onAction="#clickVoltar" prefHeight="94.0" prefWidth="94.0" styleClass="button-transparent3" text=" " />
-            <MaterialDesignIconView glyphName="CLOSE" layoutX="972.0" layoutY="70.0" styleClass="icon-close2" />
-            <JFXButton fx:id="btnFechar" layoutX="957.0" minWidth="-Infinity" onAction="#clickFechar" prefHeight="94.0" prefWidth="94.0" styleClass="button-transparent3" text=" " />
-         </children>
-      </AnchorPane>
-      <JFXTreeTableView fx:id="ttbFuncionario" cache="true" layoutX="337.0" layoutY="159.0" prefHeight="517.0" prefWidth="712.0">
-         <contextMenu>
-            <ContextMenu>
-              <items>
-                <MenuItem mnemonicParsing="false" onAction="#clickDeletarFuncionario" text="Deletar funcionário" />
-                  <MenuItem mnemonicParsing="false" onAction="#clickAlterarFuncionario" text="Alterar dados do funcionário" />
-              </items>
-            </ContextMenu>
-         </contextMenu></JFXTreeTableView>
-      <Label layoutX="347.0" layoutY="109.0" styleClass="label-title2" text="Manipulação de funcionários" />
-      <JFXTabPane layoutY="99.0" prefHeight="577.0" prefWidth="337.0">
+      <JFXTabPane fx:id="tabPane" layoutY="99.0" prefHeight="577.0" prefWidth="337.0">
          <tabs>
-            <Tab text="Criar">
+            <Tab fx:id="tbCadastrarFuncionario" text="Criar">
                <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="515.0" prefWidth="337.0" styleClass="panel1">
                      <children>
@@ -50,8 +29,6 @@
                         <JFXTextField fx:id="txtCadastrarEmailFuncionario" labelFloat="true" layoutX="4.0" layoutY="174.0" prefHeight="33.0" prefWidth="329.0" promptText="Email do funcionario" styleClass="text-field-ok" />
                         <JFXTextField fx:id="txtCadastrarCargoFuncionario" labelFloat="true" layoutX="4.0" layoutY="225.0" prefHeight="33.0" prefWidth="109.0" promptText="Cargo" styleClass="text-field-ok" />
                         <JFXDatePicker fx:id="dpCadastrarDataFuncionario" layoutX="119.0" layoutY="225.0" prefHeight="33.0" prefWidth="214.0" promptText="Data de contratação" showWeekNumbers="true" styleClass="Date-Picker" />
-                        <Line endX="100.0" layoutX="169.0" layoutY="288.0" scaleX="1.5" startX="-100.0" strokeWidth="2.0" styleClass="Line" />
-                        <Label fx:id="lblPermissoesCadastrarFuncionario" layoutX="112.0" layoutY="259.0" styleClass="label-nome-livros" text="Permissões" />
                         <JFXToggleButton fx:id="tgCadastrarManipulaLivroFuncionario" layoutX="4.0" layoutY="289.0" prefHeight="50.0" prefWidth="197.0" size="8.0" styleClass="Toggle-Button" text="Manipular livros">
                            <font>
                               <Font name="Arial Black" size="15.0" />
@@ -62,12 +39,14 @@
                               <Font name="Arial Black" size="15.0" />
                            </font>
                         </JFXToggleButton>
-                        <JFXButton fx:id="btnCadastrarFuncionario" layoutX="68.0" layoutY="439.0" onAction="#clickCadastrar" prefHeight="58.0" prefWidth="202.0" styleClass="button-transparent3" text="Cadastrar" />
                         <JFXToggleButton fx:id="tgCadastrarManipulaFerramentasAvancadasFuncionario" layoutX="4.0" layoutY="389.0" prefHeight="50.0" prefWidth="237.0" size="8.0" styleClass="Toggle-Button" text="Controles avançados">
                            <font>
                               <Font name="Arial Black" size="15.0" />
                            </font>
                         </JFXToggleButton>
+                        <JFXButton fx:id="btnCadastrarFuncionario" layoutX="68.0" layoutY="439.0" onAction="#clickCadastrar" prefHeight="58.0" prefWidth="202.0" styleClass="button-transparent3" text="Cadastrar" />
+                        <Label fx:id="lblPermissoesCadastrarFuncionario" layoutX="112.0" layoutY="259.0" styleClass="label-nome-livros" text="Permissões" />
+                        <Line endX="100.0" layoutX="169.0" layoutY="288.0" scaleX="1.5" startX="-100.0" strokeWidth="2.0" styleClass="Line" />
                      </children>
                   </AnchorPane>
                </content>
@@ -81,8 +60,6 @@
                         <JFXTextField fx:id="txtAlterarEmailFuncionario" labelFloat="true" layoutX="4.0" layoutY="188.0" prefHeight="33.0" prefWidth="329.0" promptText="Email do funcionario" styleClass="text-field-ok" />
                         <JFXTextField fx:id="txtAlterarCargoFuncionario" labelFloat="true" layoutX="4.0" layoutY="239.0" prefHeight="33.0" prefWidth="109.0" promptText="Cargo" styleClass="text-field-ok" />
                         <JFXDatePicker fx:id="dpAlterarDataFuncionario" layoutX="119.0" layoutY="239.0" prefHeight="33.0" prefWidth="214.0" promptText="Data de contratação" showWeekNumbers="true" styleClass="Date-Picker" />
-                        <Line endX="100.0" layoutX="169.0" layoutY="302.0" scaleX="1.5" startX="-100.0" strokeWidth="2.0" styleClass="Line" />
-                        <Label fx:id="lblPermissoesAlterarFuncionario" layoutX="112.0" layoutY="273.0" styleClass="label-nome-livros" text="Permissões" />
                         <JFXToggleButton fx:id="tgAlterarManipulaLivroFuncionario" layoutX="4.0" layoutY="303.0" prefHeight="50.0" prefWidth="197.0" size="8.0" styleClass="Toggle-Button" text="Manipular livros">
                            <font>
                               <Font name="Arial Black" size="15.0" />
@@ -93,14 +70,16 @@
                               <Font name="Arial Black" size="15.0" />
                            </font>
                         </JFXToggleButton>
-                        <JFXButton fx:id="btnAlterarFuncionario" layoutX="68.0" layoutY="453.0" onAction="#clickAlterar" prefHeight="58.0" prefWidth="202.0" styleClass="button-transparent3" text="Alterar" />
                         <JFXToggleButton fx:id="tgAlterarManipulaFerramentasAvancadasFuncionario" layoutX="4.0" layoutY="403.0" prefHeight="50.0" prefWidth="237.0" size="8.0" styleClass="Toggle-Button" text="Controles avançados">
                            <font>
                               <Font name="Arial Black" size="15.0" />
                            </font>
                         </JFXToggleButton>
-                        <Label layoutX="31.0" layoutY="23.0" text="Id" />
-                        <Label fx:id="lblId" layoutX="61.0" layoutY="23.0" prefHeight="23.0" prefWidth="238.0" />
+                        <JFXButton fx:id="btnAlterarFuncionario" layoutX="68.0" layoutY="453.0" onAction="#clickAlterar" prefHeight="58.0" prefWidth="202.0" styleClass="button-transparent3" text="Alterar" />
+                        <Label layoutX="10.0" layoutY="23.0" text="Id:" />
+                        <Label fx:id="lblId" layoutX="42.0" layoutY="23.0" prefHeight="23.0" prefWidth="238.0" />
+                        <Line endX="100.0" layoutX="169.0" layoutY="302.0" scaleX="1.5" startX="-100.0" strokeWidth="2.0" styleClass="Line" />
+                        <Label fx:id="lblPermissoesAlterarFuncionario" layoutX="112.0" layoutY="273.0" styleClass="label-nome-livros" text="Permissões" />
                      </children>
                   </AnchorPane>
                </content>
@@ -113,5 +92,31 @@
             <MaterialDesignIconView glyphName="MAGNIFY" styleClass="icon-search" />
          </graphic>
       </JFXButton>
+      <JFXTreeTableView fx:id="ttbFuncionario" cache="true" layoutX="337.0" layoutY="159.0" prefHeight="517.0" prefWidth="712.0">
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#clickDeletarFuncionario" text="Deletar funcionário" />
+                  <MenuItem mnemonicParsing="false" onAction="#clickAlterarFuncionario" text="Alterar dados do funcionário" />
+              </items>
+            </ContextMenu>
+         </contextMenu></JFXTreeTableView>
+      <AnchorPane layoutX="-6.0" prefHeight="94.0" prefWidth="1058.0" styleClass="panel1">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <JFXButton fx:id="btnVoltar" minWidth="-Infinity" onAction="#clickVoltar" prefHeight="94.0" prefWidth="94.0" styleClass="button-transparent3" text=" ">
+               <graphic>
+                  <MaterialDesignIconView glyphName="ARROW_LEFT_THICK" styleClass="icon-left" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnFechar" layoutX="957.0" minWidth="-Infinity" onAction="#clickFechar" prefHeight="94.0" prefWidth="101.0" styleClass="button-transparent3" text=" ">
+               <graphic>
+                  <MaterialDesignIconView glyphName="CLOSE" styleClass="icon-close2" />
+               </graphic></JFXButton>
+         </children>
+      </AnchorPane>
+      <Label layoutX="347.0" layoutY="109.0" styleClass="label-title2" text="Manipulação de funcionários" />
    </children>
 </AnchorPane>

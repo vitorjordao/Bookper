@@ -1,4 +1,4 @@
-package br.com.bookper.manipulaentidades;
+package br.com.bookper.validaentidades;
 
 import javax.persistence.EntityManager;
 
@@ -29,7 +29,7 @@ public class ValidarLogin implements Validar {
 		if (validarDados.validaLogin(this.email, this.senha)) {
 			return this.procurarNoBD();
 		} else {
-			new TelasPopUp(AlertType.ERROR, "Login", "Erro no login", validarDados.getValidado());
+			TelasPopUp.telaPadrao(AlertType.ERROR, "Login", "Erro no login", validarDados.getValidado());
 		}
 		return false;
 	}
@@ -52,7 +52,7 @@ public class ValidarLogin implements Validar {
 					funcionario.isManipulaFuncionarios(), funcionario.isManipulaFerramentasAvancadas());
 			return true;
 		} else {
-			new TelasPopUp(AlertType.ERROR, "Login", "Erro no login", "Não existe essa conta!");
+			TelasPopUp.telaPadrao(AlertType.ERROR, "Login", "Erro no login", "Não existe essa conta!");
 		}
 		return false;
 	}

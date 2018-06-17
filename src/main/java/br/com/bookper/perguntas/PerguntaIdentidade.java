@@ -5,42 +5,46 @@ import java.util.Random;
 public class PerguntaIdentidade implements Perguntas {
 	private int i;
 
+	@Override
 	public void randomizar() {
-		Random gerador = new Random();
+		final Random gerador = new Random();
 		this.i = gerador.nextInt(1);
 	}
 
+	@Override
 	public String pergunta() {
-		if (i == 0) {
-			return getPergunta1();
+		if (this.i == 0) {
+			return this.getPergunta1();
 		}
-		return getPergunta1();
+		return this.getPergunta1();
 	}
 
+	@Override
 	public String RespostaTrue() {
-		if (i == 0) {
-			return getRespostaTrue1();
+		if (this.i == 0) {
+			return this.getRespostaTrue1();
 		}
-		return getRespostaTrue1();
+		return this.getRespostaTrue1();
 	}
 
+	@Override
 	public String RespostaFalse() {
-		if (i == 0) {
-			return getRespostaFalse1();
+		if (this.i == 0) {
+			return this.getRespostaFalse1();
 		}
-		return getRespostaFalse1();
+		return this.getRespostaFalse1();
 	}
 
 	public String getPergunta1() {
-		return "Suas emoções o controlam mais do que você as controla?";
+		return "Suas emoções o manipulam mais do que você as dominam?";
 	}
 
 	public String getRespostaTrue1() {
-		return "Eu controlo minhas emoções";
+		return "Eu domino minhas emoções";
 	}
 
 	public String getRespostaFalse1() {
-		return "Eu sou mais levado pelas minhas emoções";
+		return "Eu sou mais conduzido pelas minhas emoções";
 	}
 
 }

@@ -17,11 +17,6 @@
                   <MaterialDesignIconView glyphName="FORMAT_LIST_CHECKS" styleClass="icon-questionary" />
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btnManipulaLivro" layoutX="14.0" layoutY="198.0" onAction="#clickManipulaLivro" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
-               <graphic>
-                  <MaterialDesignIconView glyphName="BOOK_OPEN_VARIANT" styleClass="icon-book" />
-               </graphic>
-            </JFXButton>
             <JFXButton fx:id="btnManipulaFuncionario" layoutX="158.0" layoutY="37.0" onAction="#clickManipulaFuncionario" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
                <graphic>
                   <MaterialDesignIconView glyphName="WORKER" styleClass="icon-worker" />
@@ -32,16 +27,21 @@
                   <MaterialDesignIconView glyphName="CHART_BAR" styleClass="icon-chart" />
                </graphic>
             </JFXButton>
-            <Label layoutX="32.0" layoutY="15.0" styleClass="label-simples2" text="Iniciar teste" />
-            <Label layoutX="173.0" layoutY="14.0" styleClass="label-simples2" text="Funcionarios" />
-            <Label layoutX="329.0" layoutY="14.0" styleClass="label-simples2" text="Avançado" />
-            <Label layoutX="57.0" layoutY="171.0" styleClass="label-simples2" text="Livros" />
-            <Label layoutX="190.0" layoutY="171.0" styleClass="label-simples2" text="Deslogar" />
+            <JFXButton fx:id="btnManipulaLivro" layoutX="14.0" layoutY="198.0" onAction="#clickManipulaLivro" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
+               <graphic>
+                  <MaterialDesignIconView glyphName="BOOK_OPEN_VARIANT" styleClass="icon-book" />
+               </graphic>
+            </JFXButton>
             <JFXButton fx:id="btnDeslogar" layoutX="158.0" layoutY="198.0" onAction="#clickDeslogar" prefHeight="100.0" prefWidth="100.0" styleClass="button-simples2" text=" ">
                <graphic>
                   <MaterialDesignIconView glyphName="LOGOUT_VARIANT" styleClass="icon-logout" />
                </graphic>
             </JFXButton>
+            <Label layoutX="32.0" layoutY="15.0" styleClass="label-simples2" text="Iniciar teste" />
+            <Label layoutX="173.0" layoutY="14.0" styleClass="label-simples2" text="Funcionarios" />
+            <Label layoutX="329.0" layoutY="14.0" styleClass="label-simples2" text="Avançado" />
+            <Label layoutX="57.0" layoutY="171.0" styleClass="label-simples2" text="Livros" />
+            <Label layoutX="190.0" layoutY="171.0" styleClass="label-simples2" text="Deslogar" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="1.0" prefHeight="44.0" prefWidth="451.0" styleClass="panel1">
@@ -49,15 +49,17 @@
             <DropShadow />
          </effect>
          <children>
-            <MaterialDesignIconView glyphName="CLOSE" layoutX="403.0" layoutY="41.0" styleClass="icon-close" />
             <JFXButton fx:id="btnFechar" layoutX="393.0" layoutY="1.0" onAction="#clickFechar" prefHeight="50.0" prefWidth="60.0" styleClass="button-transparent" text=" ">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <graphic>
+                  <MaterialDesignIconView glyphName="CLOSE" styleClass="icon-close" />
+               </graphic>
             </JFXButton>
          </children>
       </AnchorPane>
-      <Label layoutX="100.0" layoutY="61.0" styleClass="label-title2" text="Tela intermediária" textAlignment="CENTER">
+      <Label layoutX="196.0" layoutY="61.0" styleClass="label-title2" text="Menu" textAlignment="CENTER">
          <font>
             <Font size="10.0" />
          </font></Label>

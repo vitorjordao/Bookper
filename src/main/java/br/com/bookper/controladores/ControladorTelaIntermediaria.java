@@ -70,7 +70,7 @@ public class ControladorTelaIntermediaria implements Initializable {
 			this.tela.iniciarPadrao("Perguntas.fxml");
 			this.tela.fechar(this.btnManipulaFuncionario.getGraphic());
 		} else
-			new TelasPopUp(AlertType.CONFIRMATION, "Erro ao tentar abri tela", "Falha",
+			TelasPopUp.telaPadrao(AlertType.ERROR, "Erro ao tentar abri tela", "Falha",
 					"Cadastre pelo menos 1 livro antes de iniciar o teste!");
 	}
 
@@ -82,7 +82,7 @@ public class ControladorTelaIntermediaria implements Initializable {
 	}
 
 	private void erroPermissaoNaTela() {
-		new TelasPopUp(AlertType.CONFIRMATION, "Erro ao tentar abri tela", "Permissão não OK",
+		TelasPopUp.telaPadrao(AlertType.ERROR, "Erro ao tentar abri tela", "Permissão não OK",
 				"Você não tem permissão para entrar nesta tela");
 	}
 

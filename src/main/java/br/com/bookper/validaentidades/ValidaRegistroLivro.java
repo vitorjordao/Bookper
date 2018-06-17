@@ -1,4 +1,4 @@
-package br.com.bookper.manipulaentidades;
+package br.com.bookper.validaentidades;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,6 @@ import java.util.Scanner;
 import javax.persistence.EntityManager;
 
 import br.com.bookper.coneccoes.DAO.DAO;
-import br.com.bookper.coneccoes.DAO.FuncionarioDAO;
 import br.com.bookper.coneccoes.DAO.GerenteDAO;
 import br.com.bookper.coneccoes.modelo.Gerente;
 import br.com.bookper.coneccoes.modelo.Livro;
@@ -35,10 +34,10 @@ public class ValidaRegistroLivro implements Validar {
 	@Override
 	public boolean estaOK() {
 		final ValidarDados validarDados = new ValidarDados();
-		if (validarDados.validaRegistroLivro(this.nome, this.url, this.nomeAutor)) {
+		if (validarDados.validaLivro(this.nome, this.url, this.nomeAutor)) {
 			return this.procurarNoBD();
 		} else {
-			new TelasPopUp(AlertType.ERROR, "Cadastro", "Erro no cadastro", validarDados.getValidado());
+			TelasPopUp.telaPadrao(AlertType.ERROR, "Cadastro", "Erro no cadastro", validarDados.getValidado());
 		}
 		return false;
 	}
@@ -47,12 +46,7 @@ public class ValidaRegistroLivro implements Validar {
 		final EntityManager em = new JPAUtil().getEntityManager();
 		final ControlaUsuario controlaUsuario = new ControlaUsuario();
 		final GerenteDAO gerenteDAO = new GerenteDAO(em);
-		new FuncionarioDAO(em);
-		final Scanner emailGerente = controlaUsuario.getCredenciais();
-		emailGerente.nextLine();
-		emailGerente.nextLine();
-		emailGerente.nextLine();
-		final String email = emailGerente.nextLine();
+		final String email = this.procurarGerenteLogado(controlaUsuario);
 		final Gerente gerente = gerenteDAO.buscaEmail(email);
 		final Livro livro = new Livro(this.nome, gerente, this.url, this.nomeAutor, this.sinopse);
 		final List<RankDaBusca> ranks = this.criarRank(livro);
@@ -68,9 +62,19 @@ public class ValidaRegistroLivro implements Validar {
 		});
 		dao.commit();
 
-		new TelasPopUp(AlertType.CONFIRMATION, "Cadastro", "Livro cadastrado!",
-				"Nome: " + this.nome + ", url da imagem: " + this.url + ", gerente: " + gerente.getNome());
+		TelasPopUp.telaPadrao(AlertType.INFORMATION, "Cadastro", "Livro cadastrado!",
+				"Nome: " + this.nome + "\nUrl da imagem: " + this.url + "\nSinopse do livro: " + this.sinopse
+						+ "\nNome do autor: " + this.nomeAutor);
 		return true;
+	}
+
+	private String procurarGerenteLogado(final ControlaUsuario controlaUsuario) {
+		final Scanner emailGerente = controlaUsuario.getCredenciais();
+		emailGerente.nextLine();
+		emailGerente.nextLine();
+		emailGerente.nextLine();
+		final String email = emailGerente.nextLine();
+		return email;
 	}
 
 	private List<RankDaBusca> criarRank(final Livro livro) {

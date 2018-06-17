@@ -103,7 +103,7 @@ public class ControladorFerramentasAvancadas implements Initializable {
 
 		final EntityManager em = new JPAUtil().getEntityManager();
 		final ClienteDAO clienteDAO = new ClienteDAO(em);
-		final List<Cliente> clientes = clienteDAO.pegarTodosOsLvrosDesteGerente();
+		final List<Cliente> clientes = clienteDAO.pegarTodosOsLivrosDesteGerente();
 		for (final Cliente cliente : clientes) {
 			String personalidade = cliente.getPersonalidade();
 			personalidade = Normalizer.normalize(personalidade, Normalizer.Form.NFD).replaceAll("[^\\p{ASCII}]", "");

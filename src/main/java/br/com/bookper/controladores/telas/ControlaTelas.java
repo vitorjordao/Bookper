@@ -16,6 +16,7 @@ public class ControlaTelas {
 			final Parent root = FXMLLoader.load(this.getClass().getResource("/br/com/bookper/telas/" + nome));
 			final Scene scene = new Scene(root);
 			this.stage.initStyle(StageStyle.UNDECORATED);
+			this.stage.setResizable(true);
 			this.stage.setScene(scene);
 			this.stage.show();
 		} catch (final Exception e) {

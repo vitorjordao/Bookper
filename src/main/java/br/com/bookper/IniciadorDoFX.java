@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import br.com.bookper.controladores.telas.ControlaTelas;
-import br.com.bookper.manipulaentidades.ValidarLogin;
 import br.com.bookper.segurancaedados.ControlaUsuario;
+import br.com.bookper.validaentidades.ValidarLogin;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -21,11 +21,11 @@ public class IniciadorDoFX extends Application {
 	@Override
 	public void start(final Stage stage) throws IOException {
 		final ControlaTelas tela = new ControlaTelas();
-		if (this.verificaLogin()) {
+		if (this.verificaLogin())
 			tela.iniciarPadrao("TelaIntermediaria.fxml");
-		} else {
+		else
 			tela.iniciarPadrao("LoginESenha.fxml");
-		}
+
 	}
 
 	public static void main(final String[] args) {

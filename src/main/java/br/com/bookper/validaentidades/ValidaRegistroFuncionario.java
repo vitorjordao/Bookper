@@ -1,4 +1,4 @@
-package br.com.bookper.manipulaentidades;
+package br.com.bookper.validaentidades;
 
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -44,10 +44,10 @@ public class ValidaRegistroFuncionario implements Validar {
 	@Override
 	public boolean estaOK() {
 		final ValidarDados validarDados = new ValidarDados();
-		if (validarDados.validaRegistroFuncionario(this.nome, this.senha, this.email, this.cargo, this.data)) {
+		if (validarDados.validaFuncionario(this.nome, this.senha, this.email, this.cargo, this.data)) {
 			return this.procurarNoBD();
 		} else {
-			new TelasPopUp(AlertType.ERROR, "Cadastro", "Erro no cadastro", validarDados.getValidado());
+			TelasPopUp.telaPadrao(AlertType.ERROR, "Cadastro", "Erro no cadastro", validarDados.getValidado());
 		}
 		return false;
 	}
@@ -69,13 +69,14 @@ public class ValidaRegistroFuncionario implements Validar {
 					this.manipulaFuncionarios, this.manipulaFerramentasAvancadas, gerente);
 			final DAO dao = new DAO(em);
 			dao.cadastrar(funcionario);
-			new TelasPopUp(AlertType.CONFIRMATION, "Cadastro", "Funcionário cadastrado!",
-					"Nome: " + this.nome + ", senha: " + this.senha + ", email: " + this.email + ", cargo: "
-							+ this.cargo + ", data de contratação: " + this.data + ", pode manipular livros: "
-							+ this.manipulaLivro + ", pode manipular funcionarios: " + this.manipulaFuncionarios);
+			TelasPopUp.telaPadrao(AlertType.INFORMATION, "Cadastro", "Funcionário cadastrado!",
+					"\nNome: " + this.nome + "\nEmail: " + this.email + "\nCargo: " + this.cargo
+							+ "\nData de contratação: " + this.data + "\nPode manipular livros: " + this.manipulaLivro
+							+ "\nPode manipular funcionarios: " + this.manipulaFuncionarios
+							+ "\nPode manipular ferramentas avançada: " + this.manipulaFerramentasAvancadas);
 			return true;
 		} else {
-			new TelasPopUp(AlertType.ERROR, "Cadastro", "Erro no cadastro", "Já existe esse e-mail!");
+			TelasPopUp.telaPadrao(AlertType.ERROR, "Cadastro", "Erro no cadastro", "Já existe esse e-mail!");
 		}
 		return false;
 	}

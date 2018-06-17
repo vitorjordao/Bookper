@@ -60,7 +60,7 @@ public class FuncionarioDAO {
 
 	public void alterarDados(final Integer id, final LocalDate dataContratacao, final boolean manipulaLivros,
 			final boolean manipulaFerramentasAvancadas, final boolean manipulaFuncionario, final String nome,
-			final String senha, final String email, final String cargo) {
+			final String senha, final String email, final String cargo, final boolean alterarSenha) {
 
 		final DAO dao = new DAO(this.em);
 
@@ -76,7 +76,8 @@ public class FuncionarioDAO {
 		funcionario.setManipulaFuncionarios(manipulaFuncionario);
 		funcionario.setManipulaLivros(manipulaLivros);
 		funcionario.setNome(nome);
-		funcionario.setSenha(Criptografia.transformaStringEmHash(senha));
+		if (alterarSenha)
+			funcionario.setSenha(Criptografia.transformaStringEmHash(senha));
 		dao.cadastrar(funcionario);
 	}
 

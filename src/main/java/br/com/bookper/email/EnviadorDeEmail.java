@@ -25,6 +25,7 @@ public class EnviadorDeEmail {
 
 			return true;
 		} catch (final EmailException e) {
+			System.out.println("Erro ao enviar a mensagem");
 			e.printStackTrace();
 			return false;
 		}

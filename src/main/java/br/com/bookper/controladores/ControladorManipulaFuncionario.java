@@ -22,15 +22,20 @@ import br.com.bookper.coneccoes.DAO.FuncionarioDAO;
 import br.com.bookper.coneccoes.modelo.Funcionario;
 import br.com.bookper.coneccoes.util.JPAUtil;
 import br.com.bookper.controladores.telas.ControlaTelas;
-import br.com.bookper.manipulaentidades.ValidaRegistroFuncionario;
+import br.com.bookper.controladores.telas.TelasPopUp;
 import br.com.bookper.segurancaedados.Criptografia;
+import br.com.bookper.validacoes.ValidarDados;
+import br.com.bookper.validaentidades.ValidaRegistroFuncionario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
+import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TreeItem;
 import javafx.scene.layout.AnchorPane;
 
@@ -104,6 +109,12 @@ public class ControladorManipulaFuncionario implements Initializable {
 	private Tab tbAlterarFuncionario;
 
 	@FXML
+	private Tab tbCadastrarFuncionario;
+
+	@FXML
+	private TabPane tabPane;
+
+	@FXML
 	private void clickCadastrar(final ActionEvent event) {
 		try {
 			final String nome = this.txtCadastrarNomeFuncionario.getText();
@@ -133,6 +144,7 @@ public class ControladorManipulaFuncionario implements Initializable {
 
 			}
 		} catch (final Exception e) {
+			System.out.println("Erro ao cadastrar");
 			e.printStackTrace();
 		}
 	}
@@ -152,11 +164,24 @@ public class ControladorManipulaFuncionario implements Initializable {
 
 	@FXML
 	private void clickDeletarFuncionario(final ActionEvent event) {
+		this.lblId.setText("");
+		this.txtAlterarNomeFuncionario.setText("");
+		this.txtAlterarSenhaFuncionario.setText("");
+		this.txtAlterarEmailFuncionario.setText("");
+		this.txtAlterarCargoFuncionario.setText("");
+		this.dpAlterarDataFuncionario.setValue(null);
+		this.tgAlterarManipulaLivroFuncionario.setSelected(false);
+		this.tgAlterarManipulaFuncionariosFuncionario.setSelected(false);
+		this.tgAlterarManipulaFerramentasAvancadasFuncionario.setSelected(false);
+
 		final TabelaFuncionario tabelaFuncionario = this.ttbFuncionario.getSelectionModel().getSelectedItem()
 				.getValue();
 		this.funcionarioDao.deletarFuncionario(tabelaFuncionario);
 		this.ultimaListaDeFuncionarios = this.pegarListaNoBanco();
 		this.listarFuncionarios(this.ultimaListaDeFuncionarios);
+
+		TelasPopUp.telaPadrao(AlertType.INFORMATION, "Deletado", "Funcionário deletado!",
+				"Funcionário deletado: " + tabelaFuncionario.getNome());
 	}
 
 	@FXML
@@ -172,10 +197,36 @@ public class ControladorManipulaFuncionario implements Initializable {
 		final String senha = this.txtAlterarSenhaFuncionario.getText();
 		final String email = this.txtAlterarEmailFuncionario.getText();
 		final String cargo = this.txtAlterarCargoFuncionario.getText();
-		this.funcionarioDao.alterarDados(Integer.parseInt(id), dataContratacao, manipulaLivros,
-				manipulaFerramentasAvancadas, manipulaFuncionario, nome, senha, email, cargo);
-		this.ultimaListaDeFuncionarios = this.pegarListaNoBanco();
-		this.listarFuncionarios(this.ultimaListaDeFuncionarios);
+
+		String novaSenhaParaValidar = "";
+		if (senha.equals(""))
+			novaSenhaParaValidar = "00000000";
+		else
+			novaSenhaParaValidar = senha;
+
+		final ValidarDados validarDados = new ValidarDados();
+		if (validarDados.validaFuncionario(nome, novaSenhaParaValidar, email, cargo, dataContratacao)
+				&& !id.equals("")) {
+			this.funcionarioDao.alterarDados(Integer.parseInt(id), dataContratacao, manipulaLivros,
+					manipulaFerramentasAvancadas, manipulaFuncionario, nome, senha, email, cargo, !senha.equals(""));
+			this.ultimaListaDeFuncionarios = this.pegarListaNoBanco();
+			this.listarFuncionarios(this.ultimaListaDeFuncionarios);
+
+			TelasPopUp.telaPadrao(AlertType.INFORMATION, "Alterado", "Funcionário alterado!",
+					"Funcionário " + nome + " alterado com sucesso!");
+
+			this.lblId.setText("");
+			this.txtAlterarNomeFuncionario.setText("");
+			this.txtAlterarSenhaFuncionario.setText("");
+			this.txtAlterarEmailFuncionario.setText("");
+			this.txtAlterarCargoFuncionario.setText("");
+			this.dpAlterarDataFuncionario.setValue(null);
+			this.tgAlterarManipulaLivroFuncionario.setSelected(false);
+			this.tgAlterarManipulaFuncionariosFuncionario.setSelected(false);
+			this.tgAlterarManipulaFerramentasAvancadasFuncionario.setSelected(false);
+		} else
+			TelasPopUp.telaPadrao(AlertType.ERROR, "Alteração", "Erro na alteração do funcionário",
+					validarDados.getValidado());
 	}
 
 	@FXML
@@ -194,11 +245,16 @@ public class ControladorManipulaFuncionario implements Initializable {
 				.setSelected(Boolean.parseBoolean(tabelaFuncionario.getManipulaFerramentasAvancadas()));
 
 		this.txtAlterarNomeFuncionario.setText(tabelaFuncionario.getNome());
-		this.txtAlterarSenhaFuncionario.setText(tabelaFuncionario.getSenha());
 		this.txtAlterarEmailFuncionario.setText(tabelaFuncionario.getEmail());
 		this.txtAlterarCargoFuncionario.setText(tabelaFuncionario.getCargo());
 
 		this.tbAlterarFuncionario.setDisable(false);
+
+		final SingleSelectionModel<Tab> selectionModel = this.tabPane.getSelectionModel();
+
+		selectionModel.select(this.tbAlterarFuncionario);
+
+		this.txtAlterarNomeFuncionario.requestFocus();
 	}
 
 	@FXML

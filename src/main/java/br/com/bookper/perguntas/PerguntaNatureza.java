@@ -5,42 +5,46 @@ import java.util.Random;
 public class PerguntaNatureza implements Perguntas {
 	private int i;
 
+	@Override
 	public void randomizar() {
-		Random gerador = new Random();
+		final Random gerador = new Random();
 		this.i = gerador.nextInt(1);
 	}
 
+	@Override
 	public String pergunta() {
-		if (i == 0) {
-			return getPergunta1();
+		if (this.i == 0) {
+			return this.getPergunta1();
 		}
-		return getPergunta1();
+		return this.getPergunta1();
 	}
 
+	@Override
 	public String RespostaTrue() {
-		if (i == 0) {
-			return getRespostaTrue1();
+		if (this.i == 0) {
+			return this.getRespostaTrue1();
 		}
-		return getRespostaTrue1();
+		return this.getRespostaTrue1();
 	}
 
+	@Override
 	public String RespostaFalse() {
-		if (i == 0) {
-			return getRespostaFalse1();
+		if (this.i == 0) {
+			return this.getRespostaFalse1();
 		}
-		return getRespostaFalse1();
+		return this.getRespostaFalse1();
 	}
 
 	public String getPergunta1() {
-		return "Você expulsaria o seu melhor amigo(a) de uma empresa, se fosse necessário?";
+		return "Você demitiria o seu melhor amigo(a) de uma empresa, se fosse preciso?";
 	}
 
 	public String getRespostaTrue1() {
-		return "sim";
+		return "Sim, demitiria.";
 	}
 
 	public String getRespostaFalse1() {
-		return "não";
+		return "Não, continuaria com meu amigo na empresa.";
 	}
 
 }

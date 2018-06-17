@@ -69,51 +69,60 @@ public class ControladorPerguntas implements Initializable {
 
 	private void alterarPergunta(final boolean avancaOuVolta) {
 		if (avancaOuVolta) {
-			if (!this.rbdResposta1.isSelected() && !this.rbdResposta2.isSelected()) {
-				new TelasPopUp(AlertType.CONFIRMATION, "Selecione uma resposta!", "Falha", "Erro na seleção");
-			} else {
-
-				if (this.rbdResposta1.isSelected()) {
-					this.setPersonalidades(this.verificaPergunta.getCont(), true);
-				} else {
-					this.setPersonalidades(this.verificaPergunta.getCont(), false);
-				}
-
-				if (!this.verificaPergunta.contar()) {
-					final ControlaTelas tela = new ControlaTelas();
-					tela.iniciarPadrao("Final.fxml");
-					tela.fechar(this.lblPergunta);
-				}
-				this.setarTudo();
-				this.btnVoltar.setVisible(true);
-			}
+			this.avancarPergunta();
 		} else {
-			if (!this.verificaPergunta.voltarContagem()) {
-				System.out.println("Erro no contador");
+			this.voltarPergunta();
+		}
+	}
+
+	private void voltarPergunta() {
+		if (!this.verificaPergunta.voltarContagem()) {
+			System.out.println("Erro no contador");
+		}
+		if (this.verificaPergunta.getCont() <= 1) {
+			this.btnVoltar.setVisible(false);
+		}
+		this.descelecionarTudo();
+	}
+
+	private void avancarPergunta() {
+		if (!this.rbdResposta1.isSelected() && !this.rbdResposta2.isSelected()) {
+			TelasPopUp.telaPadrao(AlertType.ERROR, "Selecione uma resposta!", "Falha", "Erro na seleção");
+		} else {
+
+			if (this.rbdResposta1.isSelected()) {
+				this.setPersonalidades(this.verificaPergunta.getCont(), true);
+			} else {
+				this.setPersonalidades(this.verificaPergunta.getCont(), false);
 			}
-			if (this.verificaPergunta.getCont() <= 1) {
-				this.btnVoltar.setVisible(false);
+
+			if (!this.verificaPergunta.contar()) {
+				final ControlaTelas tela = new ControlaTelas();
+				tela.iniciarPadrao("Final.fxml");
+				tela.fechar(this.lblPergunta);
 			}
-			this.setarTudo();
+			this.descelecionarTudo();
+			this.btnVoltar.setVisible(true);
+			this.rbdResposta1.requestFocus();
 		}
 	}
 
 	@Override
 	public void initialize(final URL url, final ResourceBundle rb) {
 		this.btnVoltar.setVisible(false);
-		this.setarTudo();
+		this.descelecionarTudo();
 	}
 
-	private void setarTudo() {
+	private void descelecionarTudo() {
 		this.verificaPergunta.pegarPergunta();
 		this.verificaPergunta.randomizar();
-		this.rbdResposta1.setSelected(false);
-		this.rbdResposta2.setSelected(false);
-		this.btnAvancar.setVisible(false);
 		this.lblPergunta.setText(this.verificaPergunta.pegarPergunta().pergunta());
 		this.rbdResposta1.setText(this.verificaPergunta.pegarPergunta().RespostaTrue());
 		this.rbdResposta2.setText(this.verificaPergunta.pegarPergunta().RespostaFalse());
 		this.lblNumeroPergunta.setText("Pergunta " + this.verificaPergunta.getCont() + "/5");
+		this.btnAvancar.setVisible(false);
+		this.rbdResposta1.setSelected(false);
+		this.rbdResposta2.setSelected(false);
 	}
 
 	public void setPersonalidades(final int i, final boolean personalidade) {

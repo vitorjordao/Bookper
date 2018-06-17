@@ -15,7 +15,7 @@ public class ClienteDAO {
 		this.em = em;
 	}
 
-	public List<Cliente> pegarTodosOsLvrosDesteGerente() {
+	public List<Cliente> pegarTodosOsLivrosDesteGerente() {
 		final String jpql = "select f from Cliente f where f.gerente = :pGerente";
 
 		final TypedQuery<Cliente> query = this.em.createQuery(jpql, Cliente.class);

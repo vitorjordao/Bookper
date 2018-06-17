@@ -1,4 +1,4 @@
-package br.com.bookper.manipulaentidades;
+package br.com.bookper.validaentidades;
 
 import javax.persistence.EntityManager;
 
@@ -8,6 +8,7 @@ import br.com.bookper.coneccoes.DAO.GerenteDAO;
 import br.com.bookper.coneccoes.modelo.Gerente;
 import br.com.bookper.coneccoes.util.JPAUtil;
 import br.com.bookper.controladores.telas.TelasPopUp;
+import br.com.bookper.segurancaedados.ControlaUsuario;
 import br.com.bookper.segurancaedados.Criptografia;
 import br.com.bookper.segurancaedados.PermisoesESeguranca;
 import br.com.bookper.validacoes.ValidarDados;
@@ -35,7 +36,7 @@ public class ValidarRegistro implements Validar {
 		if (validarDados.validaRegistroGerente(this.nome, this.nomeUnidade, this.senha, this.repitaSenha, this.email)) {
 			return this.procurarNoBD();
 		} else {
-			new TelasPopUp(AlertType.ERROR, "Cadastro", "Erro no cadastro", validarDados.getValidado());
+			TelasPopUp.telaPadrao(AlertType.ERROR, "Cadastro", "Erro no cadastro", validarDados.getValidado());
 		}
 		return false;
 	}
@@ -47,12 +48,14 @@ public class ValidarRegistro implements Validar {
 		if (!gerenteDAO.existeEmail(this.email) && !funcionarioDAO.buscaEmail(this.email)) {
 			final Gerente gerente = new Gerente(this.nome, this.email, Criptografia.transformaStringEmHash(this.senha),
 					this.nomeUnidade);
+			final ControlaUsuario controlaUsuario = new ControlaUsuario();
+			controlaUsuario.salvar(this.email, this.senha, false, this.email);
 			final DAO dao = new DAO(em);
 			dao.cadastrar(gerente);
 			new PermisoesESeguranca(this.email, this.senha, true, true, true);
 			return true;
 		} else {
-			new TelasPopUp(AlertType.ERROR, "Cadastro", "Erro no cadastro", "Já existe esse e-mail!");
+			TelasPopUp.telaPadrao(AlertType.ERROR, "Cadastro", "Erro no cadastro", "Já existe esse e-mail!");
 		}
 		return false;
 	}
