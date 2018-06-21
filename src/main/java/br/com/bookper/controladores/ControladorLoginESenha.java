@@ -14,9 +14,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Tab;
+import javafx.scene.image.ImageView;
 
 public class ControladorLoginESenha implements Initializable {
-	private ControlaTelas tela = new ControlaTelas();
+	private final ControlaTelas tela = new ControlaTelas();
 
 	@FXML
 	private Tab tabLogin;
@@ -46,38 +47,41 @@ public class ControladorLoginESenha implements Initializable {
 	private JFXTextField txtNomeUnidade;
 
 	@FXML
-	private void clickFechar(ActionEvent event) {
-		tela.fechar(tabLogin.getTabPane());
+	private ImageView imgIcon;
+
+	@FXML
+	private void clickFechar(final ActionEvent event) {
+		this.tela.fechar(this.tabLogin.getTabPane());
 		System.exit(0);
 	}
 
 	@FXML
-	private void clickLogar(ActionEvent event) {
-		String email = txtEmailLogin.getText();
-		String senha = txtSenhaLogin.getText();
-		if (new ValidarLogin(email, senha, checkLogarAutomaticamente.isSelected()).estaOK())
-			logar();
+	private void clickLogar(final ActionEvent event) {
+		final String email = this.txtEmailLogin.getText();
+		final String senha = this.txtSenhaLogin.getText();
+		if (new ValidarLogin(email, senha, this.checkLogarAutomaticamente.isSelected()).estaOK())
+			this.logar();
 	}
 
 	@FXML
-	private void clickRegistrar(ActionEvent event) {
-		String nome = txtNomeGerente.getText();
-		String nomeUnidade = txtNomeUnidade.getText();
-		String senha = txtSenhaRegistro.getText();
-		String repitaSenha = txtRepitaSenhaRegistro.getText();
-		String email = txtEmailRegistro.getText();
+	private void clickRegistrar(final ActionEvent event) {
+		final String nome = this.txtNomeGerente.getText();
+		final String nomeUnidade = this.txtNomeUnidade.getText();
+		final String senha = this.txtSenhaRegistro.getText();
+		final String repitaSenha = this.txtRepitaSenhaRegistro.getText();
+		final String email = this.txtEmailRegistro.getText();
 		if (new ValidarRegistro(nomeUnidade, nome, senha, repitaSenha, email).estaOK())
-			logar();
+			this.logar();
 
 	}
 
 	private void logar() {
 
-		tela.iniciarPadrao("TelaIntermediaria.fxml");
-		tela.fechar(tabLogin.getTabPane());
+		this.tela.iniciarPadrao("TelaIntermediaria.fxml");
+		this.tela.fechar(this.tabLogin.getTabPane());
 	}
 
 	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	public void initialize(final URL arg0, final ResourceBundle arg1) {
 	}
 }

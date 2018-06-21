@@ -42,7 +42,7 @@
                   </AnchorPane>
               </content>
             </Tab>
-            <Tab fx:id="tbEmail" text="Enviadoria de E-mail">
+            <Tab fx:id="tbEmail" disable="true" text="Enviadoria de E-mail">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" styleClass="panel1">
                      <children>
