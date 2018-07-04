@@ -1,5 +1,9 @@
 # Bookper
 
+Projeto temporariamente pausado...
+
+Este projeto necesita de uma densa refatoração
+
 Sobre o que é o projeto?
 Projeto de recomendação de livros e estatísticas para livrarias e bibliotecas.
 
